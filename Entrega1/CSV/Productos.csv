@@ -1,0 +1,8 @@
+Pid,Nombre,Precio,Descripcion,Tipo
+1,Caja,1000,caja de carton,NoComestible
+2,DuraznosConserva,1300,duraznos en conserva,Comestible
+3,AtúnEnAgua,1100,atún en agua,Comestible
+4,Palta,40000,palta 1 unidad,Comestible
+5,WantanCongelado,4500,wantanes congelados,Comestible
+6,Monitor,100000,pantalla de luz,NoComestible
+7,Frambuesas,2000,frambuesas congeladas,Comestible
