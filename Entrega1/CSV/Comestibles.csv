@@ -1,6 +1,6 @@
-Pid,Expiracion,Categoria
-2,2021-04-16,Conserva
-3,2022-04-21,Conserva
-4,2021-05-03,Fresco
-5,2024-04-04,Congelado
-7,2023-02-28,Congelado
+Pid;Expiracion;Categoria
+2;2021-04-16;Conserva
+3;2022-04-21;Conserva
+4;2021-05-03;Fresco
+5;2024-04-04;Congelado
+7;2023-02-28;Congelado
