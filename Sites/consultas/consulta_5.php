@@ -9,7 +9,7 @@
   $comuna = $_POST["comuna"];
 
   #Se construye la consulta como un string
-  $query = "SELECT ROUND(AVG(p.edad),0)
+  $query = "SELECT DISTINCT ROUND(AVG(p.edad),0)
   FROM Tiendas as t, Personal as p, Comunas as c
   WHERE t.tienda_id = p.tienda_id AND c.direccion_id = t.direccion_id AND c.comuna = '$comuna';";
 
