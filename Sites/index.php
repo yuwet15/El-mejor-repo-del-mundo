@@ -27,15 +27,24 @@
         </form>
       </li>
 
-
+      <?php
+      require("config/conexion.php");
+      $result = $db -> prepare("SELECT DISTINCT Tipo FROM Productos;");
+      $result -> execute();
+      $dataCollected = $result -> fetchAll();
+      ?>
 
       <li id="consulta_3">
         <h3 align="center"> ¿Buscas las tiendas que venden al menos un producto de cierta categoria?</h3>
 
         <form align="center" action="consultas/consulta_3.php" method="post">
+          Selecciona un tipo:
           <select name="Tipo">
-           <option value="Comestible">Comestible</option> 
-           <option value="NoComestible">No comestible</option> 
+            <?php
+            foreach ($dataCollected as $d) {
+              echo "<option value=$d[0]>$d[0]</option>";
+            }
+            ?>
           </select>
           <br/><br/>
           <input class="submit" type="submit" value="Mostrar">

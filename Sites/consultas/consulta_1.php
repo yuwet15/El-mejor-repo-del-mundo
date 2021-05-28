@@ -8,11 +8,11 @@
   #Se obtiene el valor del input del usuario
 
   #Se construye la consulta como un string
- 	$query = "SELECT DISTINCT t.nombre, d.Comuna_Despacho FROM Tiendas as t JOIN Despachos as d ON t.tienda_id = d.tienda_id;";
+ 	$query = "SELECT DISTINCT t.nombre, d.Comuna_Despacho FROM Tiendas as t JOIN Despachos as d ON t.tienda_id = d.tienda_id ORDER BY t.nombre;";
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
 	$result -> execute();
-	$comunas = $result -> fetchAll();
+	$filas = $result -> fetchAll();
   ?>
 
   <table>
@@ -22,8 +22,8 @@
     </tr>
   
       <?php
-        foreach ($comunas as $c) {
-          echo "<tr><td>$c[0]</td><td>$c[1]</td></tr>";
+        foreach ($filas as $f) {
+          echo "<tr><td>$f[0]</td><td>$f[1]</td></tr>";
       }
       ?>
       
