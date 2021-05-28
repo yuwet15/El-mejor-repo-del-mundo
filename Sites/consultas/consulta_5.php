@@ -27,7 +27,5 @@
   ?>
   </center>
 
-  ?>
-
 
 <?php include('../templates/footer.html'); ?>
