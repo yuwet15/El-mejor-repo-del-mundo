@@ -17,7 +17,7 @@
   $result = $db -> prepare($query);
   $result -> execute();
   $filas = $result -> fetchAll();
-  echo "$filas";
+  echo "Promedio de edad: $result";
   ?>
 
 
