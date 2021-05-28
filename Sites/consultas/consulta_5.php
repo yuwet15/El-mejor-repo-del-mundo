@@ -6,7 +6,7 @@
   require("../config/conexion.php");
 
   #Se obtiene el valor del input del usuario
-  $comuna = $_POST["comuna"];
+  $comuna = strtolower($_POST["comuna"]);
 
   #Se construye la consulta como un string
   $query = "SELECT DISTINCT ROUND(AVG(p.edad),0)
@@ -22,7 +22,7 @@
       echo "Promedio de edad: $f[0]";
   }
   </center>
-  
+
   ?>
 
 

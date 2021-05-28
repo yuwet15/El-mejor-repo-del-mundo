@@ -6,7 +6,7 @@
   require("../config/conexion.php");
 
   #Se obtiene el valor del input del usuario
-  $descripcion = $_POST["descripcion"];
+  $descripcion = strtolower($_POST["descripcion"]);
 
   #Se construye la consulta como un string
   $query = "SELECT u.nombre, p.nombre, p.descripcion
@@ -25,13 +25,13 @@
       <th>Producto</th>
       <th>Descripcion</th>
     </tr>
-  
+
       <?php
         foreach ($filas as $f) {
           echo "<tr><td>$f[0]</td><td>$f[1]</td><td>$f[2]</td></tr>";
       }
       ?>
-      
+
   </table>
   </center>
 
