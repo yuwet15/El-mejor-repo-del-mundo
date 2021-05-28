@@ -147,10 +147,10 @@ th {
 }
 
 tr:hover {
-    background-color: #88B3BB;
+    background-color: #f5f5f5;
 }
 
 tr:nth-child(even) {
-    background-color: #88B3BB;
+    background-color: #f2f2f2;
 }
 
