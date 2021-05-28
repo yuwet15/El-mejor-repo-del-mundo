@@ -1,13 +1,13 @@
 <?php include('templates/header.html');   ?>
 
 <body>
-  <h1 align="center">Consulta base de dato grupo impar </h1>
+  <h1 align="center">Consulta base de datos. Grupo impar </h1>
 
   <div class="container">
     <ul class="slider">
       <li id="consulta_1">
         <h3 align="center"> Mostrar nombre de todas las tiendas</h3>
-        <h6 align="center"> Se mostrará junto con los nombre de las comunas que hace despacho</h6>
+        <h6 align="center"> Se mostrará el nombre de cada tienda, junto con los nombres de las comunas a las que hace despacho</h6>
 
         <form align="center" action="consultas/consulta_1.php" method="post">
           <input class="submit" type="submit" value="Mostrar">
@@ -119,6 +119,6 @@
       </li>
     </ul>
   </div>
-  
+
 </body>
 </html>
