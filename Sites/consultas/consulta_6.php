@@ -9,10 +9,9 @@
   $tipo = $_POST["tipo"];
 
   #Se construye la consulta como un string
-  $query = "SELECT t.nombre, MAX(d.cantidad)
+  $query = "SELECT t.nombre, d.cantidad
   FROM Tiendas as t, Productos as p, detalle as d, Compras as c
-  WHERE t.tienda_id = c.tienda_id AND c.compra_id = d.compra_id AND d.producto_id = p.producto_id AND p.tipo = '$tipo'
-  GROUP BY t.nombre ;";
+  WHERE t.tienda_id = c.tienda_id AND c.compra_id = d.compra_id AND d.producto_id = p.producto_id AND p.tipo = '$tipo';";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
   $result = $db -> prepare($query);
