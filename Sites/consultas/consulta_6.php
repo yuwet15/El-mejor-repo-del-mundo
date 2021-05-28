@@ -22,12 +22,14 @@
 
   <table>
     <tr>
-      <th>Nombre de tiendas</th>
+      <th>Id de tienda</th>
+      <th>Nombre de tienda</th>
+      <th>Cantidad</th>
     </tr>
   
       <?php
         foreach ($filas as $f) {
-          echo "<tr><td>$f[0]</td></tr>";
+          echo "<tr><td>$f[0]</td><td>$f[1]</td><td>$f[2]</td></tr>";
       }
       ?>
       
