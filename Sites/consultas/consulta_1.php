@@ -8,8 +8,8 @@
   #Se obtiene el valor del input del usuario
 
   #Se construye la consulta como un string
- 	$query = "SELECT DISTINCT t.nombre, d.Comuna_Despacho FROM Tiendas as t JOIN Despachos as d ON t.tiendas_id = d.tiendas_id;";
-
+ 	#$query = "SELECT DISTINCT t.nombre, d.Comuna_Despacho FROM Tiendas as t JOIN Despachos as d ON t.tiendas_id = d.tiendas_id;";
+  $query = "SELECT * FROM Tiendas;";
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
 	$result -> execute();
