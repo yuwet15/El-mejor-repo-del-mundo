@@ -9,10 +9,11 @@
   $tipo = $_POST["tipo"];
 
   #Se construye la consulta como un string
-  $query = "SELECT t.nombre, SUM(d.cantidad)
+  $query = "SELECT t.nombre, SUM(d.cantidad) as suma
   FROM Tiendas as t, Productos as p, detalle as d, Compras as c
   WHERE t.tienda_id = c.tienda_id AND c.compra_id = d.compra_id AND d.producto_id = p.producto_id AND p.tipo = '$tipo'
-  GROUP BY t.nombre ;";
+  GROUP BY t.nombre 
+  ORDER BY suma;";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
   $result = $db -> prepare($query);
@@ -22,14 +23,13 @@
 
   <table>
     <tr>
-      <th>Id de tienda</th>
       <th>Nombre de tienda</th>
       <th>Cantidad</th>
     </tr>
   
       <?php
         foreach ($filas as $f) {
-          echo "<tr><td>$f[0]</td><td>$f[1]</td><td>$f[2]</td></tr>";
+          echo "<tr><td>$f[0]</td><td>$f[1]</td></tr>";
       }
       ?>
       
