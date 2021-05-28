@@ -39,7 +39,7 @@
 
         <form align="center" action="consultas/consulta_3.php" method="post">
           Selecciona un tipo:
-          <select name="Tipo">
+          <select name="tipo">
             <?php
             foreach ($dataCollected as $d) {
               echo "<option value=$d[0]>$d[0]</option>";
