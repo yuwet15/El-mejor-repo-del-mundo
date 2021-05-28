@@ -83,9 +83,13 @@
         <h3 align="center"> Mostrar tiendas con mayor cantidad de ventas del tipo de producto seleccionado</h3>
 
         <form align="center" action="consultas/consulta_6.php" method="post">
-          <select name="Tipo">
-           <option value="Comestible">Comestible</option> 
-           <option value="NoComestible">No comestible</option> 
+          Selecciona un tipo:
+          <select name="tipo">
+            <?php
+            foreach ($dataCollected as $d) {
+              echo "<option value=$d[0]>$d[0]</option>";
+            }
+            ?>
           </select>
           <br/><br/>
           <input class="submit" type="submit" value="Mostrar">
