@@ -7,28 +7,26 @@
 
   #Se obtiene el valor del input del usuario
   $comuna = $_POST["comuna"];
-  $comuna = intval($comuna);
 
   #Se construye la consulta como un string
-  $query = "SELECT pid, nombre, altura FROM pokemones where altura>=$altura order by altura desc;";
+  $query = "SELECT DISTINCT p.Nombre 
+  FROM Personal as p JOIN Tiendas as t ON p.Tienda_id = t.Tienda_id JOIN Comunas as c ON t.Direccion_id = c.Direccion_id
+  WHERE Comuna = $comuna;";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
   $result = $db -> prepare($query);
   $result -> execute();
-  $pokemones = $result -> fetchAll();
+  $filas = $result -> fetchAll();
   ?>
 
   <table>
     <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Altura</th>
+      <th>Nombre de jefes</th>
     </tr>
   
       <?php
-        // echo $pokemones;
-        foreach ($pokemones as $p) {
-          echo "<tr><td>$p[0]</td><td>$p[1]</td><td>$p[2]</td></tr>";
+        foreach ($filas as $f) {
+          echo "<tr><td>$f[0]</td></tr>";
       }
       ?>
       
