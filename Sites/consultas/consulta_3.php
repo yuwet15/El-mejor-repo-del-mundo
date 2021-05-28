@@ -18,7 +18,7 @@
   $result -> execute();
   $filas = $result -> fetchAll();
   ?>
-
+  <center>
   <table>
     <tr>
       <th>Nombre de tiendas</th>
@@ -31,5 +31,5 @@
       ?>
       
   </table>
-
+  </center>
 <?php include('../templates/footer.html'); ?>

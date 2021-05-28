@@ -17,9 +17,11 @@
   $result = $db -> prepare($query);
   $result -> execute();
   $filas = $result -> fetchAll();
+  <center>
   foreach ($filas as $f) {
       echo "Promedio de edad: $f[0]";
   }
+  </center>
   
   ?>
 
