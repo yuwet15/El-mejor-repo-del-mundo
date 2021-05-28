@@ -11,7 +11,7 @@
   #Se construye la consulta como un string
   $query = "SELECT DISTINCT t.Nombre
   FROM Tiendas as t, Catalogo as c, Productos as p
-  WHERE t.tienda_id = c.tienda_id AND c.producto_id = p.producto_id AND p.tipo = $tipo;";
+  WHERE t.tienda_id = c.tienda_id AND c.producto_id = p.producto_id AND p.tipo = '$tipo';";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
   $result = $db -> prepare($query);
