@@ -10,8 +10,8 @@
 
   #Se construye la consulta como un string
   $query = "SELECT DISTINCT p.Nombre 
-  FROM Personal as p JOIN Tiendas as t ON p.Tienda_id = t.Tienda_id JOIN Comunas as c ON t.Direccion_id = c.Direccion_id
-  WHERE Comuna = $comuna;";
+  FROM Personal as p, Tiendas as t, Comunas as c
+  WHERE p.Tienda_id = t.Tienda_id AND t.direccion_id = c.Direccion_id AND p.Cargo LIKE '%Jefe%' AND c.Comuna LIKE '%$comuna%';";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
   $result = $db -> prepare($query);
