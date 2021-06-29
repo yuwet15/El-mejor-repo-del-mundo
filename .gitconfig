@@ -1,3 +1,5 @@
 [user]
 	email = ycheng@uc.cl
 	name = Yuwen
+[credential]
+	helper = cache --timeout=43200

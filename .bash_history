@@ -71,3 +71,66 @@ git pull
 psql
 psql
 tree
+tree
+git status
+git add .
+git commit -m "Subida carpeta Sites"
+git push
+git pull
+psql
+git pull
+git pull
+git pull
+\c
+\c grupo27e2
+psql
+psql
+psql
+psql
+psql
+psql
+psql
+git fetch
+git pull
+psql
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+psql
+git pull
+git pull
+psql
+git pull
+git pull
+psql
+psql
+git pull
+git pull
+psql
+git pull
+psql
+
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+ls
+pwd
+ls
+tree
+logout
