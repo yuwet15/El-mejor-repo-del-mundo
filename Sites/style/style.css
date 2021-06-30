@@ -1,0 +1,24 @@
+body {
+	font-family : 'Titillium Web', sans-serif;
+}
+
+li{
+    padding-right: 2px;
+}
+
+#signin-form {
+    margin: auto;
+    padding: 20px;
+    border: 5px solid #ccc;
+    width: 60% ;
+    background: #eee;
+}
+label {
+    display: inline-block;
+    text-align: left;
+    margin-left: 5px;
+}
+
+h2{
+  text-align: center;
+}
