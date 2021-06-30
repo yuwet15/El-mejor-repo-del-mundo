@@ -44,12 +44,16 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+.cache/
 nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.vscode-server
+.local/
+.bash_history
 
 # Translations
 *.mo
