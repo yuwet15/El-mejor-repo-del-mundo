@@ -57,7 +57,7 @@ session_start();
  
 if (isset($_POST['login'])) {   
  
-    $username = $_POST['username'];
+    $username = $_POST['rut'];
     $password = $_POST['password'];
  
     $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
