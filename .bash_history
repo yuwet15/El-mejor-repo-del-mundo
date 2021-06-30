@@ -134,3 +134,19 @@ pwd
 ls
 tree
 logout
+<<<<<<< HEAD
+=======
+tree
+git fetch
+git fetch
+git config --global credential.helper store
+git config --global credential.helper 'cache --timeout=43200'
+git fetch
+git fetch
+git status
+git tree
+tree
+git add .
+git commit -m "Algunos cambios entrega 3"
+git push
+>>>>>>> c5647a5c27ac490a2cdbf19ff4a3ba7f6724e9af
