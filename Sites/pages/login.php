@@ -57,24 +57,20 @@ session_start();
  
 if (isset($_POST['login'])) {   
  
-    $username = $_POST['username'];
+    $username = $_POST['rut'];
     $password = $_POST['password'];
+    
+    $query = "SELECT login($username, $password)";
+    $result = $db -> prepare($query);
+    $result -> execute();
  
-    $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
-    $query->bindParam("username", $username, PDO::PARAM_STR);
-    $query->execute();
- 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
+    $result = $result -> fetchAll();
  
     if (!$result) {
-        echo '<p class="error">Username password combination is wrong!</p>';
+        echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
     } else {
-        if (password_verify($password, $result['PASSWORD'])) {
-            $_SESSION['user_id'] = $result['ID'];
-            echo '<p class="success">Congratulations, you are logged in!</p>';
-        } else {
-            echo '<p class="error">Username password combination is wrong!</p>';
-        }
+        $_SESSION['rut'] = $username;
+        echo '<p class="success">Sesion iniciada</p>';
     }
 }
  

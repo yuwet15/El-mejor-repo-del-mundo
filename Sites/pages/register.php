@@ -12,11 +12,11 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
-<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" novalidate>
+<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="" novalidate>
   <div><h2>Registrarse</div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-5 form-floating">
-      <input type="text" class="form-control" id="nombre_completo" placeholder="Nombre Apellido" required>
+      <input type="text" class="form-control" id="nombre_completo" name="nombre" placeholder="Nombre Apellido" required>
       <label for="nombre_completo" class="form-label">Nombre Completo</label>
 
       <div class="invalid-feedback" id = "invalido">
@@ -32,21 +32,33 @@ if (isset($_SESSION['rut'])){
       </div>
     </div>
     <div class="col-md-2 form-floating">
-      <input type="number" class="form-control" id="edad_" placeholder="18" min="1" max="100" required>
+      <input type="number" class="form-control" name="edad" id="edad_" placeholder="18" min="1" max="100" required>
       <label for="edad_" class="form-label">Edad</label>
     </div>
     
   </div>
-  <div class="col-md-9 form-floating">
-    <input type="text" class="form-control" id="direccion_" placeholder="Ingrese su direccion" required>
-    <label for="direccion_" class="form-label">Direccion</label>
-    <div class="invalid-feedback" id = "invalido">
-        Campo requerido
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-3">
+      <select class="form-select form-select-lg" id="sexo" required>
+        <option selected disabled value="">Sexo</option>
+        <option value="M">Hombre</option>
+        <option value="F">Mujer</option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor seleccione
+      </div>
+    </div>
+    <div class="col-md-9 form-floating">
+      <input type="text" class="form-control" name="direccion" id="direccion_" placeholder="Ingrese su direccion" required>
+      <label for="direccion_" class="form-label">Direccion</label>
+      <div class="invalid-feedback" id = "invalido">
+          Campo requerido
+      </div>
     </div>
   </div>
 
   <div class="col-12 text-center">
-    <button class="btn btn-primary" type="submit">Registrar</button>
+    <button class="btn btn-primary" type="submit" name="register" value="register">Registrar</button>
   </div>
 </form> 
 
@@ -76,26 +88,30 @@ if (isset($_SESSION['rut'])){
  
 include('config.php');
 session_start();
- 
-if (isset($_POST['login'])) {   
- 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
- 
-    $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
-    $query->bindParam("username", $username, PDO::PARAM_STR);
-    $query->execute();
- 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
- 
+
+if (isset($_POST['register'])) {   
+    
+    $nombre = $_POST['nombre'];
+    $rut = $_POST['rut'];
+    $edad = $_POST['edad'];
+    $sexo = $_POST['sexo'];
+    $direccion = $_POST['direccion'];
+
+
+    $query = "SELECT register($nombre, $rut, $edad, $sexo, $direccion)";
+    $result = $db -> prepare($query);
+    $result -> execute();
+
+    $result = $result -> fetchAll();
+    echo "$result";
     if (!$result) {
-        echo '<p class="error">Username password combination is wrong!</p>';
+        echo 'Username password combination is wrong!';
     } else {
         if (password_verify($password, $result['PASSWORD'])) {
             $_SESSION['user_id'] = $result['ID'];
-            echo '<p class="success">Congratulations, you are logged in!</p>';
+            echo 'Congratulations, you are logged in!';
         } else {
-            echo '<p class="error">Username password combination is wrong!</p>';
+            echo 'Username password combination is wrong!';
         }
     }
 }
