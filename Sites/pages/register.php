@@ -87,7 +87,6 @@ if (isset($_SESSION['rut'])){
 <?php
  
 include('config.php');
-session_start();
 
 if (isset($_POST['register'])) {   
     

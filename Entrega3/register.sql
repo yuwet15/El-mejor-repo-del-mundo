@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION
 
 -- declaramos la función y sus argumentos
-register (nombre varchar, rut varchar, edad int, sexo varchar, direccion_n varchar)
+register(nombre varchar, rut varchar, edad int, sexo varchar, direccion_n varchar)
 
 -- declaramos lo que retorna 
 RETURNS BOOLEAN AS $$
