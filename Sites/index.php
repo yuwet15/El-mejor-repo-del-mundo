@@ -9,7 +9,7 @@ if (isset($_SESSION['rut'])){
 		include('templates/body_postlogin.html');
 	}	
 } else {
-	include('templates/body_prelogin.html');
+	include('templates/i_body_prelogin.html');
 }
 ?>
 
