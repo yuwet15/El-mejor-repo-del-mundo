@@ -1,5 +1,4 @@
 <?php include('../templates/header.html');   
-session_start();
 if (isset($_SESSION['rut'])){
     if(isset($_SESSION['jefe'])){
         include('../templates/body_postlogin_jefe.html');
