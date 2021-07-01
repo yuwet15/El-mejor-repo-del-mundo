@@ -53,7 +53,7 @@ if (isset($_SESSION['rut'])){
 
 <?php
  
-include('config.php');
+include('../config/conexion.php');
 
  
 if (isset($_POST['login'])) {   
