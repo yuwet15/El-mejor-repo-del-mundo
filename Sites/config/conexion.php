@@ -12,4 +12,3 @@
       echo "No se pudo conectar a la base de datos 2: $e";
     }
 ?>
-wena
