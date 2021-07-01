@@ -1,5 +1,6 @@
-<?php include('templates/header.html');
+<?php 
 session_start();
+include('templates/header.html');
 
 if (isset($_SESSION['rut'])){
 	if(isset($_SESSION['jefe'])){
