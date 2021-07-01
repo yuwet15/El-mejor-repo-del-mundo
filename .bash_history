@@ -150,3 +150,25 @@ git add .
 git commit -m "Algunos cambios entrega 3"
 git push
 >>>>>>> c5647a5c27ac490a2cdbf19ff4a3ba7f6724e9af
+git fetch
+git pull
+tree
+git status
+git status
+git add .
+git commit -m "cambios"
+git push
+git fetch
+git pull
+tree
+/db
+\dt
+/pysql
+psql
+SELECT * FROM information_schema.tables;
+psql
+git status
+git add .
+git commit -m "Cambios"
+git push
+psql
