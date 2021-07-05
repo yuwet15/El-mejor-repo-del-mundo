@@ -19,6 +19,9 @@ if (isset($_POST['register'])) {
     echo($result[0][0]);
 
     if ($result[0][0] == 'TRUE') {
+        $query = "SELECT insertar_en_tabla('$rut');";
+        $result = $db -> prepare($query);
+        $result -> execute();
         $_SESSION['register'] = 'TRUE';
         header("Location: login.php");
 
