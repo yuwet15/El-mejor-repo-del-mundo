@@ -50,3 +50,14 @@ if (isset($_SESSION['rut'])){
       })
   })()
 </script>
+
+
+<?php
+if (isset($_SESSION['pass_inc'])){
+  echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
+  unset($_SESSION['pass_inc']);
+} elseif (isset($_SESSION['no_user'])) {
+  echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
+  unset($_SESSION['no_user']);
+}
+?>

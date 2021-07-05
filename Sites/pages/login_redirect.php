@@ -13,13 +13,10 @@ if (isset($_POST['login'])) {
     $result -> execute();
  
     $result = $result -> fetchAll();
-    echo($username);
-    echo($password);
-    echo($result[0][0]);
-    if (!$result) {
+    if ($result[0][0] == 'Password incorrect') {
+        $_SESSION['pass_inc'] = TRUE;
         header("Location: login.php");
-        echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
-    } else {
+    } elseif ($result[0][0] == 'Success') {
         $_SESSION['rut'] = $username;
         //Falta comprobar si es o no jefe
         $query = "SELECT cargo FROM Personal WHERE rut = '$username'"; 
@@ -31,7 +28,9 @@ if (isset($_POST['login'])) {
           $_SESSION['jefe'] = TRUE;
         };
         header("Location: ../index.php");
-        echo '<p class="success">Sesion iniciada</p>';
+    } else {
+        $_SESSION['no_user'] = TRUE;
+        header("Location: login.php");
     }
 }
  

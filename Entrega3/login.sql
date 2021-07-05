@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION
 login (rut_u varchar, password_u varchar)
 
 -- declaramos lo que retorna 
-RETURNS BOOLEAN AS $$
+RETURNS VARCHAR(20) AS $$
 
 
 
@@ -12,12 +12,12 @@ RETURNS BOOLEAN AS $$
 BEGIN
     -- control de flujo
     IF rut_u NOT IN (SELECT rut_p FROM Usuario_pass) THEN
-        RETURN FALSE;
+        RETURN 'No_user';
     END IF;
     IF password_u IN (SELECT password_p FROM Usuario_pass WHERE rut_p = rut_u) THEN
-        RETURN TRUE;
+        RETURN 'Success';
     ELSE
-        RETURN FALSE;
+        RETURN 'Password incorrect';
     END IF;
 -- -- finalizamos la definición de la función y declaramos el lenguaje
 END
