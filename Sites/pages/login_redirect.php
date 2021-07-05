@@ -13,9 +13,9 @@ if (isset($_POST['login'])) {
     $result -> execute();
  
     $result = $result -> fetchAll();
-    echo($username)
-    echo($password)
-    echo($result[0])
+    echo($username);
+    echo($password);
+    echo($result[0]);
     if (!$result) {
         header("Location: login.php");
         echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
