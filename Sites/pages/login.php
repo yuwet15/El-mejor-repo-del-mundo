@@ -13,7 +13,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
-<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="/login_redirect.php" novalidate>
+<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
   <div><h2>Iniciar Sesion</div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-3 form-floating">

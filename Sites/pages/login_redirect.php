@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
     $result = $result -> fetchAll();
  
     if (!$result) {
-        header("Location: /login.php");
+        header("Location: login.php");
         echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
     } else {
         $_SESSION['rut'] = $username;
