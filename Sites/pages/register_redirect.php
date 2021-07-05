@@ -16,7 +16,7 @@ if (isset($_POST['register'])) {
     $result -> execute();
 
     $result = $result -> fetchAll();
-
+    echo($result[0][0]);
 
     if ($result[0][0] == 'TRUE') {
         $_SESSION['register'] = 'TRUE';
@@ -27,13 +27,13 @@ if (isset($_POST['register'])) {
     }else{
         $_SESSION['rut_ext'] = 'TRUE';
     }
-    
+
     $_SESSION['nombre_r'] = $nombre;
     $_SESSION['rut_r'] = $rut;
     $_SESSION['edad_r'] = $edad;
     $_SESSION['sexo_r'] = $sexo;
     $_SESSION['direccion_r'] = $direccion;
-    header("Location: register.php");
+    //header("Location: register.php");
 }
  
 ?>
