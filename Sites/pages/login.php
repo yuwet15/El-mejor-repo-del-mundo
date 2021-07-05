@@ -5,7 +5,7 @@ if (isset($_SESSION['rut'])){
     if(isset($_SESSION['jefe'])){
         include('../templates/body_postlogin_jefe.html');
     } else {
-        include('../templates/body_postlogin.html');
+        include('../templates/body_postlogin_normal.html');
     }   
 } else {
     include('../templates/body_prelogin.html');
@@ -57,7 +57,7 @@ include('../config/conexion.php');
 
  
 if (isset($_POST['login'])) {   
- 
+    //session_start();
     $username = $_POST['rut'];
     $password = $_POST['password'];
     
@@ -71,6 +71,7 @@ if (isset($_POST['login'])) {
         echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
     } else {
         $_SESSION['rut'] = $username;
+        //Falta comprobar si es o no jefe
         echo '<p class="success">Sesion iniciada</p>';
     }
 }
