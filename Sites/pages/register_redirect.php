@@ -16,7 +16,7 @@ if (isset($_POST['register'])) {
     $result -> execute();
 
     $result = $result -> fetchAll();
-
+    echo($result[0][0])
     if ($result[0][0] == 'TRUE') {
         $query = "SELECT insertar_en_tabla('$rut');";
         $result = $db -> prepare($query);
@@ -35,6 +35,7 @@ if (isset($_POST['register'])) {
     $_SESSION['edad_r'] = $edad;
     $_SESSION['sexo_r'] = $sexo;
     $_SESSION['direccion_r'] = $direccion;
+
     header("Location: register.php");
 }
  
