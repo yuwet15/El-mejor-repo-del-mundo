@@ -206,3 +206,47 @@ git pull
 git pull
 psql
 tree
+git fetch
+git status
+git pull
+git pull
+git pull
+git pull
+git pull
+\i Entrega3/crear_tabla.sql
+psql
+psql -u grupo27e3
+psql
+git pull
+psql
+git pull
+psql
+git pull
+git pull
+git pull
+psql
+git pull
+git pull
+git pull
+psql
+psql
+git pull
+psql
+git pull
+psql
+git add .
+git commit -m "Cambio"
+git push
+psql
+\l
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+psql
+git pull
+pqsl
+psql
+git pull
