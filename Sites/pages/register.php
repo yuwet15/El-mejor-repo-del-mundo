@@ -23,6 +23,7 @@ if (isset($_SESSION['rut'])){
           echo 'value="$_SESSION[\'nombre_r\']"';
         }
         echo " required>";
+        echo($_SESSION['nombre_r']);
       ?>
       <label for="nombre_completo" class="form-label">Nombre Completo</label>
 
