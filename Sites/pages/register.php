@@ -20,7 +20,8 @@ if (isset($_SESSION['rut'])){
       <?php
         echo "<input type=\"text\" class=\"form-control\" id=\"nombre_completo\" name=\"nombre\" placeholder=\"Nombre Apellido\" ";
         if(isset($_SESSION['nombre_r'])){
-          echo 'value=" $_SESSION[\'nombre_r\']"';
+          $value = $_SESSION['nombre_r'];
+          echo 'value="$value"';
         }
         echo " required>";
         echo($_SESSION['nombre_r']);
