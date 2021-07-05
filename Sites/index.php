@@ -46,10 +46,6 @@ foreach ($result4 as $rut){
 }
 
 
-
- 
-include('config/conexion.php');
-
  
 
 $query = "SELECT rut, cargo from Personal";
