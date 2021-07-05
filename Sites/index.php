@@ -46,7 +46,6 @@ foreach ($result4 as $rut){
 
 
 
-<?php
  
 include('config/conexion.php');
 
@@ -56,7 +55,8 @@ $query = "SELECT rut, cargo from Personal";
 $result = $db -> prepare($query);
 $result -> execute();
  
-$result = $result -> fetchAll();?>
+$result = $result -> fetchAll();
+?>
 <table class='table'>
     <thead>
         <tr>
