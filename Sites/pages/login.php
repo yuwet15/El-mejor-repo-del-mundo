@@ -17,7 +17,7 @@ if (isset($_SESSION['rut'])){
   <div><h2>Iniciar Sesion</div>
   <?php
   if(isset($_SESSION['register'])){
-    echo '<div><h4>Su clave por defecto son los ultimos 4 digitos antes del verificador</p>';
+    echo '<p>Su clave por defecto son los ultimos 4 digitos antes del verificador</p>';
     unset($_SESSION['register']);
   }
   ?>
