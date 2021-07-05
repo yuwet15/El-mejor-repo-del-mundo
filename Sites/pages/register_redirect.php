@@ -10,12 +10,12 @@ if (isset($_POST['register'])) {
     $sexo = $_POST['sexo'];
     $direccion = $_POST['direccion'];
 
-
     $query = "SELECT register('$nombre', '$rut', $edad, '$sexo', '$direccion')";
     $result = $db -> prepare($query);
     $result -> execute();
 
     $result = $result -> fetchAll();
+    echo($result[0][0])
     if ($result[0][0] == 'TRUE') {
         $_SESSION['register'] = 'TRUE';
         header("Location: login.php");
