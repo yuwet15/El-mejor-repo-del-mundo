@@ -10,9 +10,7 @@ if (isset($_POST['register'])) {
     $sexo = $_POST['sexo'];
     $direccion = $_POST['direccion'];
 
-    echo($sexo);
-
-    /*
+    
     $query = "SELECT register('$nombre', '$rut', $edad, '$sexo', '$direccion')";
     $result = $db -> prepare($query);
     $result -> execute();
@@ -30,7 +28,7 @@ if (isset($_POST['register'])) {
     }else{
         $_SESSION['rut_ext'] = 'TRUE';
         header("Location: register.php");
-    }*/
+    }
 }
  
 ?>
