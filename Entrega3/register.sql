@@ -22,7 +22,6 @@ BEGIN
             RETURN 'No_direccion';
         ELSE
             INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
-            RETURN 'TRUE2';
             SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
             RETURN 'TRUE2';
             INSERT INTO direcciones values(direc_id, idmax + 1);
