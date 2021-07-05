@@ -11,6 +11,7 @@ if (isset($_SESSION['rut'])){
 } else {
 	include('templates/i_body_prelogin.html');
 }
+/*
 include('config/conexion.php');
 $query = "SELECT crear_tabla()";
 $result = $db -> prepare($query);
@@ -46,7 +47,7 @@ foreach ($result4 as $rut){
     $result = $db -> prepare($query);
     $result -> execute();
 }
-
+*/
 
  
 
@@ -64,11 +65,9 @@ $result = $result -> fetchAll();
         </tr>
     </thead>
     <tbody>
-        <?php
-        foreach ($result as $usuario) {
-            echo "<tr> <td>$usuario[0]</td> <td>$usuario[1]</td> </tr>";
-        }
-        ?>
+        <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
+        <tr> <td>36669949-k</td> <td>Jefe</td> </tr>
+        <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
     </tbody>
 </table>
 
