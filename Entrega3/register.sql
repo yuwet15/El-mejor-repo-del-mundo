@@ -21,7 +21,6 @@ BEGIN
         IF direccion_n not in (select direccion FROM Comunas) THEN
             RETURN 'No_direccion';
         ELSE
-            RETURN 'TRUE1';
             INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
             RETURN 'TRUE2';
             SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
