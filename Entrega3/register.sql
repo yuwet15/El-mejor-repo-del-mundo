@@ -21,7 +21,6 @@ BEGIN
         INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
         SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
         INSERT INTO direcciones values(direc_id, idmax + 1);
-        INSERT into claves values(idmax + 1, password);
         RETURN 'TRUE';
     
     ELSE
