@@ -15,15 +15,15 @@ if (isset($_SESSION['rut'])){
 
 <form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="register_redirect.php" novalidate>
   <div><h2>Registrarse</div>
+  <!-- Input nombre apellido -->
   <div class="row g-4 justify-content-center">
     <div class="col-md-5 form-floating">
       <input type="text" class="form-control" id="nombre_completo" name="nombre" placeholder="Nombre Apellido" 
       <?php
-        //echo "<input type=\"text\" class=\"form-control\" id=\"nombre_completo\" name=\"nombre\" placeholder=\"Nombre Apellido\" ";
         if(isset($_SESSION['nombre_r'])){
           echo 'value="' . $_SESSION['nombre_r'] . '"';
+          unset($_SESSION['nombre_r']);
         }
-      
       ?>
        required>
       <label for="nombre_completo" class="form-label">Nombre Completo</label>
@@ -32,33 +32,76 @@ if (isset($_SESSION['rut'])){
         Campo requerido
       </div>
     </div>
+
+    <!-- Input rut -->
     <div class="col-md-3 form-floating">
-      <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" maxlength="10" required>
+      <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" maxlength="10" 
+      <?php
+        if(isset($_SESSION['rut_r'])){
+          echo 'value="' . $_SESSION['rut_r'] . '"';
+          unset($_SESSION['rut_r']);
+        }
+      ?>
+       required>
       <label for="rut" class="form-label">Rut</label>
       
       <div class="invalid-feedback" id = "invalido">
         Campo requerido
       </div>
     </div>
+
+    <!-- Input edad -->
     <div class="col-md-2 form-floating">
-      <input type="number" class="form-control" name="edad" id="edad_" placeholder="18" min="1" max="100" required>
+      <input type="number" class="form-control" name="edad" id="edad_" placeholder="18" min="1" max="100" 
+      <?php
+        if(isset($_SESSION['edad_r'])){
+          echo 'value="' . $_SESSION['edad_r'] . '"';
+          unset($_SESSION['edad_r']);
+        }
+      ?>
+       required>
       <label for="edad_" class="form-label">Edad</label>
     </div>
-    
   </div>
+
+  <!-- Input sexo -->
   <div class="row g-4 justify-content-center">
     <div class="col-md-3">
       <select class="form-select form-select-lg" name="sexo" id="sexo" required>
-        <option selected disabled value="">Sexo</option>
-        <option value="M">Hombre</option>
-        <option value="F">Mujer</option>
+        <?php
+        if(isset($_SESSION['sexo_r'])){
+          echo "<option disabled value=\"\">Sexo</option>";
+          $sexo = $_SESSION['sexo_r'];
+          if($sexo == "M"){
+            echo "<option selected value=\"M\">Hombre</option>";
+            echo "<option value=\"F\">Mujer</option>";
+          }else{
+            echo "<option value=\"M\">Hombre</option>";
+            echo "<option selected value=\"F\">Mujer</option>";
+          }
+          unset($_SESSION['sexo_r']);
+        }else{
+          echo "<option selected disabled value=\"\">Sexo</option>";
+          echo "<option value=\"M\">Hombre</option>"
+          echo "<option value=\"F\">Mujer</option>"
+        }
+        ?>
       </select>
       <div class="invalid-feedback">
         Por favor seleccione
       </div>
     </div>
+
+    <!-- Input direccion -->
     <div class="col-md-9 form-floating">
-      <input type="text" class="form-control" name="direccion" id="direccion_" placeholder="Ingrese su direccion" required>
+      <input type="text" class="form-control" name="direccion" id="direccion_" placeholder="Ingrese su direccion" 
+      <?php
+        if(isset($_SESSION['direccion_r'])){
+          echo 'value="' . $_SESSION['direccion_r'] . '"';
+          unset($_SESSION['direccion_r']);
+        }
+      ?>
+       required>
       <label for="direccion_" class="form-label">Direccion</label>
       <div class="invalid-feedback" id = "invalido">
           Campo requerido
