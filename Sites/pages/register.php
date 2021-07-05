@@ -13,7 +13,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
-<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="" novalidate>
+<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="register_redirect.php" novalidate>
   <div><h2>Registrarse</div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-5 form-floating">
@@ -57,7 +57,12 @@ if (isset($_SESSION['rut'])){
       </div>
     </div>
   </div>
-
+  <?php
+    if (isset($_SESSION['rut_ext'])){
+      echo '<p class="error">Rut ya registrado</p>';
+      unset($_SESSION['rut_ext']);
+    }
+  ?>
   <div class="col-12 text-center">
     <button class="btn btn-primary" type="submit" name="register" value="register">Registrar</button>
   </div>
@@ -84,35 +89,3 @@ if (isset($_SESSION['rut'])){
 })()
 </script>
 
-
-<?php
- 
-include('../config/conexion.php');
-
-if (isset($_POST['register'])) {   
-    
-    $nombre = $_POST['nombre'];
-    $rut = $_POST['rut'];
-    $edad = $_POST['edad'];
-    $sexo = $_POST['sexo'];
-    $direccion = $_POST['direccion'];
-
-
-    $query = "SELECT register('$nombre', '$rut', $edad, '$sexo', '$direccion')";
-    $result = $db -> prepare($query);
-    $result -> execute();
-
-    $result = $result -> fetchAll();
-    if (!$result) {
-        echo 'Username password combination is wrong!';
-    } else {
-        if (password_verify($password, $result['PASSWORD'])) {
-            $_SESSION['user_id'] = $result['ID'];
-            echo 'Congratulations, you are logged in!';
-        } else {
-            echo 'Username password combination is wrong!';
-        }
-    }
-}
- 
-?>

@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION
 register(nombre varchar, rut_u varchar, edad int, sexo varchar, direccion_n varchar)
 
 -- declaramos lo que retorna 
-RETURNS BOOLEAN AS $$
+RETURNS VARCHAR(20) AS $$
 
 DECLARE
 idmax int;
@@ -22,10 +22,10 @@ BEGIN
         SELECT INTO direc_id direcciones_id FROM Comunas WHERE direccion_n = direccion;
         INSERT INTO direcciones values(direc_id, idmax + 1);
         INSERT into claves values(idmax + 1, password);
-        RETURN TRUE;
+        RETURN 'TRUE';
     
     ELSE
-        RETURN FALSE;
+        RETURN 'Rut_existente';
 
     END IF;
 

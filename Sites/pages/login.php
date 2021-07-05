@@ -15,6 +15,12 @@ if (isset($_SESSION['rut'])){
 
 <form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
   <div><h2>Iniciar Sesion</div>
+  <?php
+  if(isset($_SESSION['register'])){
+    echo '<div><h4>Su clave por defecto son los ultimos 4 digitos antes del verificador</p>';
+    unset($_SESSION['register']);
+  }
+  ?>
   <div class="row g-4 justify-content-center">
     <div class="col-md-3 form-floating">
       <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" maxlength="10" required>
@@ -26,6 +32,16 @@ if (isset($_SESSION['rut'])){
     </div>
   </div>
 
+  <?php
+    if (isset($_SESSION['pass_inc'])){
+      echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
+      unset($_SESSION['pass_inc']);
+    } elseif (isset($_SESSION['no_user'])) {
+      echo '<p class="error">No existe usuario ingresado</p>';
+      unset($_SESSION['no_user']);
+    }
+  ?>
+  
   <div class="col-12 text-center">
     <button class="btn btn-primary" name="login" value="login" type="submit">Iniciar Sesion</button>
   </div>
@@ -52,12 +68,3 @@ if (isset($_SESSION['rut'])){
 </script>
 
 
-<?php
-if (isset($_SESSION['pass_inc'])){
-  echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
-  unset($_SESSION['pass_inc']);
-} elseif (isset($_SESSION['no_user'])) {
-  echo '<p class="error">No existe usuario ingresado</p>';
-  unset($_SESSION['no_user']);
-}
-?>
