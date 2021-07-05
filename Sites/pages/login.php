@@ -61,9 +61,6 @@ if (isset($_POST['login'])) {
     
     $username = $_POST['rut'];
     $password = $_POST['password'];
-    echo '<p class="success">$username , $password Sesion iniciada</p>';
-    echo ($username);
-    echo ($password);
     $query = "SELECT login('$username', '$password')";
     $result = $db -> prepare($query);
     $result -> execute();
@@ -75,7 +72,14 @@ if (isset($_POST['login'])) {
     } else {
         $_SESSION['rut'] = $username;
         //Falta comprobar si es o no jefe
+        $query = "SELECT cargo FROM Personal WHERE rut = '$username'"; 
+        $result = $db -> prepare($query);
+        $result -> execute();
+     
+        $result = $result -> fetchAll();
+        echo($result[0])
         echo '<p class="success">Sesion iniciada</p>';
+        //header("Location: ../index.php");
     }
 }
  
