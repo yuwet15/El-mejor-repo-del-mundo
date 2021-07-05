@@ -24,11 +24,16 @@ if (isset($_POST['register'])) {
 
     }elseif ($result[0][0] == 'No_direccion'){
         $_SESSION['no_dic'] = 'TRUE';
-        header("Location: register.php");
     }else{
         $_SESSION['rut_ext'] = 'TRUE';
-        header("Location: register.php");
     }
+    
+    $_SESSION['nombre_r'] = $nombre;
+    $_SESSION['rut_r'] = $rut;
+    $_SESSION['edad_r'] = $edad;
+    $_SESSION['sexo_r'] = $sexo;
+    $_SESSION['direccion_r'] = $direccion;
+    header("Location: register.php");
 }
  
 ?>
