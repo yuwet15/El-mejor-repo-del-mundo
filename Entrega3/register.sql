@@ -18,10 +18,10 @@ BEGIN
 
     -- control de flujo
     IF rut_u NOT IN (select rut from usuarios) THEN
-        INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
         IF direccion_n not in (select direccion FROM Comunas) THEN
             RETURN 'No_direccion';
         END IF;
+        INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
         SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
         INSERT INTO direcciones values(direc_id, idmax + 1);
         SELECT insertar_en_tabla(rut_u);
