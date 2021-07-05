@@ -28,8 +28,8 @@ if (isset($_POST['login'])) {
         if($result[0][0] == 'Jefe'){
           $_SESSION['jefe'] = TRUE;
         };
-        echo '<p class="success">Sesion iniciada</p>';
         header("Location: ../index.php");
+        echo '<p class="success">Sesion iniciada</p>';
     }
 }
  
