@@ -49,13 +49,7 @@ foreach ($result4 as $rut){
 }
 */
 
- 
 
-$query = "SELECT rut, cargo from Personal";
-$result = $db -> prepare($query);
-$result -> execute();
- 
-$result = $result -> fetchAll();
 ?>
 <table class='table'>
     <thead>
