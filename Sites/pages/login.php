@@ -13,7 +13,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
-<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="" novalidate>
+<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="/login_redirect.php" novalidate>
   <div><h2>Iniciar Sesion</div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-3 form-floating">
@@ -50,39 +50,3 @@ if (isset($_SESSION['rut'])){
       })
   })()
 </script>
-
-<?php
- 
-include('../config/conexion.php');
-
- 
-if (isset($_POST['login'])) {   
-    //session_start();
-    
-    $username = $_POST['rut'];
-    $password = $_POST['password'];
-    $query = "SELECT login('$username', '$password')";
-    $result = $db -> prepare($query);
-    $result -> execute();
- 
-    $result = $result -> fetchAll();
- 
-    if (!$result) {
-        echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
-    } else {
-        $_SESSION['rut'] = $username;
-        //Falta comprobar si es o no jefe
-        $query = "SELECT cargo FROM Personal WHERE rut = '$username'"; 
-        $result = $db -> prepare($query);
-        $result -> execute();
-     
-        $result = $result -> fetchAll();
-        if($result[0][0] == 'Jefe'){
-          $_SESSION['jefe'] = TRUE;
-        };
-        echo '<p class="success">Sesion iniciada</p>';
-        header("Location: ../index.php");
-    }
-}
- 
-?>
