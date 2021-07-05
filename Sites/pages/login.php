@@ -62,6 +62,8 @@ if (isset($_POST['login'])) {
     $username = $_POST['rut'];
     $password = $_POST['password'];
     echo '<p class="success">$username , $password Sesion iniciada</p>';
+    echo ($username);
+    echo ($password);
     $query = "SELECT login('$username', '$password')";
     $result = $db -> prepare($query);
     $result -> execute();
