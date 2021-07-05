@@ -25,7 +25,7 @@ BEGIN
         SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
         INSERT INTO direcciones values(direc_id, idmax + 1);
         SELECT insertar_en_tabla(rut_u);
-        RETURN 'TRUE';
+        RETURN 'ok';
     
     ELSE
         RETURN 'Rut_existente';
