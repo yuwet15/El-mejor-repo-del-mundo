@@ -77,7 +77,7 @@ if (isset($_POST['login'])) {
         $result -> execute();
      
         $result = $result -> fetchAll();
-        echo($result[0])
+        echo($result[0]);
         echo '<p class="success">Sesion iniciada</p>';
         //header("Location: ../index.php");
     }
