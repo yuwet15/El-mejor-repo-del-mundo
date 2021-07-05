@@ -61,6 +61,9 @@ if (isset($_SESSION['rut'])){
     if (isset($_SESSION['rut_ext'])){
       echo '<p class="error">Rut ya registrado</p>';
       unset($_SESSION['rut_ext']);
+    }elseif (isset($_SESSION['no_dic'])) {
+      echo '<p class="error">Direccion ingresada no existente</p>';
+      unset($_SESSION['no_dic']);
     }
   ?>
   <div class="col-12 text-center">
