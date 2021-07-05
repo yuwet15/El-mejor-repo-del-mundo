@@ -82,8 +82,8 @@ if (isset($_SESSION['rut'])){
           unset($_SESSION['sexo_r']);
         }else{
           echo "<option selected disabled value=\"\">Sexo</option>";
-          echo "<option value=\"M\">Hombre</option>"
-          echo "<option value=\"F\">Mujer</option>"
+          echo "<option value=\"M\">Hombre</option>";
+          echo "<option value=\"F\">Mujer</option>";
         }
         ?>
       </select>
