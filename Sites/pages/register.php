@@ -40,7 +40,7 @@ if (isset($_SESSION['rut'])){
   </div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-3">
-      <select class="form-select form-select-lg" id="sexo" required>
+      <select class="form-select form-select-lg" name="sexo" id="sexo" required>
         <option selected disabled value="">Sexo</option>
         <option value="M">Hombre</option>
         <option value="F">Mujer</option>
