@@ -19,8 +19,8 @@ $result -> execute();
 $query2 = "SELECT rut FROM Usuarios";
 $result2 = $db -> prepare($query);
 $result2 -> execute();
+$result2 = $result2 -> fetchAll();
 foreach ($result2 as $rut){
-    echo($rut);
     $query = "SELECT insertar_en_tabla($rut[0])";
     $result = $db -> prepare($query);
     $result -> execute();
@@ -29,6 +29,7 @@ foreach ($result2 as $rut){
 $query3 = "SELECT rut FROM Personal";
 $result3 = $db -> prepare($query);
 $result3 -> execute();
+$result3 = $result3 -> fetchAll();
 foreach ($result3 as $rut){
     $query = "SELECT insertar_en_tabla($rut[0])";
     $result = $db -> prepare($query);
@@ -39,6 +40,7 @@ $query4 = " SELECT p.rut FROM Personal as p, Administracion as a
             WHERE a.id = p.id AND a.clasificacion = 'administracion'";
 $result4 = $db2 -> prepare($query);
 $result4 -> execute();
+$result4 = $result4 -> fetchAll();
 foreach ($result4 as $rut){
     $query = "SELECT insertar_en_tabla($rut[0])";
     $result = $db -> prepare($query);
