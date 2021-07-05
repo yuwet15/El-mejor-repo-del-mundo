@@ -58,6 +58,7 @@ include('../config/conexion.php');
  
 if (isset($_POST['login'])) {   
     //session_start();
+    echo '<p class="success">Sesion iniciada</p>';
     $username = $_POST['rut'];
     $password = $_POST['password'];
     
