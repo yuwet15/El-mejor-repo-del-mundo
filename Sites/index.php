@@ -20,9 +20,7 @@ $query2 = "SELECT rut FROM Usuarios";
 $result2 = $db -> prepare($query2);
 $result2 -> execute();
 $result2 = $result2 -> fetchAll();
-echo($result2);
 foreach ($result2 as $rut){
-    echo($rut[0]);
     $query = "SELECT insertar_en_tabla('$rut[0]')";
     $result = $db -> prepare($query);
     $result -> execute();
