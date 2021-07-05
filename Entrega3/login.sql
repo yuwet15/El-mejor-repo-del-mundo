@@ -14,7 +14,7 @@ BEGIN
     IF rut_u NOT IN (SELECT rut_p FROM Usuario_pass) THEN
         RETURN FALSE;
     END IF;
-    IF password_u IN (SELECT password FROM Usuario_pass WHERE rut_p = rut_u) THEN
+    IF password_u IN (SELECT password_p FROM Usuario_pass WHERE rut_p = rut_u) THEN
         RETURN TRUE;
     ELSE
         RETURN FALSE;
