@@ -103,7 +103,6 @@ if (isset($_POST['register'])) {
     $result -> execute();
 
     $result = $result -> fetchAll();
-    echo "$result";
     if (!$result) {
         echo 'Username password combination is wrong!';
     } else {
