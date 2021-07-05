@@ -172,3 +172,37 @@ git add .
 git commit -m "Cambios"
 git push
 psql
+git fetch
+git fetch
+git pull
+git add .
+git commit -m "Hola"
+git pull
+git add .
+git commit -m "gh"
+git push
+git fetch
+git pull
+git pull
+git pull
+git pull
+git pull
+tree
+git status
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+psql
+tree
