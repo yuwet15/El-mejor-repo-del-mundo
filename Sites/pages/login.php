@@ -62,7 +62,7 @@ if (isset($_POST['login'])) {
     $username = $_POST['rut'];
     $password = $_POST['password'];
     
-    $query = "SELECT login($username, $password)";
+    $query = "SELECT login('$username', '$password')";
     $result = $db -> prepare($query);
     $result -> execute();
  

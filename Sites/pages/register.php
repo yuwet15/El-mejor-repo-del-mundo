@@ -98,7 +98,7 @@ if (isset($_POST['register'])) {
     $direccion = $_POST['direccion'];
 
 
-    $query = "SELECT register($nombre, $rut, $edad, $sexo, $direccion)";
+    $query = "SELECT register('$nombre', '$rut', $edad, '$sexo', '$direccion')";
     $result = $db -> prepare($query);
     $result -> execute();
 
