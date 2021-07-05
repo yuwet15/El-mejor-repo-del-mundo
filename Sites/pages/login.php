@@ -27,7 +27,7 @@ if (isset($_SESSION['rut'])){
   </div>
 
   <div class="col-12 text-center">
-    <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+    <button class="btn btn-primary" name="login" type="submit">Iniciar Sesion</button>
   </div>
 </form> 
 
