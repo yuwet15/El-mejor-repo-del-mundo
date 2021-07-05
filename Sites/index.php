@@ -11,10 +11,41 @@ if (isset($_SESSION['rut'])){
 } else {
 	include('templates/i_body_prelogin.html');
 }
+include('config/conexion.php');
+$query = "SELECT crear_tabla()";
+$result = $db -> prepare($query);
+$result -> execute();
 
-?>
+$query2 = "SELECT rut FROM Usuarios";
+$result2 = $db -> prepare($query);
+$result2 -> execute();
+foreach ($result2 as $rut){
+    $query = "SELECT insertar_en_tabla($rut[0])";
+    $result = $db -> prepare($query);
+    $result -> execute();
+}
 
-Home
+$query3 = "SELECT rut FROM Personal";
+$result3 = $db -> prepare($query);
+$result3 -> execute();
+foreach ($result3 as $rut){
+    $query = "SELECT insertar_en_tabla($rut[0])";
+    $result = $db -> prepare($query);
+    $result -> execute();
+}
+
+$query4 = " SELECT p.rut FROM Personal as p, Administracion as a 
+            WHERE a.id = p.id AND a.clasificacion = 'administracion'";
+$result4 = $db2 -> prepare($query);
+$result4 -> execute();
+foreach ($result4 as $rut){
+    $query = "SELECT insertar_en_tabla($rut[0])";
+    $result = $db -> prepare($query);
+    $result -> execute();
+}
+
+
+
 <?php
  
 include('config/conexion.php');
