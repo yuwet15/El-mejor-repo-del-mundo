@@ -18,7 +18,7 @@ BEGIN
         RETURN TRUE;
     ELSE
         RETURN FALSE;
-
+    END IF;
 -- -- finalizamos la definición de la función y declaramos el lenguaje
 END
 $$ language plpgsql
