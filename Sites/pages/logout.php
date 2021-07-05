@@ -8,6 +8,7 @@ if (isset($_SESSION['rut'])){
         header("Location: ../index.php");
     } else {
         unset($_SESSION['rut']);
+        header("Location: ../index.php");
     }   
 } else {
 	header("Location: ../index.php");
