@@ -17,14 +17,15 @@ if (isset($_SESSION['rut'])){
   <div><h2>Registrarse</div>
   <div class="row g-4 justify-content-center">
     <div class="col-md-5 form-floating">
+      <input type="text" class="form-control" id="nombre_completo" name="nombre" placeholder="Nombre Apellido" 
       <?php
-        echo "<input type=\"text\" class=\"form-control\" id=\"nombre_completo\" name=\"nombre\" placeholder=\"Nombre Apellido\" ";
+        //echo "<input type=\"text\" class=\"form-control\" id=\"nombre_completo\" name=\"nombre\" placeholder=\"Nombre Apellido\" ";
         if(isset($_SESSION['nombre_r'])){
           echo 'value="' . $_SESSION['nombre_r'] . '"';
         }
-        echo " required>";
-        echo($_SESSION['nombre_r']);
+      
       ?>
+       required>
       <label for="nombre_completo" class="form-label">Nombre Completo</label>
 
       <div class="invalid-feedback" id = "invalido">
