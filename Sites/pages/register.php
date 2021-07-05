@@ -19,8 +19,8 @@ if (isset($_SESSION['rut'])){
     <div class="col-md-5 form-floating">
       <?php
         echo "<input type=\"text\" class=\"form-control\" id=\"nombre_completo\" name=\"nombre\" placeholder=\"Nombre Apellido\" ";
-        if(isset($_SESSION['rut_ext'])){
-          echo 'value="$_SESSION[\'rut_ext\']"';
+        if(isset($_SESSION['nombre_r'])){
+          echo 'value="$_SESSION[\'nombre_r\']"';
         }
         echo " required>";
       ?>
