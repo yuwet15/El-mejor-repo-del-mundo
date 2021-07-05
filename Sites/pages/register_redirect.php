@@ -20,14 +20,14 @@ if (isset($_POST['register'])) {
 
     if ($result[0][0] == 'TRUE') {
         $_SESSION['register'] = 'TRUE';
-        header("Location: login.php");
+        //header("Location: login.php");
 
     }elseif ($result[0][0] == 'No_direccion'){
         $_SESSION['no_dic'] = 'TRUE';
-        header("Location: register.php");
+        //header("Location: register.php");
     }else{
         $_SESSION['rut_ext'] = 'TRUE';
-        header("Location: register.php");
+        //header("Location: register.php");
     }
 }
  
