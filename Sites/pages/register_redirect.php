@@ -35,7 +35,7 @@ if (isset($_POST['register'])) {
     $_SESSION['edad_r'] = $edad;
     $_SESSION['sexo_r'] = $sexo;
     $_SESSION['direccion_r'] = $direccion;
-    //header("Location: register.php");
+    header("Location: register.php");
 }
  
 ?>
