@@ -26,7 +26,11 @@ $query = "SELECT p.nombre, p.edad, p.rut
           FROM personal AS p, administracion AS a
           WHERE p.id = a.id
           AND p.rut != '".$_SESSION['rut']."'
-          ";
+          AND a.unidad_id IN (
+          SELECT DISTINCT u.id
+          FROM unidades as u, personal as p
+          WHERE u.jefe_id = p.id
+          AND p.rut = '".$_SESSION['rut']."')";
 
 $result = $db2 -> prepare($query);
 $result -> execute();
