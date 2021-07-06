@@ -13,9 +13,10 @@ if (isset($_SESSION['rut'])){
 require("../config/conexion.php");
 
 $query = "SELECT u.nombre, u.edad, u.rut, c.direccion
-          FROM direcciones AS d, unidades as u, comunas as c
+          FROM direcciones AS d, usuarios as u, comunas as c
           WHERE u.usuario_id = d.usuario_id
-          AND d.direccion_id = c.direccion_id;";
+          AND d.direccion_id = c.direccion_id
+          AND u.rut == '$_SESSION['RUT']';";
 
 $result = $db -> prepare($query);
 $result -> execute();
