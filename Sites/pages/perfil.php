@@ -30,15 +30,29 @@ $user_info = $result -> fetchAll();
     <th>Nombre</th>
     <th>Edad</th>
     <th>Rut</th>
-    <th>Dirección</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <?php
+      echo "<tr> <td>$user_info[0][0]</td> <td>$user_info[0][1]</td> 
+            <td>$user_info[0][2]</td> </tr>";
+    ?>
+  </tbody>
+</table>
+
+<table class="table">
+  
+  <thead>
+    <tr>
+    <th>Direcciones registradas</th>
     </tr>
   </thead>
   
   <tbody>
     <?php
       foreach ($user_info as $i) {
-          echo "<tr> <td>$i[0]</td> <td>$i[1]</td> 
-                <td>$i[2]</td> <td>$i[3]</td> </tr>";
+          echo "<tr> <td>$i[3]</td> </tr>";
       }
     ?>
   </tbody>
