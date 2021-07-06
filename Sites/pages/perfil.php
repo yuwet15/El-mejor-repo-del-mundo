@@ -12,7 +12,15 @@ if (isset($_SESSION['rut'])){
 }
 require("../config/conexion.php");
 
-$query = "SELECT u.nombre, u.edad, u.rut, c.direccion
+$query = "SELECT DISTINCT nombre, edad, rut
+          FROM usuarios
+          WHERE rut = '".$_SESSION['rut']."'";
+
+$result = $db -> prepare($query);
+$result -> execute();
+$user_info = $result -> fetchAll();
+
+$query = "SELECT DISTINCT c.direccion
           FROM direcciones AS d, usuarios as u, comunas as c
           WHERE u.usuario_id = d.usuario_id
           AND d.direccion_id = c.direccion_id
@@ -20,7 +28,7 @@ $query = "SELECT u.nombre, u.edad, u.rut, c.direccion
 
 $result = $db -> prepare($query);
 $result -> execute();
-$user_info = $result -> fetchAll();
+$user_address = $result -> fetchAll();
 ?>
 
 <table class="table">
@@ -35,8 +43,10 @@ $user_info = $result -> fetchAll();
   
   <tbody>
     <?php
-      echo "<tr> <td>$user_info[0][0]</td> <td>$user_info[0][1]</td> 
-            <td>$user_info[0][2]</td> </tr>";
+      foreach ($user_info as $i) {
+          echo "<tr> <td>$i[0]</td> <td>$i[1]</td> 
+                <td>$i[2]</td> </tr>";
+      }
     ?>
   </tbody>
 </table>
@@ -51,8 +61,8 @@ $user_info = $result -> fetchAll();
   
   <tbody>
     <?php
-      foreach ($user_info as $i) {
-          echo "<tr> <td>$i[3]</td> </tr>";
+      foreach ($user_address as $a) {
+          echo "<tr> <td>$a[0]</td> </tr>";
       }
     ?>
   </tbody>
