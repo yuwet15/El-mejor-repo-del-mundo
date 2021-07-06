@@ -63,7 +63,6 @@ if (!isset($_SESSION['tablas_user'])){
         <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
         <tr> <td>36669949-k</td> <td>Jefe</td> </tr>
         <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
-        <tr> <td>my rut</td> <td> <?php $_SESSION['rut'] ?> </td> </tr>
     </tbody>
 </table>
 
