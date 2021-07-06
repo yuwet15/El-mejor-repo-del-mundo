@@ -32,7 +32,7 @@ $query = "SELECT p.nombre, p.edad, p.rut
           WHERE u.jefe_id = p.id
           AND p.rut = '".$_SESSION['rut']."')";
 
-$result = $db -> prepare($query);
+$result = $db2 -> prepare($query);
 $result -> execute();
 $empleados = $result -> fetchAll();
 ?>
