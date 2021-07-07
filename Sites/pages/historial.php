@@ -66,7 +66,6 @@ foreach ($fecha_compras as $f) {
         <th>Producto</th>
         <th>Total $</th>
         <th>Unidades</th>
-        <th>ID Tienda</th>
         <th>Tienda</th>
         <th>Fecha de la compra</th>
         </tr>
@@ -75,7 +74,7 @@ foreach ($fecha_compras as $f) {
         <?php
         foreach ($datos_compras as $d) {
           echo "<tr> <td>$d[0]</td> <td><a href='productos.php?id={$d[0]}'>$d[1]</a></td> <td>$d[2]</td>
-                <td>$d[3]</td> <td>$d[4]</td> <td>$d[5]</td>
+                <td>$d[3]</td> <td><a href='tiendas2.php?id={$d[4]}'>$d[5]</a></td>
                 <td>$d[6]</td> </tr>";
         }
         ?>
