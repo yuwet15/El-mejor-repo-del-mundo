@@ -8,7 +8,7 @@ if (isset($_SESSION['rut'])){
 	header("Location: ../index.php");
 }
 
-include('config/conexion.php');
+include('../config/conexion.php');
 
 $product_id = $_GET['id'];
 
