@@ -10,6 +10,7 @@ if (isset($_SESSION['rut'])){
 
 <?php 
 if (isset($_GET['id'])) {
+?>
 
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   <div class='row g-4 justify-content-center'>
@@ -41,6 +42,7 @@ if (isset($_GET['id'])) {
 </form>
 }
 
+<?php 
 else {
   header('Location: ../../index.php');
 }
