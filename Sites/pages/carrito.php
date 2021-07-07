@@ -27,10 +27,10 @@ if (isset($_SESSION['rut'])){
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
 	        <td>
-	        	<div class="form-group w-25">
+	        	<div class="form-group col-auto w-25">
 	        		<input type="number" class="form-control" name="ca" id="ca" min="0" max="1">
+	        		<button class="btn btn-primary" type="submit">Button</button>
 	        	</div>
-	        	<button class="btn btn-primary" type="submit">Button</button>
 	        <td>
 
 	    </tr>
