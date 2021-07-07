@@ -137,6 +137,7 @@ if(isset($_SESSION['jefe'])){
               foreach ($empleados as $e) {
                 echo "<tr> <td>$e[0]</td> <td>$e[1]</td> 
                       <td>$e[2]</td> </tr>";
+              }
   echo "  </tbody>
         </table>";
 }
