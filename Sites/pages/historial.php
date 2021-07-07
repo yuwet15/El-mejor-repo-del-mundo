@@ -38,8 +38,7 @@ foreach ($id_compras as $id) {
 $datos_compras = array();
 
 ksort($fecha_compras);
-echo($fecha_compras);
-echo('hola');
+echo($fecha_compras[0]);
 foreach ($fecha_compras as $f) {
   echo($f[0]);
   echo($f[1]);
