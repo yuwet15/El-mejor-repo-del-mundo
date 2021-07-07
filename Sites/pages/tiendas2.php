@@ -8,10 +8,14 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
+<?php 
+if (isset($_GET['id'])) {
+
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
       <br>
+      <!-- &nbsp; es un espacio -->
       Mostrar los 3 productos mas baratos por categoría&nbsp;
       <input type="submit" value="Mostrar">
     </div>
@@ -35,3 +39,16 @@ if (isset($_SESSION['rut'])){
     </div>
   </div>
 </form>
+}
+
+else {
+  header('Location: ../../index.php');
+}
+?>
+
+<?php 
+  $id = $_GET['id']
+  echo $id
+?>
+
+
