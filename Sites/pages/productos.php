@@ -133,3 +133,9 @@ if ($tipo[0][0] == 'Comestible') {
     ?>
   </tbody>
 </table>
+
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <a class="btn btn-outline-secondary" href="back_redirect.php" role="button">Volver</a>
+</div>
+

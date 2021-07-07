@@ -1,5 +1,8 @@
 <?php 
 session_start();
+$_SESSION['previous_location'] = 'tiendas2.php';
+
+
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
   require("../config/conexion.php");
