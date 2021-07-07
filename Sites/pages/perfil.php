@@ -1,19 +1,16 @@
 <?php 
 session_start();
-include('../templates/header.html');   
+   
 if (isset($_SESSION['rut'])){
-    if(isset($_SESSION['jefe'])){
-        include('../templates/body_postlogin_jefe.html');
-    } else {
-        include('../templates/body_postlogin_normal.html');
-    }   
+  include('../templates/header.html');
+  include('../templates/body_postlogin.html');
 } else {
-    include('../templates/body_prelogin.html');
+    header("Location: ../index.php");
 }
 require("../config/conexion.php");
 
-$query = "SELECT DISTINCT nombre, edad, rut
-          FROM usuarios
+$query = "SELECT nombre, edad, rut
+          FROM usuarios, 
           WHERE rut = '".$_SESSION['rut']."'";
 
 $result = $db -> prepare($query);
