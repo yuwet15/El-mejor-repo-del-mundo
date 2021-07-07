@@ -120,7 +120,9 @@ if(!$user_address){
 }
 
 if(isset($_SESSION['jefe'])){
-
+  echo "<br>
+          <h2> Empleados de la unidad </h2>
+        <br>";
 }
 
 
