@@ -20,7 +20,7 @@ $query = "SELECT p.tipo
 $result = $db -> prepare($query);
 $result -> execute();
 $tipo = $result -> fetchAll();
-echo ($tipo[0][0]);
+
 if ($tipo[0][0] == 'Comestible') {
 	
 	$query = "SELECT c.categoria
@@ -30,7 +30,7 @@ if ($tipo[0][0] == 'Comestible') {
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$categoria = $result -> fetchAll();
-
+  echo ($categoria[0][0]);
 	if ($categoria[0][0] == 'congelado') {
 	
 		$query = "SELECT p.producto_id, p.nombre, p.precio, p.descripcion,
