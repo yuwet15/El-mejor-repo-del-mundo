@@ -11,7 +11,7 @@ if (isset($_SESSION['rut'])){
 
 <form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
   <div><h2>Cambiar contraseña</div>
-  <div class="row g-3 align-items-center">
+  <div class="row g-3 justify-content-center">
     <div class="col-auto">
       <label for="inputPassword6" class="col-form-label">Password</label>
     </div>
