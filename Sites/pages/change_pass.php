@@ -39,17 +39,20 @@ if (isset($_SESSION['rut'])){
 
 
   <?php
-    if (isset($_SESSION['pass_inc'])){
-      echo '<p class="error">Error en la combinacion de rut y contraseña</p>';
+    if (isset($_SESSION['pass_dist'])){
+      echo '<p class="error">Contraseñas no son iguales</p>';
+      unset($_SESSION['pass_dist']);
+    } elseif (isset($_SESSION['pass_inc'])) {
+      echo '<p class="error">Contraseña actual incorrecta</p>';
       unset($_SESSION['pass_inc']);
-    } elseif (isset($_SESSION['no_user'])) {
-      echo '<p class="error">No existe usuario ingresado</p>';
-      unset($_SESSION['no_user']);
+    } elseif (isset($_SESSION['success'])) {
+      echo '<p>Contraseña cambiada correctamente</p>'
+      unset($_SESSION['success']);
     }
   ?>
   
   <div class="col-12 text-center">
-    <button class="btn btn-primary" name="login" value="login" type="submit">Iniciar Sesion</button>
+    <button class="btn btn-primary" name="login" value="login" type="submit">Cambiar Contraseña</button>
   </div>
 </form> 
 
