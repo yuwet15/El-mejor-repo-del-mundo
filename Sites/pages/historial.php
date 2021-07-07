@@ -52,7 +52,7 @@ foreach ($fecha_compras as $f) {
   $result -> execute();
   $datos_compra = $result -> fetchAll();
 
-  array_push($datos_compra[0], f[1]);
+  array_push($datos_compra[0], $f[1]);
   array_push($datos_compras, $datos_compra[0]);
 }
 
