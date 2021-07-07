@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
         $result = $db -> prepare($query);
         $result -> execute();
         $productos = $result -> fetchAll();
-        echo $productos[0];
+        echo $productos[0][0];
       }
     ?>
   </div>
