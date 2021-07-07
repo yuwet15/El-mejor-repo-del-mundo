@@ -18,7 +18,7 @@ $query = "SELECT u.nombre, u.edad, u.rut, c.direccion
           AND d.direccion_id = c.direccion_id
           AND u.rut = '".$_SESSION['rut']."'";
 
-$result = $db -> prepare($query);
+$result = $db2 -> prepare($query);
 $result -> execute();
 $info = $result -> fetchAll();
 
