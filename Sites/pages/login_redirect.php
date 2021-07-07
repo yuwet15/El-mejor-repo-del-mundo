@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
      
         $result = $result -> fetchAll();
         if(!$result[0][0]){
-            //nothing
+            echo("hehe");
         }elseif($result[0][0] == 'administracion'){
             $_SESSION['jefe'] = TRUE;
         }elseif ($result[0][0] != 'usuario') {
