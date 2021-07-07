@@ -20,18 +20,18 @@ $query = "SELECT p.tipo
 $result = $db -> prepare($query);
 $result -> execute();
 $tipo = $result -> fetchAll();
-echo ($tipo[0][0]);
+
 if ($tipo[0][0] == 'Comestible') {
-	echo ('hola');
-	$query = "SELECT c.categoria
-            FROM comestibles AS c
-            WHERE c.producto_id = $product_id";
+
+	$query = "SELECT categoria
+            FROM comestibles
+            WHERE producto_id = $product_id";
 
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$categoria = $result -> fetchAll();
-  echo ($categoria[0][0]);
-	if ($categoria[0][0] == 'congelado') {
+
+	if ($categoria[0][0] == 'Congelado') {
 	
 		$query = "SELECT p.producto_id, p.nombre, p.precio, p.descripcion,
 		          		 com.expiracion, com.categoria, con.peso
@@ -44,7 +44,7 @@ if ($tipo[0][0] == 'Comestible') {
 		$result -> execute();
 		$datos = $result -> fetchAll();
 	
-	} elseif ($categoria[0][0] == 'conserva') {
+	} elseif ($categoria[0][0] == 'Conserva') {
 	
 		$query = "SELECT p.producto_id, p.nombre, p.precio, p.descripcion,
 		                 com.expiracion, com.categoria, con.conserva
@@ -100,11 +100,11 @@ if ($tipo[0][0] == 'Comestible') {
 			echo "<th>Fecha de expiración</th>
 						<th>Categoría</th>";
 			
-			if ($categoria[0][0] == 'congelado') {
+			if ($categoria[0][0] == 'Congelado') {
 				
 				echo "<th>peso(kg)</th>";
 
-			} elseif ($categoria[0][0] == 'conserva') {
+			} elseif ($categoria[0][0] == 'Conserva') {
 				
 				echo "<th>Tipo de conserva</th>";
 
