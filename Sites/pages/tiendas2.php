@@ -125,7 +125,7 @@ if (isset($_SESSION['rut'])){
 <?php
   if (isset($_POST['buscar_n'])){
     $nombre = $_POST['nombre_producto'];
-    $query = "SELECT p.nombre, p.descripcion, p.tipo
+    $query = "SELECT DISTINCT p.nombre, p.descripcion, p.tipo
     FROM compras as c, detalle as d, productos as p
     WHERE c.tienda_id=$id AND c.compra_id=d.compra_id AND d.producto_id=p.producto_id
     AND LOWER(p.nombre) LIKE LOWER('%$nombre%')";
@@ -135,26 +135,29 @@ if (isset($_SESSION['rut'])){
     $productos = $result -> fetchAll();
 
     if($productos[0][0]){
-      echo"<table class=\"table\">
+      echo"
+      <div class=\"container\">
+        <table class=\"table\">
         
-        <thead>
-          <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Categoría</th>
-          </tr>
-        </thead>
+          <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            </tr>
+          </thead>
         
-        <tbody>";
-          foreach ($productos as $p) {
-            echo "<tr> 
-                    <td>$p[0]</td> 
-                    <td>$p[1]</td> 
-                    <td>$p[2]</td>
-                  </tr>";
-          }
-  echo "</tbody>
-      </table>";
+          <tbody>";
+            foreach ($productos as $p) {
+              echo "<tr> 
+                      <td>$p[0]</td> 
+                      <td>$p[1]</td> 
+                      <td>$p[2]</td>
+                    </tr>";
+            }
+    echo "</tbody>
+        </table>
+      </div>";
     }
   }
 ?>
