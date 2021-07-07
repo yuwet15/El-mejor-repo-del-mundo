@@ -20,10 +20,10 @@ $result -> execute();
 $tiendas = $result -> fetchAll();
 ?>
 
-<table class="table-danger table-hover">
+<table class="table table-danger table-hover">
   
   <thead>
-    <tr>
+    <tr class="table-danger">>
     <th>Nombre de tienda</th>
     <th>Direccion</th>
     <th>Comuna</th>
@@ -35,7 +35,7 @@ $tiendas = $result -> fetchAll();
     <?php
       foreach ($tiendas as $t) {
         $comuna = ucwords($t[3]);
-        echo "<tr> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$comuna</td> <td>$t[4]</td>";
+        echo "<tr class=\"table-danger\"> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$comuna</td> <td>$t[4]</td>";
       }
     ?>
   </tbody>
