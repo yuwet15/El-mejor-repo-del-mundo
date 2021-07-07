@@ -162,6 +162,8 @@ if (isset($_SESSION['rut'])){
         </table>
       </div>";
     }
+  }elseif (isset($_POST['limpiar_n'])){
+    echo "";
   }
 ?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
