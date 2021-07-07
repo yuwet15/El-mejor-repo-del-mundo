@@ -11,6 +11,7 @@ if (isset($_SESSION['rut'])){
 include('../config/conexion.php');
 
 $product_id = $_GET['id'];
+echo "$product_id";
 
 $query = "SELECT p.tipo
           FROM productos AS p
