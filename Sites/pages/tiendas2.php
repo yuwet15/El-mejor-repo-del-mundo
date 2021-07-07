@@ -24,7 +24,7 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
-<div class="accordion accordion-flush" id="mostrar_p">
+<div class="accordion" id="mostrar_p">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button collapsed d-block text-center btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
