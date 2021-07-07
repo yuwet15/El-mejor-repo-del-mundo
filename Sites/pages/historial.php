@@ -13,7 +13,7 @@ require('../config/conexion.php');
 $query = "SELECT c.compra_id
           FROM usuarios AS u, compras AS c
           WHERE u.usuario_id = c.usuario_id
-          AND u.rut = '28630079-0'";
+          AND u.rut = '".$_SESSION['rut']."'";
 
 $result = $db -> prepare($query);
 $result -> execute();
