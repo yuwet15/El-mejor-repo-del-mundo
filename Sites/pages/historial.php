@@ -20,7 +20,6 @@ $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
-echo($id_compras[0][0]);
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
@@ -33,7 +32,7 @@ foreach ($id_compras as $id) {
   $fecha = $result -> fetchAll();
   echo($fecha[0][1]);
   echo($fecha_compras);
-  array_push($fecha_compras, 'xd');
+  $fecha_compras[] = $fecha[0];
 }
 
 $datos_compras = array();
