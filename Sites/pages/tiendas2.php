@@ -7,3 +7,4 @@ if (isset($_SESSION['rut'])){
   header("Location: ../index.php");
 }
 ?>
+
