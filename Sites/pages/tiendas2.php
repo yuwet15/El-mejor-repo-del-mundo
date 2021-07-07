@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
       <input type="submit" value="Mostrar">
     </div>
     <?php
-      $cat = ['Comestible', 'NoComestible']
+      $cat = ['Comestible', 'NoComestible'];
       foreach ($cat as $c) {
         echo "Productos {$c}"
         $query = "SELECT DISTINCT productos.nombre FROM tiendas as t, catalogo as c, productos as p
