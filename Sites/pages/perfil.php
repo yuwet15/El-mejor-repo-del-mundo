@@ -16,15 +16,6 @@ $query = "SELECT nombre, edad, rut
 $result = $db -> prepare($query);
 $result -> execute();
 $user_info = $result -> fetchAll();
-if(!$user_info){
-  $query = "SELECT nombre, edad, rut
-          FROM Personal
-          WHERE rut = '".$_SESSION['rut']."'";
-
-  $result = $db -> prepare($query);
-  $result -> execute();
-  $user_info = $result -> fetchAll();
-}
 
 $query = "SELECT DISTINCT c.direccion
           FROM direcciones AS d, usuarios as u, comunas as c
@@ -35,6 +26,17 @@ $query = "SELECT DISTINCT c.direccion
 $result = $db -> prepare($query);
 $result -> execute();
 $user_address = $result -> fetchAll();
+
+if(!$user_info){
+  $query = "SELECT nombre, edad, rut
+            FROM Personal
+            WHERE rut = '".$_SESSION['rut']."'";
+
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $user_info = $result -> fetchAll();
+}
+
 ?>
 
 <table class="table">
@@ -57,19 +59,25 @@ $user_address = $result -> fetchAll();
   </tbody>
 </table>
 
-<table class="table">
-  
-  <thead>
-    <tr>
-    <th>Direcciones registradas</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <?php
-      foreach ($user_address as $a) {
-          echo "<tr> <td>$a[0]</td> </tr>";
-      }
-    ?>
-  </tbody>
-</table>
+<?php
+if(!$user_address){
+  echo "Usuario No presenta direcciones registradas"
+}else{
+  echo "<table class=\"table\">"
+    
+    echo "<thead>"
+      echo "<tr>"
+      echo "<th>Direcciones registradas</th>"
+      echo "</tr>"
+    echo "</thead>"
+    
+    echo "<tbody>"
+      
+        foreach ($user_address as $a) {
+            echo "<tr> <td>$a[0]</td> </tr>";
+        }
+      
+    echo "</tbody>"
+  echo "</table>"
+}
+?>
