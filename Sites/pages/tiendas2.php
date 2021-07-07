@@ -25,4 +25,13 @@ if (isset($_SESSION['rut'])){
       <input type="submit" value="Buscar">
     </div>
   </div>
+
+  <div class='row g-4 justify-content-center'>
+    <div class='col-auto' style="text-align:center">
+    <br>
+      ID del producto:
+      <input type="text" name="id">
+      <input type="submit" value="Buscar">
+    </div>
+  </div>
 </form>
