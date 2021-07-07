@@ -26,7 +26,7 @@ if (isset($_SESSION['rut'])){
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+      <button class="accordion-button collapsed justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
         Mostrar los 3 productos mas baratos por categoría
       </button>
     </h2>
@@ -111,28 +111,6 @@ if (isset($_SESSION['rut'])){
     </div>
 
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
-  <div class='row g-4 justify-content-center'>
-    <div class='col-auto' style="text-align:center">
-      <br>
-      <!-- &nbsp; es un espacio -->
-      Mostrar los 3 productos mas baratos por categoría&nbsp;
-      <input type="submit" value="Mostrar">
-    </div>
-    <?php
-      $cat = ['Comestible', 'NoComestible'];
-      foreach ($cat as $c) {
-        echo "Productos {$c}s";
-        $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
-        WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
-        AND p.tipo='$c'
-        ORDER BY p.precio LIMIT 3";
-
-        $result = $db -> prepare($query);
-        $result -> execute();
-        $productos = $result -> fetchAll();
-      }
-    ?>
-  </div>
   
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
