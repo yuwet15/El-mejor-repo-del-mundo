@@ -20,7 +20,6 @@ $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
-echo($id_compras[0][0]);
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
@@ -38,7 +37,8 @@ $datos_compras = array();
 
 foreach ($fecha_compras as $f) {
 
-  echo($f);
+  echo($f[0]);
+  echo($f[1]);
   $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
             FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
             WHERE c.compra_id = d.compra_id
