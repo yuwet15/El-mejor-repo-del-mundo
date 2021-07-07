@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
     $result -> execute();
  
     $result = $result -> fetchAll();
-    echo($result[0][0]);
+
     if ($result[0][0] == 'Success') {
         $_SESSION['success'] = TRUE;
         header("Location: change_pass.php");
