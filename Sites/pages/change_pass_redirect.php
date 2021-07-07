@@ -5,7 +5,7 @@ include('../config/conexion.php');
  
 if (isset($_POST['login'])) {   
     //session_start();
-    $user = $_SESSION['rut']
+    $user = $_SESSION['rut'];
     $password = $_POST['actual_pass'];
     $new_pass = $_POST['new_pass'];
     $confirm_pass = $_POST['confirm_pass'];
