@@ -1,6 +1,7 @@
 <?php 
 session_start();
 
+echo "<body style='background-color:pink'>";
 
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
