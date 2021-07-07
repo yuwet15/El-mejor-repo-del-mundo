@@ -23,7 +23,7 @@ $tiendas = $result -> fetchAll();
 <table class="table table-success table-hover table-striped">
   
   <thead>
-    <tr class="table-primary">
+    <tr class="table-success">
     <th>Nombre de tienda</th>
     <th>Direccion</th>
     <th>Comuna</th>
