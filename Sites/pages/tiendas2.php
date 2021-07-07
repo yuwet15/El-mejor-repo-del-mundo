@@ -10,6 +10,7 @@ if (isset($_SESSION['rut'])){
 
 <?php
 if (isset($_GET['id'])) {
+  // echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
   $id = (int)$_GET['id'];
   require("../config/conexion.php"); 
 ?>
