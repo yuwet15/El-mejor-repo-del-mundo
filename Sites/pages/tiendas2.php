@@ -30,7 +30,7 @@ if (isset($_SESSION['rut'])){
         Mostrar los 3 productos mas baratos por categoría
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#mostrar_p">
+    <div id="collapseOne" class="accordion-collapse collapsed" aria-labelledby="headingOne" data-bs-parent="#mostrar_p">
       <div class="accordion-body">
         <div class="container">
           <div class="row">
@@ -40,17 +40,32 @@ if (isset($_SESSION['rut'])){
             
                 <thead>
                   <tr>
-                  <th>Producto</th>
-                  <th>Categoria</th>
-                  <th>blabla</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
                   </tr>
                 </thead>
                 
+                <?php
+                  $cat = [, 'NoComestible'];
+                  foreach ($cat as $c) {
+                    echo "Productos {$c}s";
+                    $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
+                    WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+                    AND p.tipo='Comestible'
+                    ORDER BY p.precio LIMIT 3";
+
+                    $result = $db -> prepare($query);
+                    $result -> execute();
+                    $productos = $result -> fetchAll();
+                  }
+                ?>
+
                 <tbody>
                   <tr> 
-                    <td>pr</td> 
-                    <td>[2]</td> 
-                    <td>$comuna</td> 
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
                   </tr>
                 </tbody>
               </table>
@@ -61,12 +76,25 @@ if (isset($_SESSION['rut'])){
   
                 <thead>
                   <tr>
-                  <th>Producto</th>
-                  <th>Categoria</th>
-                  <th>blabla</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
                   </tr>
                 </thead>
                 
+                <?php
+                  echo "Productos {$c}s";
+                  $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
+                  WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+                  AND p.tipo='NoComestible'
+                  ORDER BY p.precio LIMIT 3";
+
+                  $result = $db -> prepare($query);
+                  $result -> execute();
+                  $productos = $result -> fetchAll();
+                
+                ?>
+
                 <tbody>
                   <tr> 
                     <td>pr</td> 
@@ -102,7 +130,6 @@ if (isset($_SESSION['rut'])){
         $result = $db -> prepare($query);
         $result -> execute();
         $productos = $result -> fetchAll();
-        echo $productos[0][0];
       }
     ?>
   </div>
