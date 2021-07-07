@@ -10,7 +10,7 @@ if (isset($_SESSION['rut'])){
 require("../config/conexion.php");
 
 
-if (isset($_SESSION['jefe'])){
+if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
   $query = "SELECT u.nombre, u.edad, u.rut, c.direccion
             FROM direcciones AS d, usuarios AS u, comunas AS c
             WHERE u.usuario_id = d.usuario_id
@@ -78,6 +78,8 @@ $user_address = $result -> fetchAll();
     <?php
     if(isset($_SESSION['jefe'])){
       echo "<th>Dirección de mi unidad</th>";
+    }elseif(isset($_SESSION['trabajador'])){
+      echo "<th>Dirección de trabajo</th>";
     }
     ?>
     </tr>
@@ -98,7 +100,9 @@ $user_address = $result -> fetchAll();
 </table>
 
 <?php
-if(!$user_address){
+if(isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
+  echo "";//No es nada xD
+}elseif(!$user_address){
   echo "Usuario no presenta direcciones registradas";
 }else{
   echo "<table class=\"table\">";
