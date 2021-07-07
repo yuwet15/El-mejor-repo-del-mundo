@@ -4,7 +4,6 @@ include('templates/header.html');
 
 if (isset($_SESSION['rut'])){
 	include('templates/i_body_postlogin.html');
-	}	
 } else {
 	include('templates/i_body_prelogin.html');
 }
