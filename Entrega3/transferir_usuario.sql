@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION
 
-transferir_usuario(nombre varchar, rut varchar, edad integer, sexo varchar, cargo varchar)
+transferir_usuario(nombre varchar, rut_input varchar, edad integer, sexo varchar, cargo varchar)
 
 RETURNS VOID AS $$
 
@@ -13,8 +13,8 @@ BEGIN
 	MAX(usuario_id)
 	FROM usuarios;
 
-  IF rut NOT IN (SELECT rut FROM usuarios) THEN
-		INSERT INTO personal values (idmax + 1, nombre, rut, edad, sexo, NULL, cargo);
+  IF rut_input NOT IN (SELECT rut FROM usuarios) THEN
+		INSERT INTO personal values (idmax + 1, nombre, rut_input, edad, sexo, NULL, cargo);
 	END IF;
 
 END
