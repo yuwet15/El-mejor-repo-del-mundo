@@ -32,7 +32,7 @@ foreach ($id_compras as $id) {
   $result -> execute();
   $fecha = $result -> fetchAll();
   array_push($fecha_compras, [$counter => $fecha[0]]);
-  $counter = $counter + 1
+  $counter = $counter + 1;
 }
 
 $datos_compras = array();
