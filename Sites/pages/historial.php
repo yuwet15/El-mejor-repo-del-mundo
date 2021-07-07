@@ -35,9 +35,9 @@ foreach ($id_compras as $id) {
   $counter = $counter + 1;
 }
 $datos_compras = array();
-echo($fecha_compras[0][0][0]);
-ksort($fecha_compras);
-echo($fecha_compras[0][0][0]);
+
+krsort($fecha_compras);
+
 foreach ($fecha_compras as $f) {
   foreach ($f as $f2) {
     $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
