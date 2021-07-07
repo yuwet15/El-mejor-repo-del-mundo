@@ -12,7 +12,7 @@ if (isset($_SESSION['rut'])){
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
       <br>
-      Mostrar los 3 productos mas baratos por categoría
+      Mostrar los 3 productos mas baratos por categoría&nbsp;&nbsp;
       <input type="submit" value="Mostrar">
     </div>
   </div>
