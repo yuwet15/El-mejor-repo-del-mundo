@@ -10,7 +10,7 @@ if (isset($_SESSION['rut'])){
 <?php
 require("../config/conexion.php");
 
-$query = "SELECT nombre FROM tiendas;";
+$query = "SELECT id, nombre FROM tiendas;";
 
 	$result = $db -> prepare($query);
 	$result -> execute();
@@ -25,7 +25,7 @@ $query = "SELECT nombre FROM tiendas;";
   
       <?php
         foreach ($tiendas as $t) {
-          echo "<tr><td><a href='tiendas2.php?id={$t[0]->tienda_id}'>{$t[0]}</a></td></tr>";
+          echo "<tr><td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td></tr>";
       }
       ?>
       
