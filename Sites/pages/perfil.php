@@ -75,8 +75,9 @@ if (isset($_SESSION['jefe'])){
     <th>Rut</th>
     <?php
     if(isset($_SESSION['jefe'])){
-      echo "<th>>Dirección de mi unidad</th>"
-    }?>
+      echo "<th>>Dirección de mi unidad</th>";
+    }
+    ?>
     </tr>
   </thead>
   
@@ -84,9 +85,9 @@ if (isset($_SESSION['jefe'])){
     <?php
       foreach ($user_info as $i) {
           echo "<tr> <td>$i[0]</td> <td>$i[1]</td> 
-                <td>$i[2]</td>"
+                <td>$i[2]</td>";
           if(isset($_SESSION['jefe'])){
-            echo "<td>$i[3]</td>"
+            echo "<td>$i[3]</td>";
           }
           echo "</tr>";
       }
