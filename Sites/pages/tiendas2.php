@@ -17,6 +17,7 @@ if (isset($_SESSION['rut'])){
 </form>
 
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
+  <br>
   Nombre del producto:
   <input type="text" name="nombre">
   <input type="submit" value="Buscar">
