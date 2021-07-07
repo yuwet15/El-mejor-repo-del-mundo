@@ -43,15 +43,7 @@ if (isset($_SESSION['jefe'])){
   $result -> execute();
   $user_info = $result -> fetchAll();
 
-  $query = "SELECT DISTINCT c.direccion
-            FROM direcciones AS d, usuarios as u, comunas as c
-            WHERE u.usuario_id = d.usuario_id
-            AND d.direccion_id = c.direccion_id
-            AND u.rut = '".$_SESSION['rut']."'";
-
-  $result = $db -> prepare($query);
-  $result -> execute();
-  $user_address = $result -> fetchAll();
+  
 
   if(!$user_info){
     $query = "SELECT nombre, edad, rut
@@ -63,6 +55,16 @@ if (isset($_SESSION['jefe'])){
     $user_info = $result -> fetchAll();
   }
 }
+$query = "SELECT DISTINCT c.direccion
+          FROM direcciones AS d, usuarios as u, comunas as c
+          WHERE u.usuario_id = d.usuario_id
+          AND d.direccion_id = c.direccion_id
+          AND u.rut = '".$_SESSION['rut']."'";
+
+$result = $db -> prepare($query);
+$result -> execute();
+$user_address = $result -> fetchAll();
+
 
 ?>
 
@@ -97,7 +99,6 @@ if (isset($_SESSION['jefe'])){
 
 <?php
 if(!$user_address){
-  echo $user_address;
   echo "Usuario no presenta direcciones registradas";
 }else{
   echo "<table class=\"table\">";
