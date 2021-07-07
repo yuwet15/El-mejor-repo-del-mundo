@@ -11,7 +11,7 @@ if (isset($_SESSION['rut'])){
 } else {
 	include('templates/i_body_prelogin.html');
 }
-if (!isset($_SESSION['tablas_user'])){
+if (!isset($_SESSION['tablas_user____'])){
     include('config/conexion.php');
     
     $query = "SELECT crear_tabla()";
