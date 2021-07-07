@@ -47,26 +47,25 @@ if (isset($_SESSION['rut'])){
                 </thead>
                 
                 <?php
-                  $cat = [, 'NoComestible'];
-                  foreach ($cat as $c) {
-                    echo "Productos {$c}s";
-                    $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
-                    WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
-                    AND p.tipo='Comestible'
-                    ORDER BY p.precio LIMIT 3";
+                  $query = "SELECT p.nombre, p.precio, p.descripcion, p.producto_id FROM tiendas as t, catalogo as c, productos as p
+                  WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+                  AND p.tipo='Comestible'
+                  ORDER BY p.precio LIMIT 3";
 
-                    $result = $db -> prepare($query);
-                    $result -> execute();
-                    $productos = $result -> fetchAll();
-                  }
+                  $result = $db -> prepare($query);
+                  $result -> execute();
+                  $productos = $result -> fetchAll();
                 ?>
 
                 <tbody>
-                  <tr> 
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Descripción</th>
-                  </tr>
+                  <?php
+                  foreach ($productos as $p)
+             echo "<tr> 
+                    <th>$p[0]</th>
+                    <th>$p[1]</th>
+                    <th>$p[2]</th>
+                  </tr>"
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -83,7 +82,6 @@ if (isset($_SESSION['rut'])){
                 </thead>
                 
                 <?php
-                  echo "Productos {$c}s";
                   $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
                   WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
                   AND p.tipo='NoComestible'
