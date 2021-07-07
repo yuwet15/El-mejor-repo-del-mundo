@@ -53,6 +53,7 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
     $result = $db -> prepare($query);
     $result -> execute();
     $user_info = $result -> fetchAll();
+    echo($user_info);
   }
 }
 $query = "SELECT DISTINCT c.direccion
