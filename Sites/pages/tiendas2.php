@@ -60,7 +60,7 @@ if (isset($_SESSION['rut'])){
                   <?php
                   foreach ($productos as $p)
              echo "<tr> 
-                    <th>$p[0]</th>
+                    <th><a href='productos.php?id={$p[3]}'>$p[0]</a></th>
                     <th>$p[1]</th>
                     <th>$p[2]</th>
                   </tr>"
@@ -95,7 +95,7 @@ if (isset($_SESSION['rut'])){
                   <?php
                   foreach ($productos as $p)
              echo "<tr> 
-                    <th>$p[0]</th>
+                    <th><a href='productos.php?id={$p[3]}'>$p[0]</th>
                     <th>$p[1]</th>
                     <th>$p[2]</th>
                   </tr>"
@@ -126,7 +126,7 @@ if (isset($_SESSION['rut'])){
 <?php
   if (isset($_POST['buscar_n'])){
     $nombre = $_POST['nombre_producto'];
-    $query = "SELECT DISTINCT p.nombre, p.descripcion, p.tipo
+    $query = "SELECT DISTINCT p.nombre, p.descripcion, p.tipo, p.producto_id
     FROM compras as c, detalle as d, productos as p
     WHERE c.tienda_id=$id AND c.compra_id=d.compra_id AND d.producto_id=p.producto_id
     AND LOWER(p.nombre) LIKE LOWER('%$nombre%')";
@@ -153,7 +153,7 @@ if (isset($_SESSION['rut'])){
               $name = ucfirst($p[0]);
               $des = ucfirst($p[1]);
               echo "<tr> 
-                      <td>$name</td> 
+                      <td><a href='productos.php?id={$p[3]}'>$name</td> 
                       <td>$des</td> 
                       <td>$p[2]</td>
                     </tr>";
