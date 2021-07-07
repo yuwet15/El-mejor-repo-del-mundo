@@ -20,8 +20,9 @@ $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
 
+echo('hola');
 foreach ($id_compras as $id) {
-  echo('hola');
+  
   $query = "SELECT compra_id, fecha
             FROM despachos
             WHERE compra_id = $id[0] 
