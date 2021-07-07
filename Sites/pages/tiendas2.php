@@ -152,12 +152,12 @@ if (isset($_POST['login'])) {
     <br>
       Nombre del producto:
       <input type="text" name="nombre_producto">
-      <button class="btn btn-primary" name="buscar" value="buscar" type="submit">Buscar</button>
+      <button class="btn btn-primary" name="buscar_n" value="buscar_n" type="submit">Buscar</button>
     </div>
   </div>
 </form>
 <?php
-  if (isset($_POST['buscar'])){
+  if (isset($_POST['buscar_n'])){
     echo "Hola" ;
   }
 ?>
@@ -167,10 +167,13 @@ if (isset($_POST['login'])) {
     <br>
       ID del producto:
       <input type="text" name="id">
-      <input type="submit" value="Buscar">
+      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Buscar</button>
     </div>
   </div>
 </form>
-<?php 
-
+<?php
+  if (isset($_POST['buscar_i'])){
+    echo "Hola2" ;
+  }
+?>
 
