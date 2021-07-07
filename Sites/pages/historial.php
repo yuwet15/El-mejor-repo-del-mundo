@@ -32,6 +32,7 @@ foreach ($id_compras as $id) {
   $result -> execute();
   $fecha = $result -> fetchAll();
   echo($fecha[0][1]);
+  echo($fecha_compras);
   array_push($fecha_compras, $fecha[0]);
 }
 
