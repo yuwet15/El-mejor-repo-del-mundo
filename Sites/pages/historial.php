@@ -52,8 +52,8 @@ foreach ($fecha_compras as $f) {
   $result -> execute();
   $datos_compra = $result -> fetchAll();
   echo($datos_compra[0]);
-  array_push($datos_compra[0], $f[1]);
-  array_push($datos_compras, $datos_compra[0]);
+  $datos_compra[0][] = $f[1];
+  $datos_compras[] = $datos_compra[0];
 }
 
 ?>
