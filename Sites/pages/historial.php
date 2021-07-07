@@ -34,11 +34,10 @@ foreach ($id_compras as $id) {
   array_push($fecha_compras, [$counter => $fecha[0]]);
   $counter = $counter + 1;
 }
-
 $datos_compras = array();
-
+echo($fecha_compras[0][0]);
 ksort($fecha_compras);
-echo($fecha_compras[0]);
+
 foreach ($fecha_compras as $f) {
   echo($f[0]);
   echo($f[1]);
