@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
         $result -> execute();
      
         $result = $result -> fetchAll();
-        if($result[0][0] == 'Jefe'){
+        if($result[0][0] == 'administracion'){
           $_SESSION['jefe'] = TRUE;
         };
         header("Location: ../index.php");

@@ -13,6 +13,11 @@ if (isset($_SESSION['rut'])){
 }
 if (!isset($_SESSION['tablas_user'])){
     include('config/conexion.php');
+    
+    $query = "SELECT crear_tabla()";
+    $result = $db -> prepare($query);
+    $result -> execute();
+
     $query = "SELECT crear_tabla()";
     $result = $db -> prepare($query);
     $result -> execute();
@@ -37,13 +42,15 @@ if (!isset($_SESSION['tablas_user'])){
         $result -> execute();
     }
 
-    $query4 = " SELECT p.rut FROM Personal as p, Administracion as a 
-                WHERE a.id = p.id AND a.clasificacion = 'administracion'";
+    $query4 = " SELECT p.id, p.nombre, p.rut, p.edad, p.sexo, a.clasificacion 
+                FROM Personal as p, Administracion as a 
+                WHERE a.id = p.id";
     $result4 = $db2 -> prepare($query4);
     $result4 -> execute();
-    $result4 = $result4 -> fetchAll();
-    foreach ($result4 as $rut){
-        $query = "SELECT insertar_en_tabla('$rut[0]')";
+    $datos = $result4 -> fetchAll();
+    foreach ($datos as $d){
+        $query = "SELECT insertar_en_tabla('$d[2]'), 
+                  transferir_usuario('$d[0]', '$d[1]', '$d[2]', '$d[3]', '$d[4]', '$d[5]'";
         $result = $db -> prepare($query);
         $result -> execute();
     }
