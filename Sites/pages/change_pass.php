@@ -9,14 +9,30 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
-<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
+<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="change_pass_redirect.php" novalidate>
   <div><h2>Cambiar contraseña</div>
   <div class="row g-3 justify-content-center">
     <div class="col-auto">
-      <label for="inputPassword6" class="col-form-label">Password</label>
+      <label for="inputPassword6" class="col-form-label">Clave actual</label>
     </div>
     <div class="col-auto">
-      <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+      <input type="password" name="actual_pass"  id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
+    </div>
+  </div>
+  <div class="row g-3 justify-content-center">
+    <div class="col-auto">
+      <label for="inputPassword6" class="col-form-label">Nueva Clave</label>
+    </div>
+    <div class="col-auto">
+      <input type="password" name="new_pass"  id="new_pass" class="form-control" aria-describedby="passwordHelpInline" required>
+    </div>
+  </div>
+  <div class="row g-3 justify-content-center">
+    <div class="col-auto">
+      <label for="inputPassword6" class="col-form-label">Confirme Clave</label>
+    </div>
+    <div class="col-auto">
+      <input type="password" name="confirm_pass"  id="confirm_pass" class="form-control" aria-describedby="passwordHelpInline" required>
     </div>
   </div>
 
