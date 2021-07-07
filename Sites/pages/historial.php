@@ -19,7 +19,7 @@ $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
-echo($id_compras[0]);
+echo($id_compras);
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
