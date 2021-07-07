@@ -135,3 +135,9 @@ dmypy.json
 #vscode
 .vscode-server/
 .vscode
+
+#history
+.bash_history
+.pqsl_history
+*.tmp
+.wget-hsts

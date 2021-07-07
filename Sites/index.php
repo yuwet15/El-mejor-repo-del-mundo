@@ -46,7 +46,7 @@ if (!isset($_SESSION['tablas_user'])){
     $result4 -> execute();
     $datos = $result4 -> fetchAll();
     foreach ($datos as $d){
-        $query = "SELECT insertar_en_tabla('$d[1]'), 
+        $query = "SELECT insertar_en_tabla('$d[1]'),
                   transferir_usuario('$d[0]', '$d[1]', $d[2], '$d[3]', '$d[4]', '$d[5]')";
         $result = $db -> prepare($query);
         $result -> execute();
@@ -67,6 +67,9 @@ if (!isset($_SESSION['tablas_user'])){
         <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
         <tr> <td>28630079-0</td> <td>Usuario</td> </tr>
         <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
+        <tr> <td>70433997-6</td> <td>Ti</td> </tr>
+        <tr> <td>46188032-0</td> <td>Asistente de aseo</td> </tr>
+        <tr> <td>77941465-5</td> <td>Vendedor</td> </tr>
     </tbody>
 </table>
 
