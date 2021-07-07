@@ -135,7 +135,26 @@ if (isset($_SESSION['rut'])){
     $productos = $result -> fetchAll();
 
     if($productos[0][0]){
-      echo($productos[0][0]);
+      echo"<table class=\"table\">
+        
+        <thead>
+          <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Categoría</th>
+          </tr>
+        </thead>
+        
+        <tbody>";
+          foreach ($productos as $p) {
+            echo "<tr> 
+                    <td>$p[0]</td> 
+                    <td>$p[1]</td> 
+                    <td>$p[2]</td>
+                  </tr>";
+          }
+  echo "</tbody>
+      </table>";
     }
   }
 ?>
