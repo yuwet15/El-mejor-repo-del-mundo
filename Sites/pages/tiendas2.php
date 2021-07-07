@@ -49,7 +49,7 @@ else {
 ?>
 
 <?php 
-  $id = $_GET['id']
+  $id = $_GET['id'];
   echo "<tr><td>{$id}</tr></td>";
 ?>
 
