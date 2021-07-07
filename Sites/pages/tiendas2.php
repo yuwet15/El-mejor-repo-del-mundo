@@ -26,11 +26,11 @@ if (isset($_SESSION['rut'])){
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" accordion-padding-y=>
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
         Mostrar los 3 productos mas baratos por categoría
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapsed" aria-labelledby="headingOne" data-bs-parent="#mostrar_p">
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#mostrar_p">
       <div class="accordion-body">
         <div class="container">
           <div class="row">
