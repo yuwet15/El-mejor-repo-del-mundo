@@ -26,8 +26,13 @@ if (isset($_SESSION['rut'])){
 			<td>$i[0]</td> 
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
-	        <td><input type="number" class="form-control" name="ca" id="ca" min="0" max="1">
-	        	<button class="btn btn-primary" type="submit">Button</button><td>
+	        <td>
+	        	<div class="form-group w-25">
+	        		<input type="number" class="form-control" name="ca" id="ca" min="0" max="1">
+	        		<button class="btn btn-primary" type="submit">Button</button>
+	        	</div>
+	        <td>
+
 	    </tr>
 	  </tbody>
 	</table>
