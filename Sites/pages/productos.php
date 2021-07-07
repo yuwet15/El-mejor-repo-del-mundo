@@ -12,7 +12,6 @@ include('../config/conexion.php');
 
 $product_id = $_GET['id'];
 $product_id = intval($product_id);
-echo "$product_id";
 
 $query = "SELECT p.tipo
           FROM productos AS p
@@ -21,7 +20,7 @@ $query = "SELECT p.tipo
 $result = $db -> prepare($query);
 $result -> execute();
 $tipo = $result -> fetchAll();
-
+echo "$tipo[0]";
 if ($tipo[0][0] == 'Comestible') {
 	
 	$query = "SELECT c.categoria
