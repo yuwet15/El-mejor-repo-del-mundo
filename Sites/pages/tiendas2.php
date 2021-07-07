@@ -155,11 +155,13 @@ if (isset($_POST['login'])) {
       <button class="btn btn-primary" name="buscar" value="buscar" type="submit">Buscar</button>
     </div>
   </div>
-  <?php
-    if (isset($_POST['buscar'])){
-      echo($_POST['nombre_producto']);
-    }
-  ?>
+</form>
+<?php
+  if (isset($_POST['buscar'])){
+    echo "Hola" ;
+  }
+?>
+<form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
     <br>
