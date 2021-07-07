@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
     }
 
 
-    $query = "SELECT cambiar('$user', '$password')";
+    $query = "SELECT cambiar('$user', '$password', '$new_pass')";
     $result = $db -> prepare($query);
     $result -> execute();
  
