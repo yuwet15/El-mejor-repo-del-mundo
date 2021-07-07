@@ -82,7 +82,7 @@ if (isset($_SESSION['rut'])){
                 </thead>
                 
                 <?php
-                  $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
+                  $query = "SELECT p.nombre, p.precio, p.descripcion, p.producto_id FROM tiendas as t, catalogo as c, productos as p
                   WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
                   AND p.tipo='NoComestible'
                   ORDER BY p.precio LIMIT 3";
@@ -90,15 +90,17 @@ if (isset($_SESSION['rut'])){
                   $result = $db -> prepare($query);
                   $result -> execute();
                   $productos = $result -> fetchAll();
-                
                 ?>
 
                 <tbody>
-                  <tr> 
-                    <td>pr</td> 
-                    <td>[2]</td> 
-                    <td>$comuna</td> 
-                  </tr>
+                  <?php
+                  foreach ($productos as $p)
+             echo "<tr> 
+                    <th>$p[0]</th>
+                    <th>$p[1]</th>
+                    <th>$p[2]</th>
+                  </tr>"
+                  ?>
                 </tbody>
               </table>
             </div>
