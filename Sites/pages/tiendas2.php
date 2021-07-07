@@ -1,12 +1,17 @@
 <?php 
 session_start();
 if (isset($_GET['id'])) {
-  echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
   $id = (int)$_GET['id'];
-  require("../config/conexion.php"); 
-}
-else {
-  header("Location: ../index.php");
+  require("../config/conexion.php");
+
+  $query = "SELECT t.id FROM tiendas as t WHERE t.id=$id";
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $r = $result -> fetchAll();
+
+  if (!$r) {
+    header("Location: ../index.php");
+  }
 }
 
 if (isset($_SESSION['rut'])){
