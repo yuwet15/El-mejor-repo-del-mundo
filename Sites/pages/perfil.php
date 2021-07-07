@@ -75,7 +75,7 @@ if (isset($_SESSION['jefe'])){
     <th>Rut</th>
     <?php
     if(isset($_SESSION['jefe'])){
-      echo "<th>>Dirección de mi unidad</th>";
+      echo "<th>Dirección de mi unidad</th>";
     }
     ?>
     </tr>
@@ -97,6 +97,7 @@ if (isset($_SESSION['jefe'])){
 
 <?php
 if(!$user_address){
+  echo $user_address;
   echo "Usuario no presenta direcciones registradas";
 }else{
   echo "<table class=\"table\">";
