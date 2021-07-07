@@ -109,41 +109,7 @@ if (isset($_SESSION['rut'])){
       </div>
     </div>
 <?php
-if (isset($_POST['login'])) {   
-    //session_start();
-    
-    $username = $_POST['rut'];
-    $password = $_POST['password'];
-    $query = "SELECT login('$username', '$password')";
-    $result = $db -> prepare($query);
-    $result -> execute();
- 
-    $result = $result -> fetchAll();
-    if ($result[0][0] == 'Password incorrect') {
-        $_SESSION['pass_inc'] = TRUE;
-        header("Location: login.php");
-    } elseif ($result[0][0] == 'Success') {
-        $_SESSION['rut'] = $username;
-        //Falta comprobar si es o no jefe
-        $query = "SELECT cargo FROM Usuarios WHERE rut = '$username'"; 
-        $result = $db -> prepare($query);
-        $result -> execute();
-     
-        $result = $result -> fetchAll();
-        if(!$result[0][0]){
-            header("Location: ../index.php");
-        }elseif($result[0][0] == 'administracion'){
-            $_SESSION['jefe'] = TRUE;
-        }elseif ($result[0][0] != 'usuario') {
-            $_SESSION['trabajador'] = TRUE;
-        };
-        header("Location: ../index.php");
-    } else {
-        $_SESSION['no_user'] = TRUE;
-        header("Location: login.php");
-    }
-}
- 
+
 ?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   
@@ -158,7 +124,7 @@ if (isset($_POST['login'])) {
 </form>
 <?php
   if (isset($_POST['buscar_n'])){
-    echo "Hola" ;
+    echo ($_POST['nombre_producto']) ;
   }
 ?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
@@ -166,14 +132,14 @@ if (isset($_POST['login'])) {
     <div class='col-auto' style="text-align:center">
     <br>
       ID del producto:
-      <input type="text" name="id">
+      <input type="text" name="id_producto">
       <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Buscar</button>
     </div>
   </div>
 </form>
 <?php
   if (isset($_POST['buscar_i'])){
-    echo "Hola2" ;
+    echo ($_POST['id_producto']) ;
   }
 ?>
 
