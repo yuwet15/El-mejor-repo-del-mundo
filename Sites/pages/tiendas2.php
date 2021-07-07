@@ -32,24 +32,51 @@ if (isset($_SESSION['rut'])){
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#mostrar_p">
       <div class="accordion-body">
-        <table class="table table-hover table-striped">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+               <table class="table table-hover table-striped">
   
-          <thead>
-            <tr>
-            <th>Producto</th>
-            <th>Categoria</th>
-            <th>blabla</th>
-            </tr>
-          </thead>
-          
-          <tbody>
-            <tr> 
-              <td>pr</td> 
-              <td>[2]</td> 
-              <td>$comuna</td> 
-            </tr>
-          </tbody>
-        </table>
+                <thead>
+                  <tr>
+                  <th>Producto</th>
+                  <th>Categoria</th>
+                  <th>blabla</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr> 
+                    <td>pr</td> 
+                    <td>[2]</td> 
+                    <td>$comuna</td> 
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+               <table class="table table-hover table-striped">
+  
+                <thead>
+                  <tr>
+                  <th>Producto</th>
+                  <th>Categoria</th>
+                  <th>blabla</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr> 
+                    <td>pr</td> 
+                    <td>[2]</td> 
+                    <td>$comuna</td> 
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+       
       </div>
     </div>
 
