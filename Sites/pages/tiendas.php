@@ -20,7 +20,7 @@ $result -> execute();
 $tiendas = $result -> fetchAll();
 ?>
 
-<table class="table">
+<table class="table-danger table-hover">
   
   <thead>
     <tr>
