@@ -22,30 +22,6 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
-<a
-  class="btn btn-primary"
-  data-mdb-toggle="collapse"
-  href="#mostrar"
-  role="button"
-  aria-expanded="false"
-  aria-controls="mostrar"
->
-  Mostrar los 3 productos mas baratos por categoría
-</a>
-
-<div class="collapse mt-3" id="mostrar">
-  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-  squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-  sapiente ea proident.
-</div>
-
-
-
-
-
-
-
-
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
