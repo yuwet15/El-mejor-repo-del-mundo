@@ -12,7 +12,7 @@ if (isset($_SESSION['rut'])){
 if (isset($_GET['id'])) {
 
   $id = $_GET['id'];
-  print_r($id);
+  print_r('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
 ?>
 
 
