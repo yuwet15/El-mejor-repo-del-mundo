@@ -32,7 +32,8 @@ if (isset($_SESSION['rut'])){
       <label for="inputPassword6" class="col-form-label">Confirme Clave</label>
     </div>
     <div class="col-auto">
-      <input type="password" name="confirm_pass"  id="confirm_pass" class="form-control" aria-describedby="passwordHelpInline" required>
+      <input type="password" name="confirm_pass"  id="confirm_pass" class="form-control" aria-describedby="passwordHelpInline" onkeyup="check()" required>
+      <span id='message'></span>
     </div>
   </div>
 
