@@ -5,7 +5,7 @@ include('../config/conexion.php');
  
 if (isset($_POST['login'])) {   
     //session_start();
-    
+    $user = $_SESSION['rut']
     $password = $_POST['actual_pass'];
     $new_pass = $_POST['new_pass'];
     $confirm_pass = $_POST['confirm_pass'];
@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
     }
 
 
-    $query = "SELECT cambiar(\"$_SESSION['rut']\", '$password')";
+    $query = "SELECT cambiar('$user', '$password')";
     $result = $db -> prepare($query);
     $result -> execute();
  
