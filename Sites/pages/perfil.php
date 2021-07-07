@@ -43,7 +43,6 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
   $result -> execute();
   $user_info = $result -> fetchAll();
 
-  echo "s";
 
   if(!$user_info){
     $query = "SELECT nombre, edad, rut
@@ -53,7 +52,6 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
     $result = $db -> prepare($query);
     $result -> execute();
     $user_info = $result -> fetchAll();
-    echo("f");
   }
 }
 $query = "SELECT DISTINCT c.direccion
