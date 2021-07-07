@@ -8,9 +8,9 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
-<?php 
+<?php
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+  $id = (int)$_GET['id'];
 ?>
 
 
@@ -22,6 +22,21 @@ if (isset($_GET['id'])) {
       Mostrar los 3 productos mas baratos por categoría&nbsp;
       <input type="submit" value="Mostrar">
     </div>
+    <?php
+      $cat = ['Comestible', 'NoComestible']
+      foreach ($cat as $c) {
+        echo "Productos {$c}"
+        $query = "SELECT DISTINCT productos.nombre FROM tiendas as t, catalogo as c, productos as p
+          WHERE c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+          AND t.tienda_id=$id AND p.tipo=$c
+          ORDER BY p.precio
+          LIMIT 3;";
+      }
+      
+      $result = $db -> prepare($query);
+      $result -> execute();
+      $productos = $result -> fetchAll();
+    ?>
   </div>
   
   <div class='row g-4 justify-content-center'>
