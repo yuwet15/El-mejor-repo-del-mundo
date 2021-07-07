@@ -15,6 +15,7 @@ $query = "SELECT nombre FROM tiendas;";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$tiendas = $result -> fetchAll();
+  echo $tiendas;
   ?>
 
 <table>
@@ -24,7 +25,6 @@ $query = "SELECT nombre FROM tiendas;";
   
       <?php
         foreach ($tiendas as $t) {
-          echo $t;
           echo "<tr><td><a href='tiendas2.php?id={$t['tienda_id']}'>{$t[0]}</a></td></tr>";
       }
       ?>
