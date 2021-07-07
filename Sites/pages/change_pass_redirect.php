@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
     }
 
 
-    $query = "SELECT cambiar('$username', '$password')";
+    $query = "SELECT cambiar(\"$_SESSION['rut']\", '$password')";
     $result = $db -> prepare($query);
     $result -> execute();
  
