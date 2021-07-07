@@ -9,7 +9,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
-  <div class='col-auto' style="text-align:center">
+  <div class='col-auto' style="text-align:left">
     <p >Mostrar los 3 productos mas baratos por categoría</p>
     <button type="button" class="btn btn-dark">Mostrar</button>
   </div>
