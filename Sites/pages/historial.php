@@ -31,7 +31,7 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  echo($fecha[0]);
+  echo($fecha[0][0]);
   array_push($fecha_compras, $fecha[0]);
 }
 
