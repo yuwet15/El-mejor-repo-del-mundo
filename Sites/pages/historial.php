@@ -37,7 +37,7 @@ foreach ($id_compras as $id) {
 $datos_compras = array();
 echo($fecha_compras[0][0][0]);
 ksort($fecha_compras);
-
+echo($fecha_compras[0][0][0]);
 foreach ($fecha_compras as $f) {
 
   $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
