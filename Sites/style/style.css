@@ -22,4 +22,6 @@ label {
 h2{
   text-align: center;
 }
-#accordion {text-align: center;};
+.accordion-button{
+    display:block;
+}
