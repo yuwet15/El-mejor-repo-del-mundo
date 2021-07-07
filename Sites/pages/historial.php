@@ -20,20 +20,24 @@ $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
+$counter = 0
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
             FROM despachos
             WHERE compra_id = $id[0] 
-            ORDER BY STR_TO_DATE(fecha, '%M %d, %Y') DESC";
+            ORDER BY fecha DESC";
 
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  array_push($fecha_compras, $fecha[0]);
+  array_push($fecha_compras, [$counter => $fecha[0]]);
+  $counter = $counter + 1
 }
 
 $datos_compras = array();
+
+$fecha_compras = ksort($fecha_compras);
 
 foreach ($fecha_compras as $f) {
   echo($f[0]);
