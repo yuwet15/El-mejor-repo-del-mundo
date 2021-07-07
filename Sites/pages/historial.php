@@ -30,8 +30,6 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  echo($fecha[0][1]);
-  echo($fecha_compras);
   $fecha_compras[] = $fecha[0];
 }
 
@@ -51,8 +49,6 @@ foreach ($fecha_compras as $f) {
   $result = $db -> prepare($query);
   $result -> execute();
   $datos_compra = $result -> fetchAll();
-  echo($datos_compra[0]);
-  $datos_compra[0][] = $f[1];
   $datos_compras[] = $datos_compra[0];
 }
 
