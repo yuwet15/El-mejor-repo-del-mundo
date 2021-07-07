@@ -46,7 +46,7 @@ if (isset($_SESSION['rut'])){
       echo '<p class="error">Contraseña actual incorrecta</p>';
       unset($_SESSION['pass_inc']);
     } elseif (isset($_SESSION['success'])) {
-      echo '<p>Contraseña cambiada correctamente</p>'
+      echo '<p>Contraseña cambiada correctamente</p>';
       unset($_SESSION['success']);
     }
   ?>
