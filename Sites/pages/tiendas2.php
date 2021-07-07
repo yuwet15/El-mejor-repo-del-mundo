@@ -22,16 +22,16 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
-<button
+<a
   class="btn btn-primary"
-  type="button"
   data-mdb-toggle="collapse"
-  data-mdb-target="#mostrar"
+  href="#mpstrar"
+  role="button"
   aria-expanded="false"
-  aria-controls="collapseExample"
+  aria-controls="mostrar"
 >
   Mostrar los 3 productos mas baratos por categoría
-</button>
+</a>
 
 <div class="collapse mt-3" id="mostrar">
   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
