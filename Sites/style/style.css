@@ -25,3 +25,6 @@ h2{
 .accordion-button{
     display:block;
 }
+.accordion-flush{
+    background-color: #FF1919;
+}
