@@ -17,7 +17,13 @@ $result = $db -> prepare($query);
 $result -> execute();
 $user_info = $result -> fetchAll();
 if(!$user_info){
-  echo "prueba";
+  $query = "SELECT nombre, edad, rut
+          FROM Personal, 
+          WHERE rut = '".$_SESSION['rut']."'";
+
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $user_info = $result -> fetchAll();
 }
 
 $query = "SELECT DISTINCT c.direccion
