@@ -31,11 +31,11 @@ if (isset($_GET['id'])) {
           AND t.tienda_id=$id AND p.tipo=$c
           ORDER BY p.precio
           LIMIT 3;";
-      }
       
       $result = $db -> prepare($query);
       $result -> execute();
       $productos = $result -> fetchAll();
+      }
     ?>
   </div>
   
