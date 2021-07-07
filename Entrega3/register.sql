@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION
 
 -- declaramos la función y sus argumentos
-register(nombre varchar, rut_u varchar, edad int, sexo varchar, direccion_n varchar)
+register(nombre varchar, rut_u varchar, edad int, sexo varchar, direccion_n varchar, cargo_u varchar)
 
 -- declaramos lo que retorna 
 RETURNS VARCHAR(20) AS $$
@@ -21,7 +21,7 @@ BEGIN
         IF direccion_n not in (select direccion FROM Comunas) THEN
             RETURN 'No_direccion';
         ELSE
-            INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo);
+            INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo, cargo_u);
             SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
             INSERT INTO direcciones values(direc_id, idmax + 1);
             RETURN 'TRUE';
