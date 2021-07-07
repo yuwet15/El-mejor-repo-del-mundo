@@ -20,7 +20,7 @@ $query = "SELECT p.tipo
 $result = $db -> prepare($query);
 $result -> execute();
 $tipo = $result -> fetchAll();
-
+echo ($tipo[0][0]);
 if ($tipo[0][0] == 'Comestible') {
 	
 	$query = "SELECT c.categoria
