@@ -108,18 +108,58 @@ if (isset($_SESSION['rut'])){
        
       </div>
     </div>
-
+<?php
+if (isset($_POST['login'])) {   
+    //session_start();
+    
+    $username = $_POST['rut'];
+    $password = $_POST['password'];
+    $query = "SELECT login('$username', '$password')";
+    $result = $db -> prepare($query);
+    $result -> execute();
+ 
+    $result = $result -> fetchAll();
+    if ($result[0][0] == 'Password incorrect') {
+        $_SESSION['pass_inc'] = TRUE;
+        header("Location: login.php");
+    } elseif ($result[0][0] == 'Success') {
+        $_SESSION['rut'] = $username;
+        //Falta comprobar si es o no jefe
+        $query = "SELECT cargo FROM Usuarios WHERE rut = '$username'"; 
+        $result = $db -> prepare($query);
+        $result -> execute();
+     
+        $result = $result -> fetchAll();
+        if(!$result[0][0]){
+            header("Location: ../index.php");
+        }elseif($result[0][0] == 'administracion'){
+            $_SESSION['jefe'] = TRUE;
+        }elseif ($result[0][0] != 'usuario') {
+            $_SESSION['trabajador'] = TRUE;
+        };
+        header("Location: ../index.php");
+    } else {
+        $_SESSION['no_user'] = TRUE;
+        header("Location: login.php");
+    }
+}
+ 
+?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
     <br>
       Nombre del producto:
-      <input type="text" name="nombre">
-      <input type="submit" value="Buscar">
+      <input type="text" name="nombre_producto">
+      <button class="btn btn-primary" name="buscar" value="buscar" type="submit">Buscar</button>
     </div>
   </div>
-
+  <?php
+    if (isset($_POST['buscar'])){
+      echo($_POST['nombre_producto']);
+    }
+  ?>
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
     <br>
