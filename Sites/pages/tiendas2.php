@@ -1,18 +1,20 @@
 <?php 
 session_start();
+if (isset($_GET['id'])) {
+  echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+  $id = (int)$_GET['id'];
+  require("../config/conexion.php"); 
+}
+else {
+  header("Location: ../index.php");
+}
+
 if (isset($_SESSION['rut'])){
   include('../templates/header.html');   
   include('../templates/body_postlogin.html'); 
 } else {
   header("Location: ../index.php");
 }
-?>
-
-<?php
-if (isset($_GET['id'])) {
-  // echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
-  $id = (int)$_GET['id'];
-  require("../config/conexion.php"); 
 ?>
 
 
@@ -60,10 +62,5 @@ if (isset($_GET['id'])) {
   </div>
 </form>
 <?php 
-}
 
-else {
-  header("Location: ../index.php");
-}
-?>
 
