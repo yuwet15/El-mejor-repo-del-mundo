@@ -119,6 +119,7 @@ if (isset($_SESSION['rut'])){
       Nombre del producto:
       <input type="text" name="nombre_producto">
       <button class="btn btn-primary" name="buscar_n" value="buscar_n" type="submit">Buscar</button>
+      <button class="btn btn-primary" name="limpiar_n" value="limpiar_n" type="submit">Limpiar</button>
     </div>
   </div>
 </form>
