@@ -22,7 +22,7 @@ $result -> execute();
 $tipo = $result -> fetchAll();
 echo ($tipo[0][0]);
 if ($tipo[0][0] == 'Comestible') {
-	
+	echo ('hola');
 	$query = "SELECT c.categoria
             FROM comestibles AS c
             WHERE c.producto_id = $product_id";
