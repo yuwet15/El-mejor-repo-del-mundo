@@ -34,7 +34,8 @@ $tiendas = $result -> fetchAll();
   <tbody>
     <?php
       foreach ($tiendas as $t) {
-          echo "<tr> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$t[3]</td> <td>$t[4]</td>";
+        $comuna = ucwords($t[3]);
+        echo "<tr> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$comuna</td> <td>$t[4]</td>";
       }
     ?>
   </tbody>
