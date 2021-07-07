@@ -24,7 +24,7 @@ $query = "SELECT nombre FROM tiendas;";
   
       <?php
         foreach ($tiendas as $t) {
-          echo "<a href="tiendas2.php">{$t[0]}</a>";
+          echo "<a href='tiendas2.php'>{$t[0]}</a>";
       }
       ?>
       
