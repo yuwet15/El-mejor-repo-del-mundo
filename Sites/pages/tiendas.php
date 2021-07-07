@@ -12,7 +12,7 @@ require("../config/conexion.php");
 
 $query = "SELECT t.tienda_id, t.nombre, c.direccion, c.comuna, p.nombre
         FROM tiendas as t, comunas as c, personal as p
-        WHERE t.tienda_id = p.tienda_id AND  t.direccion_id = c.direccion_id
+        WHERE t.tienda_id = p.tienda_id AND  t.direccion_id = c.direccion_id AND p.cargo = 'Jefe'
         ORDER BY t.tienda_id;";
 
 $result = $db -> prepare($query);
