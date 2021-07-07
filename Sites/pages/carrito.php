@@ -27,10 +27,14 @@ if (isset($_SESSION['rut'])){
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
 	        <td>
-	        	<div class="form-group col-auto w-25">
-	        		<input type="number" class="form-control" name="ca" id="ca" min="0" max="1">
-	        		<button class="btn btn-primary" type="submit">Button</button>
-	        	</div>
+	        	<form class="form-inline justify-content-center" method="post">
+		          <div class="input-group">
+		            <input type="number" name="numDays" id="numDays" class="numDays form-control">
+		            <span class="input-group-btn">
+		          		<button type="submit" name="button" class="btn btn-success" id="bt">Click <i class="fa fa-angle-right"></i></button>
+		          	</span>
+		          </div>
+		        </form>
 	        <td>
 
 	    </tr>
