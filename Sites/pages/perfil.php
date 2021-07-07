@@ -16,6 +16,9 @@ $query = "SELECT nombre, edad, rut
 $result = $db -> prepare($query);
 $result -> execute();
 $user_info = $result -> fetchAll();
+if(!$user_info){
+  echo "prueba";
+}
 
 $query = "SELECT DISTINCT c.direccion
           FROM direcciones AS d, usuarios as u, comunas as c
