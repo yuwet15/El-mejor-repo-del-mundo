@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
   $result -> execute();
   $r = $result -> fetchAll();
 
-  if (!$r[0][0] != $id) {
+  if ($r[0][0] != $id) {
     echo $id;
     echo '\n';
     echo $r[0][0];
