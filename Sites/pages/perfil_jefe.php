@@ -12,13 +12,13 @@ if (isset($_SESSION['rut'])){
 }
 require("../config/conexion.php");
 
-$query = "SELECT u.nombre, u.edad, u.rut, c.direccion
+$query = "SELECT u.nombre, u.edad, u.rut, u.direccion
           FROM direcciones AS d, usuarios AS u, comunas AS c
           WHERE u.usuario_id = d.usuario_id
           AND d.direccion_id = c.direccion_id
           AND u.rut = '".$_SESSION['rut']."'";
 
-$result = $db2 -> prepare($query);
+$result = $db -> prepare($query);
 $result -> execute();
 $info = $result -> fetchAll();
 
