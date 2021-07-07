@@ -13,14 +13,14 @@ require('../config/conexion.php');
 $query = "SELECT c.compra_id
           FROM usuarios AS u, compras AS c
           WHERE u.usuario_id = c.usuario_id
-          AND u.rut = '28630079-0'";
+          AND u.rut = '".$_SESSION['rut']."'";
 
 $result = $db -> prepare($query);
 $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
-echo($id_compras[0]);
+echo($id_compras[0][0]);
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
@@ -51,8 +51,8 @@ foreach ($fecha_compras as $f) {
   $result = $db -> prepare($query);
   $result -> execute();
   $datos_compra = $result -> fetchAll();
-
-  array_push($datos_compra[0], f[1]);
+  echo($datos_compra[0]);
+  array_push($datos_compra[0], $f[1]);
   array_push($datos_compras, $datos_compra[0]);
 }
 
