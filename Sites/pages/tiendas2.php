@@ -4,15 +4,15 @@ if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
   require("../config/conexion.php");
 
-  $query = "SELECT t.id FROM tiendas as t WHERE t.id=$id";
+  $query = "SELECT t.tienda_id FROM tiendas as t WHERE t.tienda_id=$id";
   $result = $db -> prepare($query);
   $result -> execute();
   $r = $result -> fetchAll();
 
-  if ($r[0][0] != $id) {
-    echo $id;
-    echo '\n';
-    echo $r[0][0];
+  if (!$r[0][0]) {
+    // echo $id;
+    // echo '\n';
+    // echo $r[0][0];
     header("Location: ../index.php");
   }
 }
