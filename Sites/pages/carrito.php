@@ -26,7 +26,7 @@ if (isset($_SESSION['rut'])){
 			<td>$i[0]</td> 
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
-	        <td>
+	        <td style="width:10%;">
 	        	<form class="form-inline justify-content-center w-25" method="post">
 		          <div class="input-group">
 		            <input type="number" name="numDays" id="numDays" class="numDays form-control">
