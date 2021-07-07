@@ -10,7 +10,9 @@ if (isset($_GET['id'])) {
   $r = $result -> fetchAll();
 
   if ($r[0][0] != $id) {
-    echo "AAAAAAAAAAAAAAAAAAAAAA";
+    echo $id;
+    echo '\n';
+    echo $r[0][0];
     header("Location: ../index.php");
   }
 }
