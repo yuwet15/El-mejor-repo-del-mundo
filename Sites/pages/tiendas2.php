@@ -1,12 +1,11 @@
 <?php 
 session_start();
-$_SESSION['previous_location'] = 'tiendas2.php';
 
 
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
   require("../config/conexion.php");
-
+  $_SESSION['previous_location'] = 'tiendas2.php?id=$id';
   $query = "SELECT t.tienda_id FROM tiendas as t WHERE t.tienda_id=$id";
   $result = $db -> prepare($query);
   $result -> execute();
