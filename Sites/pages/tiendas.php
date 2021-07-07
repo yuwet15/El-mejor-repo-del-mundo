@@ -10,24 +10,35 @@ if (isset($_SESSION['rut'])){
 <?php
 require("../config/conexion.php");
 
-$query = "SELECT tienda_id, nombre FROM tiendas;";
+$query = "SELECT t.tienda_id, t.nombre, c.direccion, c.comuna, p.nombre
+        FROM tiendas as t, comunas as c, personal as p
+        WHERE t.tienda_id = p.tienda_id AND  t.direccion_id = c.direccion_id AND p.cargo = 'Jefe'
+        ORDER BY t.tienda_id;";
 
-	$result = $db -> prepare($query);
-	$result -> execute();
-	$tiendas = $result -> fetchAll();
-  ?>
+$result = $db -> prepare($query);
+$result -> execute();
+$tiendas = $result -> fetchAll();
+?>
 
-<table>
-    <tr>
-      <th>Tiendas</th>
-    </tr>
+<table class="table">
   
-      <?php
-        foreach ($tiendas as $t) {
-          echo "<tr><td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td></tr>";
+  <thead>
+    <tr>
+    <th>Nombre de tienda</th>
+    <th>Direccion</th>
+    <th>Comuna</th>
+    <th>Jefe</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <?php
+      foreach ($tiendas as $t) {
+        $comuna = ucwords($t[3]);
+        echo "<tr> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$comuna</td> <td>$t[4]</td>";
       }
-      ?>
-      
-  </table>
+    ?>
+  </tbody>
+</table>
 
 

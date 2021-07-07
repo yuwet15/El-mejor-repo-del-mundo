@@ -1,17 +1,25 @@
 <?php 
 session_start();
+if (isset($_GET['id'])) {
+  $id = (int)$_GET['id'];
+  require("../config/conexion.php");
+
+  $query = "SELECT t.tienda_id FROM tiendas as t WHERE t.tienda_id=$id";
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $r = $result -> fetchAll();
+
+  if ($r[0][0] != $id) {
+    header("Location: ../index.php");
+  }
+}
+
 if (isset($_SESSION['rut'])){
   include('../templates/header.html');   
   include('../templates/body_postlogin.html'); 
 } else {
   header("Location: ../index.php");
 }
-?>
-
-<?php
-if (isset($_GET['id'])) {
-  $id = (int)$_GET['id'];
-  require("../config/conexion.php"); 
 ?>
 
 
@@ -59,10 +67,5 @@ if (isset($_GET['id'])) {
   </div>
 </form>
 <?php 
-}
 
-else {
-  header('Location: ../../index.php');
-}
-?>
 
