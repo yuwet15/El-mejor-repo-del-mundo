@@ -27,8 +27,8 @@ if (isset($_SESSION['rut'])){
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
 	        <td>
-	        	<form class="form-inline justify-content-center" method="post">
-		          <div class="input-group w-25">
+	        	<form class="form-inline justify-content-center w-25" method="post">
+		          <div class="input-group">
 		            <input type="number" name="numDays" id="numDays" class="numDays form-control">
 		            <span class="input-group-btn">
 		          		<button type="submit" name="button" class="btn btn-success" id="bt">Click <i class="fa fa-angle-right"></i></button>
