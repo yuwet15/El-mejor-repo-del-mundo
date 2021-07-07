@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
     } elseif ($result[0][0] == 'Success') {
         $_SESSION['rut'] = $username;
         //Falta comprobar si es o no jefe
-        $query = "SELECT cargo FROM Personal WHERE rut = '$username'"; 
+        $query = "SELECT cargo FROM Usuarios WHERE rut = '$username'"; 
         $result = $db -> prepare($query);
         $result -> execute();
      
