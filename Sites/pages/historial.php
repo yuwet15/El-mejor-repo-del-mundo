@@ -30,13 +30,15 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  $fecha_compras[] = $fecha[0];
+  array_push($fecha_compras, $fecha[0]);
 }
 
 $datos_compras = array();
 
 foreach ($fecha_compras as $f) {
-  
+
+  echo($f[0]);
+  echo($f[1]);
   $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
             FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
             WHERE c.compra_id = d.compra_id
@@ -49,7 +51,8 @@ foreach ($fecha_compras as $f) {
   $result = $db -> prepare($query);
   $result -> execute();
   $datos_compra = $result -> fetchAll();
-  $datos_compras[] = $datos_compra[0];
+  array_push($datos_compra[0], $f[1]);
+  array_push($datos_compras, $datos_compra[0]);
 }
 
 ?>
