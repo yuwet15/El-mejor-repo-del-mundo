@@ -27,12 +27,11 @@ if (isset($_GET['id'])) {
       $cat = ['Comestible', 'NoComestible'];
       foreach ($cat as $c) {
         echo "Productos {$c}s";
-        $query = "SELECT DISTINCT productos.nombre FROM tiendas as t, catalogo as c, productos as p
-          WHERE c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
-          AND t.tienda_id=$id AND p.tipo=$c
-          ORDER BY p.precio
-          LIMIT 3;";
-      
+        $query = "SELECT p.nombre FROM tiendas as t, catalogo as c, productos as p
+        WHERE t.tienda_id=0 AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+        AND p.tipo='Comestible'
+        ORDER BY p.precio LIMIT 3";
+
         $result = $db -> prepare($query);
         $result -> execute();
         $productos = $result -> fetchAll();
