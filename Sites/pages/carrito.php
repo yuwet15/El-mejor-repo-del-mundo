@@ -40,5 +40,8 @@ if (isset($_SESSION['rut'])){
 	    </tr>
 	  </tbody>
 	</table>
+	<div class="d-grid gap-2 col-2 mx-auto">
+  	<a class="btn btn-outline-secondary" href="back_redirect.php" role="button">Comprar</a>
+	</div>
 
 </div>
