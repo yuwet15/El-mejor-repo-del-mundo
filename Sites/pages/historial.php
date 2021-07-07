@@ -25,7 +25,7 @@ foreach ($id_compras as $id) {
   $query = "SELECT compra_id, fecha
             FROM despachos
             WHERE compra_id = $id[0] 
-            ORDER BY fecha";
+            ORDER BY fecha ASC";
 
   $result = $db2 -> prepare($query);
   $result -> execute();
