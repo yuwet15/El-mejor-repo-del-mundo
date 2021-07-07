@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION
 
-transferir_usuario(nombre varchar, rut varchar, edad varchar, sexo varchar, cargo varchar)
+transferir_usuario(nombre varchar, rut varchar, edad integer, sexo varchar, cargo varchar)
 
 RETURNS VOID AS $$
 
