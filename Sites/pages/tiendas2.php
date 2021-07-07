@@ -11,6 +11,7 @@ if (isset($_SESSION['rut'])){
 <?php
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
+  require("../config/conexion.php"); 
 ?>
 
 
@@ -26,7 +27,7 @@ if (isset($_GET['id'])) {
       $cat = ['Comestible', 'NoComestible'];
       // foreach ($cat as $c) {
         echo "Productos {$cat[0]}s";
-        $query = "SELECT DISTINCT productos.nombre FROM tiendas as t, catalogo as c, productos as p
+        $query = "SELECT productos.nombre FROM tiendas as t, catalogo as c, productos as p
           WHERE c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
           AND t.tienda_id=$id AND p.tipo='$cat[0]'
           ORDER BY p.precio
