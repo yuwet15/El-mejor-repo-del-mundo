@@ -15,7 +15,9 @@ if (isset($_SESSION['rut'])){
       Mostrar los 3 productos mas baratos por categoría
       <input type="submit" value="Mostrar">
     </div>
-
+  </div>
+  
+  <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
     <br>
       Nombre del producto:
