@@ -25,7 +25,7 @@ if (isset($_SESSION['rut'])){
 <a
   class="btn btn-primary"
   data-mdb-toggle="collapse"
-  href="#mpstrar"
+  href="#mostrar"
   role="button"
   aria-expanded="false"
   aria-controls="mostrar"
