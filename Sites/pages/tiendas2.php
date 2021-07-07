@@ -50,7 +50,7 @@ else {
 
 <?php 
   $id = $_GET['id'];
-  echo "<tr><td>{$id}</tr></td>";
+  print_r("<tr><td>{$id}</tr></td>");
 ?>
 
 
