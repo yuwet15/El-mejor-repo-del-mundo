@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
           WHERE c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
           AND t.tienda_id=$id AND p.tipo=$c
           ORDER BY p.precio
-          LIMIT 3;";
+          LIMIT 3";
       
       $result = $db -> prepare($query);
       $result -> execute();
