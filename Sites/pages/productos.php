@@ -11,7 +11,7 @@ if (isset($_SESSION['rut'])){
 include('../config/conexion.php');
 
 $product_id = $_GET['id'];
-$product_id = intval($product_id)
+$product_id = intval($product_id);
 echo "$product_id";
 
 $query = "SELECT p.tipo
