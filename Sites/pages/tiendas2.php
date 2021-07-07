@@ -31,7 +31,8 @@ if (isset($_GET['id'])) {
           AND t.tienda_id=$id AND p.tipo='$cat[0]'
           ORDER BY p.precio
           LIMIT 3";
-      
+
+        echo $query;
         $result = $db -> prepare($query);
         $result -> execute();
         $productos = $result -> fetchAll();
