@@ -6,24 +6,21 @@ RETURNS VOID AS $$
 
 DECLARE
 	idmax int;
-	idmax2 int;
 
 BEGIN
   
 	SELECT INTO idmax
-	MAX(personal_id)
-	FROM personal;
-
-	SELECT INTO idmax2
 	MAX(usuario_id)
 	FROM usuarios;
 
-  IF rut_input NOT IN (SELECT rut FROM personal) THEN
-		INSERT INTO personal values (idmax + 1, nombre, rut_input, edad, sexo, NULL, cargo);
-	END IF;
+	IF 'cargo' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
+        ALTER TABLE usuarios ADD cargo VARCHAR(20);
+        UPDATE usuarios SET cargo = 'usuario';
+    END IF;
+
 	IF rut_input NOT IN (SELECT rut FROM usuarios) THEN
-		INSERT INTO usuarios values (idmax2 + 1, nombre, rut_input, edad, sexo);
-		INSERT INTO direcciones values (idmax2 + 1, direccion_id);
+		INSERT INTO usuarios values (idmax + 1, nombre, rut_input, edad, sexo, cargo);
+		INSERT INTO direcciones values (idmax + 1, direccion_id);
 	END IF;
 
 END
