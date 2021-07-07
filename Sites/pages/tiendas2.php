@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
   $result -> execute();
   $r = $result -> fetchAll();
 
-  if (!$r[0][0]) {
+  if ($r[0][0] != $id) {
     header("Location: ../index.php");
   }
 }
