@@ -35,8 +35,9 @@ if (isset($_SESSION['rut'])){
         <div class="container">
           <div class="row">
             <div class="col">
-               <table class="table table-hover table-striped">
-  
+              <h2 class="justify-content-center">Comestibles </h2>
+              <table class="table table-hover table-striped">
+            
                 <thead>
                   <tr>
                   <th>Producto</th>
@@ -55,7 +56,8 @@ if (isset($_SESSION['rut'])){
               </table>
             </div>
             <div class="col">
-               <table class="table table-hover table-striped">
+              <h2 class="justify-content-center">No Comestibles </h2>
+              <table class="table table-hover table-striped">
   
                 <thead>
                   <tr>
