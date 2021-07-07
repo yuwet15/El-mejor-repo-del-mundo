@@ -10,7 +10,7 @@ if (isset($_SESSION['rut'])){
 require("../config/conexion.php");
 
 $query = "SELECT nombre, edad, rut
-          FROM usuarios, 
+          FROM usuarios
           WHERE rut = '".$_SESSION['rut']."'";
 
 $result = $db -> prepare($query);
@@ -18,7 +18,7 @@ $result -> execute();
 $user_info = $result -> fetchAll();
 if(!$user_info){
   $query = "SELECT nombre, edad, rut
-          FROM Personal, 
+          FROM Personal
           WHERE rut = '".$_SESSION['rut']."'";
 
   $result = $db -> prepare($query);
