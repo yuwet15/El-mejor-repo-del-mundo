@@ -10,11 +10,12 @@ if (isset($_SESSION['rut'])){
 
 
 <form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
-  <div><h2>Cambiar contraseña</div>
-  <div class="row g-3 justify-content-center form-floating">
+  <div class="row g-3 align-items-center">
     <div class="col-auto">
-      <input type="password" class="form-control" name="inputPassword6" id="inputPassword6" placeholder=" " onchange="formato(value)" onkeyup="formato(value)" maxlength="15" aria-describedby="passwordHelpInline" required>
-      <label for="inputPassword6" class="col-form-label">Clave actual</label>
+      <label for="inputPassword6" class="col-form-label">Password</label>
+    </div>
+    <div class="col-auto">
+      <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
     </div>
   </div>
 

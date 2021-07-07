@@ -17,12 +17,14 @@ if (isset($_SESSION['rut'])){
     unset($_SESSION['register']);
   }
   ?>
-  <div class="row g-3 align-items-center">
-    <div class="col-auto">
-      <label for="inputPassword6" class="col-form-label">Password</label>
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-3 form-floating">
+      <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" maxlength="10" required>
+      <label for="rut" class="form-label">Rut</label>
     </div>
-    <div class="col-auto">
-      <input type="password" id="inputPassword6" class="form-control">
+    <div class="col-md-3 form-floating">
+      <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
+      <label for="rut" class="form-label">Contraseña</label>
     </div>
   </div>
 
