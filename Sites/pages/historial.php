@@ -40,7 +40,7 @@ krsort($fecha_compras);
 
 foreach ($fecha_compras as $f) {
   foreach ($f as $f2) {
-    $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
+    $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.tienda_id, t.nombre
               FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
               WHERE c.compra_id = d.compra_id
               AND c.tienda_id = t.tienda_id
@@ -68,6 +68,7 @@ foreach ($fecha_compras as $f) {
         <th>Unidades</th>
         <th>ID Tienda</th>
         <th>Tienda</th>
+        <th>Fecha de la compra</th>
         </tr>
     </thead>
     <tbody>
