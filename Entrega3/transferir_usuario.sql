@@ -10,10 +10,10 @@ DECLARE
 BEGIN
   
 	SELECT INTO idmax
-	MAX(usuario_id)
-	FROM usuarios;
+	MAX(personal_id)
+	FROM personal;
 
-  IF rut_input NOT IN (SELECT rut FROM usuarios) THEN
+  IF rut_input NOT IN (SELECT rut FROM personal) THEN
 		INSERT INTO personal values (idmax + 1, nombre, rut_input, edad, sexo, NULL, cargo);
 	END IF;
 
