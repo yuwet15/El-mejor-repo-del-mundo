@@ -149,9 +149,11 @@ if (isset($_SESSION['rut'])){
         
           <tbody>";
             foreach ($productos as $p) {
+              $name = ucfirst($p[0]);
+              $des = ucfirst($p[1]);
               echo "<tr> 
-                      <td>$p[0]</td> 
-                      <td>$p[1]</td> 
+                      <td>$name</td> 
+                      <td>$des</td> 
                       <td>$p[2]</td>
                     </tr>";
             }
