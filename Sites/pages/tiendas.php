@@ -38,6 +38,7 @@ $tiendas = $result -> fetchAll();
         echo "<tr class=\"table-secondary\"> <td><a href='tiendas2.php?id={$t[0]}'>{$t[1]}</a></td> <td>$t[2]</td> <td>$comuna</td> <td>$t[4]</td>";
       }
     ?>
+    </tr>
   </tbody>
 </table>
 
