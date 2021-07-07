@@ -75,7 +75,8 @@ foreach ($fecha_compras as $f) {
         <?php
         foreach ($datos_compras as $d) {
           echo "<tr> <td>$d[0]</td> <td>$d[1]</td> <td>$d[2]</td>
-                <td>$d[3]</td> <td>$d[4]</td> <td>$d[5]</td> </tr>";
+                <td>$d[3]</td> <td>$d[4]</td> <td>$d[5]</td>
+                <td>$d[6]</td> </tr>";
         }
         ?>
     </tbody>
