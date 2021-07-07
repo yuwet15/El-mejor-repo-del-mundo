@@ -46,7 +46,7 @@ if (!isset($_SESSION['tablas_user'])){
     $result4 -> execute();
     $datos = $result4 -> fetchAll();
     foreach ($datos as $d){
-        $query = "SELECT insertar_en_tabla('$d[1]'), 
+        $query = "SELECT insertar_en_tabla('$d[1]'),
                   transferir_usuario('$d[0]', '$d[1]', $d[2], '$d[3]', '$d[4]', '$d[5]')";
         $result = $db -> prepare($query);
         $result -> execute();

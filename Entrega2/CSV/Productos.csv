@@ -1,4 +1,4 @@
-Producto_id,Nombre,Precio,Descripcion,Tipo
+Producto_id,Nombre,Precio,Descripcion,Tipo 
 0,merlusa,8706,pescado congelado,Comestible
 1,mix de frutas en conserva,10730,fruta en conserva,Comestible
 2,pantalla lisa,5609,pantalla de luz,NoComestible
