@@ -9,3 +9,6 @@ if (isset($_SESSION['rut'])){
 ?>
 
 
+<div class="container">
+  
+</div>
