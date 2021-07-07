@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['previous_location'] = 'historial.php';
   
 if (isset($_SESSION['rut'])){
   include('../templates/header.html'); 
@@ -12,14 +13,14 @@ require('../config/conexion.php');
 $query = "SELECT c.compra_id
           FROM usuarios AS u, compras AS c
           WHERE u.usuario_id = c.usuario_id
-          AND u.rut = '".$_SESSION['rut']."'";
+          AND u.rut = '28630079-0'";
 
 $result = $db -> prepare($query);
 $result -> execute();
 $id_compras = $result -> fetchAll();
 
 $fecha_compras = array();
-echo($id_compras);
+echo($id_compras[0]);
 foreach ($id_compras as $id) {
   
   $query = "SELECT compra_id, fecha
@@ -31,7 +32,7 @@ foreach ($id_compras as $id) {
   $result -> execute();
   $fecha = $result -> fetchAll();
 
-  push_array($fecha_compras, $fecha[0]);
+  array_push($fecha_compras, $fecha[0]);
 }
 
 $datos_compras = array();
@@ -51,8 +52,8 @@ foreach ($fecha_compras as $f) {
   $result -> execute();
   $datos_compra = $result -> fetchAll();
 
-  push_array($datos_compra[0], f[1]);
-  push_array($datos_compras, $datos_compra[0]);
+  array_push($datos_compra[0], f[1]);
+  array_push($datos_compras, $datos_compra[0]);
 }
 
 ?>
