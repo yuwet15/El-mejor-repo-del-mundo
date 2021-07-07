@@ -15,7 +15,7 @@ $query = "SELECT nombre FROM tiendas;";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$tiendas = $result -> fetchAll();
-  print_r($tiendas[0]) ;
+  print_r($tiendas);
   ?>
 
 <table>
