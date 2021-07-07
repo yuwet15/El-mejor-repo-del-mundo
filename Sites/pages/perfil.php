@@ -123,6 +123,22 @@ if(isset($_SESSION['jefe'])){
   echo "<br>
           <h2> Empleados de la unidad </h2>
         <br>";
+  echo "<table class=\"table\">
+  
+          <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Rut</th>
+            </tr>
+          </thead>
+          
+          <tbody>";
+              foreach ($empleados as $e) {
+                echo "<tr> <td>$e[0]</td> <td>$e[1]</td> 
+                      <td>$e[2]</td> </tr>";
+  echo "  </tbody>
+        </table>";
 }
 
 
