@@ -31,7 +31,7 @@ if (isset($_SESSION['rut'])){
 		          <div class="input-group">
 		            <input type="number" name="numDays" id="numDays" class="numDays form-control">
 		            <span class="input-group-btn">
-		          		<button type="submit" name="button" class="btn btn-success" id="bt">Click <i class="fa fa-angle-right"></i></button>
+		          		<button type="submit" name="button" class="btn" id="bt"><img src="../icons/delete.svg" class="d-inline-block align-text-center"></button>
 		          	</span>
 		          </div>
 		        </form>
