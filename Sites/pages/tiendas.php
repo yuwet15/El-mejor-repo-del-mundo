@@ -10,7 +10,7 @@ if (isset($_SESSION['rut'])){
 <?php
 require("../config/conexion.php");
 
-$query = "SELECT id, nombre FROM tiendas;";
+$query = "SELECT tienda_id, nombre FROM tiendas;";
 
 	$result = $db -> prepare($query);
 	$result -> execute();
