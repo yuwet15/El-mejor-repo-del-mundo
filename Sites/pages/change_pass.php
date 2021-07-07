@@ -1,10 +1,10 @@
-<?php
+<?php 
 session_start();
 if (isset($_SESSION['rut'])){
-    header("Location: ../index.php");
+  include('../templates/header.html');   
+  include('../templates/body_postlogin.html'); 
 } else {
-  include('../templates/header.html');
-  include('../templates/body_prelogin.html');
+  header("Location: ../index.php");
 }
 ?>
 
