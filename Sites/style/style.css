@@ -22,3 +22,6 @@ label {
 h2{
   text-align: center;
 }
+h2.accordion-header{
+    text-align: center;
+}
