@@ -61,23 +61,23 @@ if(!$user_info){
 
 <?php
 if(!$user_address){
-  echo "Usuario No presenta direcciones registradas"
+  echo "Usuario No presenta direcciones registradas";
 }else{
-  echo "<table class=\"table\">"
+  echo "<table class=\"table\">";
     
-    echo "<thead>"
-      echo "<tr>"
-      echo "<th>Direcciones registradas</th>"
-      echo "</tr>"
-    echo "</thead>"
+    echo "<thead>";
+      echo "<tr>";
+      echo "<th>Direcciones registradas</th>";
+      echo "</tr>";
+    echo "</thead>";
     
-    echo "<tbody>"
+    echo "<tbody>";
       
         foreach ($user_address as $a) {
             echo "<tr> <td>$a[0]</td> </tr>";
         }
       
-    echo "</tbody>"
-  echo "</table>"
+    echo "</tbody>";
+  echo "</table>";
 }
 ?>

@@ -65,7 +65,7 @@ if (!isset($_SESSION['tablas_user'])){
     </thead>
     <tbody>
         <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
-        <tr> <td>36669949-k</td> <td>Jefe</td> </tr>
+        <tr> <td>28630079-0</td> <td>Usuario</td> </tr>
         <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
     </tbody>
 </table>
