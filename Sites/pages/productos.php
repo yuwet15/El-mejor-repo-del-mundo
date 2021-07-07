@@ -73,7 +73,7 @@ if ($tipo[0][0] == 'Comestible') {
 } else {
 	echo ('hola');
 	$query = "SELECT p.producto_id, p.nombre, p.precio, p.descripcion,
-									 nc.alto, nc.ancho, nc.peso'
+									 nc.alto, nc.ancho, nc.peso
 						FROM productos AS p, nocomestibles AS nc
 						WHERE p.producto_id = nc.producto_id
 						AND p.producto_id = $product_id";
