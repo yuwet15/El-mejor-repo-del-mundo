@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
         echo "Productos {$c}s";
         $query = "SELECT DISTINCT productos.nombre FROM tiendas as t, catalogo as c, productos as p
           WHERE c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
-          AND t.tienda_id=$id AND p.tipo='$c'
+          AND t.tienda_id=$id AND p.tipo=$c
           ORDER BY p.precio
           LIMIT 3";
       
