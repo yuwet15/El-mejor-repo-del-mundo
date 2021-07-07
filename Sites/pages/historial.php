@@ -45,7 +45,7 @@ foreach ($fecha_compras as $f) {
             AND c.tienda_id = t.tienda_id
             AND c.usuario_id = u.usuario_id
             AND d.producto_id = p.producto_id
-            AND compra_id = $f[0] 
+            AND c.compra_id = $f[0] 
             AND u.rut = '".$_SESSION['rut']."'";
 
   $result = $db -> prepare($query);
