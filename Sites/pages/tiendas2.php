@@ -40,9 +40,9 @@ if (isset($_GET['id'])) {
     </div>
   </div>
 </form>
+<?php 
 }
 
-<?php 
 else {
   header('Location: ../../index.php');
 }
