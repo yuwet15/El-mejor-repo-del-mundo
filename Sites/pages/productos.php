@@ -71,7 +71,7 @@ if ($tipo[0][0] == 'Comestible') {
 		$datos = $result -> fetchAll();
 	}
 } else {
-	
+	echo ('hola');
 	$query = "SELECT p.producto_id, p.nombre, p.precio, p.descripcion,
 									 nc.alto, nc.ancho, nc.peso'
 						FROM productos AS p, nocomestibles AS nc
