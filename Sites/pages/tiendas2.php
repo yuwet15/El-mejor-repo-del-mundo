@@ -22,6 +22,100 @@ if (isset($_SESSION['rut'])){
 }
 ?>
 
+<button
+  class="btn btn-primary"
+  type="button"
+  data-mdb-toggle="collapse"
+  data-mdb-target="#mostrar"
+  aria-expanded="false"
+  aria-controls="collapseExample"
+>
+  Mostrar los 3 productos mas baratos por categoría
+</button>
+
+<div class="collapse mt-3" id="mostrar">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="justify-content-center">Comestibles </h2>
+        <table class="table table-hover table-striped">
+      
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          
+          <?php
+            $query = "SELECT p.nombre, p.precio, p.descripcion, p.producto_id FROM tiendas as t, catalogo as c, productos as p
+            WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+            AND p.tipo='Comestible'
+            ORDER BY p.precio LIMIT 3";
+
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $productos = $result -> fetchAll();
+          ?>
+
+          <tbody>
+            <?php
+            foreach ($productos as $p)
+       echo "<tr> 
+              <th>$p[0]</th>
+              <th>$p[1]</th>
+              <th>$p[2]</th>
+            </tr>"
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <h2 class="justify-content-center">No Comestibles </h2>
+        <table class="table table-hover table-striped">
+
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          
+          <?php
+            $query = "SELECT p.nombre, p.precio, p.descripcion, p.producto_id FROM tiendas as t, catalogo as c, productos as p
+            WHERE t.tienda_id=$id AND c.producto_id=p.producto_id AND c.tienda_id=t.tienda_id
+            AND p.tipo='NoComestible'
+            ORDER BY p.precio LIMIT 3";
+
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $productos = $result -> fetchAll();
+          ?>
+
+          <tbody>
+            <?php
+            foreach ($productos as $p)
+       echo "<tr> 
+              <th>$p[0]</th>
+              <th>$p[1]</th>
+              <th>$p[2]</th>
+            </tr>"
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item">
