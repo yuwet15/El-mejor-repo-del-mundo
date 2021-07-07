@@ -17,6 +17,7 @@ if (isset($_SESSION['rut'])){
 	    <th>Producto</th>
 	    <th>Cantidad</th>
 	    <th>Tienda</th>
+	    <th>Quitar</th>
 	    </tr>
 	  </thead>
 	  
@@ -25,6 +26,8 @@ if (isset($_SESSION['rut'])){
 			<td>$i[0]</td> 
 			<td>$i[1]</td> 
 	        <td>$i[2]</td>
+	        <td><input type="number" class="form-control" name="ca" id="ca" min="0" max="1">
+	        	<button class="btn btn-primary" type="submit">Button</button><td>
 	    </tr>
 	  </tbody>
 	</table>
