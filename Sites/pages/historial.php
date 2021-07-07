@@ -39,21 +39,22 @@ echo($fecha_compras[0][0][0]);
 ksort($fecha_compras);
 echo($fecha_compras[0][0][0]);
 foreach ($fecha_compras as $f) {
+  foreach ($f as $f2) {
+    $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
+              FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
+              WHERE c.compra_id = d.compra_id
+              AND c.tienda_id = t.tienda_id
+              AND c.usuario_id = u.usuario_id
+              AND d.producto_id = p.producto_id
+              AND c.compra_id = $f2[0] 
+              AND u.rut = '".$_SESSION['rut']."'";
 
-  $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.nombre
-            FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
-            WHERE c.compra_id = d.compra_id
-            AND c.tienda_id = t.tienda_id
-            AND c.usuario_id = u.usuario_id
-            AND d.producto_id = p.producto_id
-            AND c.compra_id = $f[0] 
-            AND u.rut = '".$_SESSION['rut']."'";
-
-  $result = $db -> prepare($query);
-  $result -> execute();
-  $datos_compra = $result -> fetchAll();
-  array_push($datos_compra[0], $f[1]);
-  array_push($datos_compras, $datos_compra[0]);
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $datos_compra = $result -> fetchAll();
+    array_push($datos_compra[0], $f2[1]);
+    array_push($datos_compras, $datos_compra[0]);
+  }
 }
 
 ?>
