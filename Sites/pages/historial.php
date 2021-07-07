@@ -39,6 +39,7 @@ $datos_compras = array();
 
 ksort($fecha_compras);
 echo($fecha_compras);
+echo('hola');
 foreach ($fecha_compras as $f) {
   echo($f[0]);
   echo($f[1]);
