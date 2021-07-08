@@ -2,6 +2,8 @@
 session_start();
 include('templates/header.html');
 
+echo "<body style='background-color:#C6CACC'>";
+
 if (isset($_SESSION['rut'])){
 	include('templates/i_body_postlogin.html');
 } else {
