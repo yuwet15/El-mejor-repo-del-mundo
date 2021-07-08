@@ -125,7 +125,7 @@ if(isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
       
     echo "</tbody>";
   echo "</table>";
-  echo "</div>"
+  echo "</div>";
 }
 
 if(isset($_SESSION['jefe'])){
