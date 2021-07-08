@@ -205,9 +205,6 @@ if (isset($_SESSION['rut'])){
     $result -> execute();
  
     $result = $result -> fetchAll();
-    echo($rut_session);
-    echo($id);
-    echo($id_producto);
     if(!$result[0][1]){
       $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
                 SELECT '$rut_session', $id, $id_producto, $cantidad";
