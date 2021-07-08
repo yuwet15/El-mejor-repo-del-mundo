@@ -178,13 +178,13 @@ if (isset($_SESSION['rut'])){
       ID del producto:
     </div>
     <div class='col-md-4' style="text-align: center;">
-      <input type="number" name="id_producto" min="0" required>
+      <input class="form-control" type="number" name="id_producto" min="0" required>
     </div>
     <div class='col-auto' style="text-align:center">
       Cantidad: 
     </div>
     <div class='col-md-4' style="text-align:center">
-      <input type="number" name="cantidad" min="1" required>
+      <input class="form-control" type="number" name="cantidad" min="1" required>
     </div>
     <div class='col-auto' style="text-align:center">
       Direccion despacho:
