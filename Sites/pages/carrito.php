@@ -97,7 +97,7 @@ $carrito = $result -> fetchAll();
   	}
   } ?>
 	<div class="d-grid gap-2 col-2 mx-auto">
-		<form class="row g-4 needs-validation justify-content-center" name="form1" id="signin-form" method="post" action="login_redirect.php" novalidate>
+		<form class="row g-4 needs-validation justify-content-center" name="form1" id="compra_form" method="post" action="login_redirect.php" novalidate>
 			<select class="form-select form-select-lg" name="sexo" id="sexo" required>
         <?php
           echo "<option selected disabled value=\"\">Sexo</option>";
