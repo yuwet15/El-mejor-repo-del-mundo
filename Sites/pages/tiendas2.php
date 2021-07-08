@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-echo "<body style='background-color:#5C5F58'>";
+echo "<body style='background-color:#004E7C'>";
 
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
@@ -27,8 +27,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 <div class="center">
-<div class="espacio"></div>
-<div class="accordion accordion-flush" id="mostrar_p">
+  <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item" style="background-color:#DCE1E3">
     <h2 class="accordion-header" id="headingOne">
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
