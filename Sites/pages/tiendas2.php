@@ -210,7 +210,7 @@ if (isset($_SESSION['rut'])){
     echo($id_producto);
     if(!$result[0][1]){
       $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
-                SELECT $rut_session, $id, $id_producto, $cantidad";
+                SELECT '$rut_session', $id, $id_producto, $cantidad";
       $result = $db -> prepare($query);
       $result -> execute();
     }else{
