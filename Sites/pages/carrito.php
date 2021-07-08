@@ -59,7 +59,7 @@ $carrito = $result -> fetchAll();
 	        	if($producto[3]!=$cantidad){
 	        		$nuevo = $producto[3]-$cantidad;
 	        		$query = "UPDATE carrito SET cantidad=$nuevo 
-	        							WHERE rut='$producto[0]' AND tienda_id='$producto[4]' AND producto_id=$producto[5]";
+	        							WHERE rut='$producto[0]' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
 					    $result = $db -> prepare($query);
 					    $result -> execute();
 	        	}
