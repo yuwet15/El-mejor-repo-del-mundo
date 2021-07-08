@@ -54,6 +54,7 @@ foreach ($fecha_compras as $f) {
     $result = $db -> prepare($query);
     $result -> execute();
     $datos_compra = $result -> fetchAll();
+    echo($f2[1]);
     array_push($datos_compra[0], $f2[1]);
     array_push($datos_compras, $datos_compra[0]);
 
