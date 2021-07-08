@@ -158,7 +158,7 @@ if (isset($_SESSION['rut'])){
               $name = ucfirst($p[0]);
               $des = ucfirst($p[1]);
               echo "<tr> 
-                      <td style=\"width:10%;\">$p[3]</td>
+                      <td style=\"width:15%;\">$p[3]</td>
                       <td><a href='productos.php?id={$p[3]}'>$name</td> 
                       <td>$des</td> 
                       <td>$p[2]</td>
