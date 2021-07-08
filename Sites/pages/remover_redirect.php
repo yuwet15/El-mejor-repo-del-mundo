@@ -8,6 +8,7 @@ if (isset($_SESSION['rut'])){
 }
 
 if (isset($_POST['remover'])) {
+	echo("hola");
 	$query = "SELECT DISTINCT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
     	FROM tiendas as t, productos as p, carrito as c
     	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
