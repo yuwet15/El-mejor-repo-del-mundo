@@ -20,7 +20,6 @@ if (isset($_POST['comprar'])) {
             $result = $db -> prepare($query);
             $result -> execute();
         }
-        $_SESSION['success'] = TRUE;
         header("Location: ../index.php");
         
     }
