@@ -187,6 +187,36 @@ if (isset($_SESSION['rut'])){
       <input type="number" name="cantidad" min="1" required>
     </div>
     <div class='col-auto' style="text-align:center">
+      Direccion despacho:
+      <?php
+
+        $query = "SELECT DISTINCT c.direccion, c.direccion_id
+                  FROM direcciones AS d, usuarios as u, comunas as c, despachos as des
+                  WHERE u.usuario_id = d.usuario_id
+                  AND d.direccion_id = c.direccion_id
+                  AND des.comuna_despacho
+                  AND des.tienda_id = $id
+                  AND u.rut = '".$_SESSION['rut']."'";
+
+        $result = $db -> prepare($query);
+        $result -> execute();
+        $user_address = $result -> fetchAll();
+        if(!$user_address[0][0]){
+          echo '<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" disabled>';
+        }else{
+          echo '<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" required>';
+        }
+        echo 'echo "<option disabled value="NULL">Seleccione direccion de despacho</option>';
+        foreach ($user_address as $direccion) {
+          echo '<option value="$direccion[1]">$direccion[0]</option>';
+        }
+      ?>
+      </select>
+    </div>
+    <div class='col-md-4' style="text-align:center">
+      <input type="number" name="cantidad" min="1" required>
+    </div>
+    <div class='col-auto' style="text-align:center">
       <button class="btn btn-primary" name="carro_i" value="carro_i" type="submit">Añadir al carrito</button>
     </div>
   </div>
@@ -197,8 +227,10 @@ if (isset($_SESSION['rut'])){
   if (isset($_POST['carro_i'])){
     $id_producto = $_POST['id_producto'];
     $cantidad = $_POST['cantidad'];
+    $direccion = $_POST['direccion'];
     unset($_POST['id_producto']);
     unset($_POST['cantidad']);
+    unset($_POST['direccion']);
     
     $query = "SELECT * FROM catalogo 
               WHERE tienda_id=$id AND producto_id=$id_producto";
