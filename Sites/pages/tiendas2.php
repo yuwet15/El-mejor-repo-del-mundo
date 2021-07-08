@@ -26,6 +26,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 <div class="center">
+  <br>
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -180,6 +181,7 @@ if (isset($_SESSION['rut'])){
     </div>
   </div>
 </form>
+<br>
 </div>
 <?php
   if (isset($_POST['buscar_i'])){
