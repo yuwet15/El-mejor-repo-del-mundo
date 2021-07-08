@@ -23,13 +23,9 @@ $carrito = $result -> fetchAll();
 ?>
 
 
-<<<<<<< HEAD
-<div class="container">
-	<form class="form-inline justify-content-center" method="post" action="carrito.php">
-=======
 <div class="container" style="background-color:#dce1e3">
 	<form class="form-inline justify-content-center" method="post">
->>>>>>> 126365ec128bb005f1b43967a2f4d142e3474e6d
+
 	  <table class="table">
 	  
 		  <thead>
