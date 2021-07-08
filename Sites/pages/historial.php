@@ -33,11 +33,11 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
+  echo($fecha);
   array_push($fecha_compras, [$counter => $fecha[0]]);
   $counter = $counter + 1;
 }
 $datos_compras = array();
-echo($fecha_compras[0][0]);
 krsort($fecha_compras);
 
 foreach ($fecha_compras as $f) {
