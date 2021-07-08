@@ -54,9 +54,9 @@ $carrito = $result -> fetchAll();
 	          	</span>
 	          </div>
 	        </form>";
-	        if (isset($_POST[$name])) {
+	        if (isset($_POST['$name'])) {
 	        	echo"hola";
-	        	$cantidad = $_POST[$num];
+	        	$cantidad = $_POST['$num'];
 	        	if($producto[3]!=$cantidad){
 	        		echo($nuevo);
 	        		$nuevo = $producto[3]-$cantidad;
