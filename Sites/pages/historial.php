@@ -73,7 +73,7 @@ foreach ($fecha_compras as $f) {
     <tbody>
         <?php
         foreach ($datos_compras as $d) {
-          $total = $d[2] * $d[3]
+          $total = $d[2] * $d[3];
           echo "<tr> <td>$d[0]</td> <td><a href='productos.php?id={$d[0]}'>$d[1]</a></td> <td>$total</td>
                 <td>$d[3]</td> <td><a href='tiendas2.php?id={$d[4]}'>$d[5]</a></td>
                 <td>$d[6]</td> </tr>";
