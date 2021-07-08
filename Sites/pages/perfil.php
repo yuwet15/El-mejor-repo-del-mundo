@@ -44,7 +44,15 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
   $result = $db -> prepare($query);
   $result -> execute();
   $user_info = $result -> fetchAll();
+  $query = "SELECT DISTINCT c.direccion
+            FROM direcciones AS d, usuarios as u, comunas as c
+            WHERE u.usuario_id = d.usuario_id
+            AND d.direccion_id = c.direccion_id
+            AND u.rut = '".$_SESSION['rut']."'";
 
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $user_address = $result -> fetchAll();
 
   if(!$user_info){
     $query = "SELECT nombre, edad, rut
@@ -54,17 +62,18 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
     $result = $db -> prepare($query);
     $result -> execute();
     $user_info = $result -> fetchAll();
+    $query = "SELECT DISTINCT c.direccion
+              FROM personal as p, tiendas as t, comunas as c
+              WHERE t.direccion_id = c.direccion_id
+              AND p.tienda_id = t.tienda_id
+              AND p.rut = '".$_SESSION['rut']."'";
+
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $user_address = $result -> fetchAll();
   }
 }
-$query = "SELECT DISTINCT c.direccion
-          FROM direcciones AS d, usuarios as u, comunas as c
-          WHERE u.usuario_id = d.usuario_id
-          AND d.direccion_id = c.direccion_id
-          AND u.rut = '".$_SESSION['rut']."'";
 
-$result = $db -> prepare($query);
-$result -> execute();
-$user_address = $result -> fetchAll();
 
 
 ?>
@@ -80,8 +89,10 @@ $user_address = $result -> fetchAll();
       <?php
       if(isset($_SESSION['jefe'])){
         echo "<th>Dirección de mi unidad</th>";
-      }elseif(isset($_SESSION['trabajador'])){
+      }elseif(isset($_SESSION['trabajador']) || isset($_SESSION['E_tienda'])) {
         echo "<th>Dirección de trabajo</th>";
+      }elseif(isset($_SESSION['J_tienda'])){
+        echo "<th>Dirección de mi tienda</th>";
       }
       ?>
       </tr>
@@ -94,6 +105,8 @@ $user_address = $result -> fetchAll();
                   <td>$i[2]</td>";
             if(isset($_SESSION['jefe'])){
               echo "<td>$i[3]</td>";
+            }elseif(isset($_SESSION['trabajador']) || isset($_SESSION['E_tienda']) || isset($_SESSION['J_tienda'])){
+              echo "<td>".$user_address[0][0]."</td>";
             }
             echo "</tr>";
         }

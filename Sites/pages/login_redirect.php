@@ -25,7 +25,15 @@ if (isset($_POST['login'])) {
      
         $result = $result -> fetchAll();
         if(!$result[0][0]){
-            header("Location: ../index.php");
+            $query = "SELECT cargo FROM Personal WHERE rut = '$username'"; 
+            $result = $db -> prepare($query);
+            $result -> execute();
+            $result = $result -> fetchAll();
+            if($result[0][0] == 'Jefe'){
+                $_SESSION['J_tienda'] = TRUE;
+            }else{
+                $_SESSION['E_tienda'] = TRUE;
+            }
         }elseif($result[0][0] == 'administracion'){
             $_SESSION['jefe'] = TRUE;
         }elseif ($result[0][0] != 'usuario') {
