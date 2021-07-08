@@ -18,6 +18,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_SESSION['rut'])){
+  $rut_session = $_SESSION['rut']);
   include('../templates/header.html');   
   include('../templates/body_postlogin.html'); 
 } else {
@@ -183,7 +184,7 @@ if (isset($_SESSION['rut'])){
       Cantidad:
     </div>
     <div class='col-md-4' style="text-align:center">
-      <input type="number" name="cantidad">
+      <input type="number" name="cantidad" min="1">
     </div>
     <div class='col-auto' style="text-align:center">
       <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Comprar</button>
@@ -196,6 +197,27 @@ if (isset($_SESSION['rut'])){
   if (isset($_POST['buscar_i'])){
     echo ($_POST['id_producto']) ;
     echo($_POST['cantidad']);
+    $id_producto = $_POST['id_producto'];
+    $cantidad = $_POST['cantidad'];
+    $query = "SELECT cantidad FROM carrito 
+              WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
+    $result = $db -> prepare($query);
+    $result -> execute();
+ 
+    $result = $result -> fetchAll();
+    if(!$result[0][0]){
+      $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
+                SELECT $rut_session, $id, $id_producto, $cantidad";
+      $result = $db -> prepare($query);
+      $result -> execute();
+    }else{
+      $nueva_cant = $cantidad + $result[0][0];
+      $query = "UPDATE carrito
+                SET cantidad = $nueva_cant
+                WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
+      $result = $db -> prepare($query);
+      $result -> execute();
+    }
   }
 ?>
 
