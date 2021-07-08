@@ -174,10 +174,13 @@ if (isset($_SESSION['rut'])){
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   <div class='row g-4 justify-content-center'>
     <div class='col-auto' style="text-align:center">
-    <br>
       ID del producto:
       <input type="text" name="id_producto">
-      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Buscar</button>
+    </div>
+    <div class='col-auto' style="text-align:center">
+      Cantidad:
+      <input type="number" name="cantidad">
+      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Comprar</button>
     </div>
   </div>
 </form>
@@ -186,6 +189,7 @@ if (isset($_SESSION['rut'])){
 <?php
   if (isset($_POST['buscar_i'])){
     echo ($_POST['id_producto']) ;
+    echo($_POST['cantidad']);
   }
 ?>
 
