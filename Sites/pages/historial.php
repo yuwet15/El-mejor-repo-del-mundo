@@ -86,3 +86,4 @@ foreach ($id_compras as $i) {
       </tbody>
   </table>
 </div>
+</body>
