@@ -57,24 +57,25 @@ if (!isset($_SESSION['tablas_user'])){
 }
 ?>
 
-
-<table class='table'>
-    <thead>
-        <tr>
-        <th>Rut</th>
-        <th>Cargo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
-        <tr> <td>28630079-0</td> <td>Usuario</td> </tr>
-        <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
-        <tr> <td>70433997-6</td> <td>Ti</td> </tr>
-        <tr> <td>46188032-0</td> <td>Asistente de aseo</td> </tr>
-        <tr> <td>77941465-5</td> <td>Vendedor</td> </tr>
-    </tbody>
-</table>
-
+<br>
+<div class="container" style="background-color:#dce1e3">
+    <table class='table'>
+        <thead>
+            <tr>
+            <th>Rut</th>
+            <th>Cargo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> <td>46251263-5</td> <td>Empleado</td> </tr>
+            <tr> <td>28630079-0</td> <td>Usuario</td> </tr>
+            <tr> <td>33461543-k</td> <td>Administrativo</td> </tr>
+            <tr> <td>70433997-6</td> <td>Ti</td> </tr>
+            <tr> <td>46188032-0</td> <td>Asistente de aseo</td> </tr>
+            <tr> <td>77941465-5</td> <td>Vendedor</td> </tr>
+        </tbody>
+    </table>
+</div>
 
 
     
