@@ -57,6 +57,7 @@ foreach ($id_compras as $i) {
   $suma = $result -> fetchAll();
   array_push($id_compras[$counter], $suma[0][0]);
   $counter = $counter + 1;
+}
 
 ?>
 <br>
@@ -86,3 +87,4 @@ foreach ($id_compras as $i) {
       </tbody>
   </table>
 </div>
+</body>
