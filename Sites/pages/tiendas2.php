@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-echo "<body style='background-color:#B0B4B5'>";
+echo "<body style='background-color:#C6CACC'>";
 
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
