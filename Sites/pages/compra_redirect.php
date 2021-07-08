@@ -3,7 +3,7 @@ session_start();
 include('../config/conexion.php');
 
  
-if (isset($_POST['login'])) {  
+if (isset($_POST['comprar'])) {  
     $rut = $_SESSION['rut'];     
     $direccion = $_POST['direccion'];
     $query = "SELECT DISTINCT tienda_id FROM carrito WHERE rut='$rut'";
