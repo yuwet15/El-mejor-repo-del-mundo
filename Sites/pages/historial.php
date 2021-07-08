@@ -13,7 +13,7 @@ if (isset($_SESSION['rut'])){
 require('../config/conexion.php');
 
 function date_sort($a, $b) {
-    return strtotime($a['3']) - strtotime($b['3']);
+    return strtotime($b['3']) - strtotime($a['3']);
 }
 
 
