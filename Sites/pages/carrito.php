@@ -57,6 +57,7 @@ $carrito = $result -> fetchAll();
 	        if (isset($_POST[$name])) {
 	        	$cantidad = $_POST[$num];
 	        	if($producto[3]!=$cantidad){
+	        		echo($nuevo);
 	        		$nuevo = $producto[3]-$cantidad;
 	        		$query = "UPDATE carrito SET cantidad=$nuevo 
 	        							WHERE rut='$producto[0]' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
