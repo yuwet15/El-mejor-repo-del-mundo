@@ -96,10 +96,10 @@ $carrito = $result -> fetchAll();
 		  }
   	}
   } ?>
-	<form class="row g-4 needs-validation justify-content-center" name="form1" id="compra_form" method="post" action="login_redirect.php" novalidate>
+	<form class="row g-4 needs-validation justify-content-center" name="form1" id="compra_form" method="post" action="compra_redirect.php" novalidate>
 		<div class="row g-4 justify-content-center">
     	<div class="col-md-3">
-				<select class="form-select form-select-sm mb-3" name="sexo" id="sexo" required>
+				<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" required>
 					<option selected value="NULL">Retiro en tienda</option>";
 		      <?php
 
@@ -124,5 +124,13 @@ $carrito = $result -> fetchAll();
 	  	</div>
 	  </div>
   </form>
+  <?php
+  if (isset($_SESSION['nada'])){
+  	echo '<p class="error">No compraste nada</p>';
+     unset($_SESSION['nada']);
+  }else{
+  	echo "<p> Compra realizada sastifactoriamente</p>";
+  }
+  ?>
 
 </div>
