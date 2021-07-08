@@ -187,14 +187,14 @@ if (isset($_SESSION['rut'])){
       <input type="number" name="cantidad" min="1" required>
     </div>
     <div class='col-auto' style="text-align:center">
-      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Añadir al carrito</button>
+      <button class="btn btn-primary" name="carro_i" value="carro_i" type="submit">Añadir al carrito</button>
     </div>
   </div>
 </form>
 <br>
 </div>
 <?php
-  if (isset($_POST['buscar_i'])){
+  if (isset($_POST['carro_i'])){
     $id_producto = $_POST['id_producto'];
     $cantidad = $_POST['cantidad'];
     unset($_POST['id_producto']);
