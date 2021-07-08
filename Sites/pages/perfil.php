@@ -107,6 +107,8 @@ if(isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
 }elseif(!$user_address){
   echo "Usuario no presenta direcciones registradas";
 }else{
+  echo "<br>";
+  echo "<div class=\"container\" style=\"background-color:#dce1e3\">";
   echo "<table class=\"table\">";
     
     echo "<thead>";
@@ -123,6 +125,7 @@ if(isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
       
     echo "</tbody>";
   echo "</table>";
+  echo "</div>"
 }
 
 if(isset($_SESSION['jefe'])){
