@@ -51,18 +51,19 @@ $carrito = $result -> fetchAll();
 					echo "
 					<td>$producto[0]</td> 
 					<td>$producto[1]</td> 
-		      <td style=\"width:10%;\">$producto[2]</td>
-		      <td style=\"width:10%;\">$producto[3]</td>
-		      <td style=\"width:15%;\">
-		      	<form class=\"form-inline justify-content-center\" method=\"post\">
-		          <div class=\"input-group\">
-		            <input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[3]\" class=\"numDays form-control\">
-		            <span class=\"input-group-btn\">
-		          		<button type=\"submit\" name=\"remover\" value=\"remover\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
-		          	</span>
-		          </div>
-		      </td>
-		      <td>$producto[4]</tr>";
+		      		<td style=\"width:10%;\">$producto[2]</td>
+		      		<td style=\"width:10%;\">$producto[3]</td>
+		      		<td style=\"width:15%;\">
+		      		<form class=\"form-inline justify-content-center\" method=\"post\">
+		          		<div class=\"input-group\">
+		            		<input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[3]\" class=\"numDays form-control\">
+		            		<span class=\"input-group-btn\">
+		          			<button type=\"submit\" name=\"remover\" value=\"remover\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
+		          			</span>
+		          		</div>
+		      		</td>
+		      		<td>$producto[4]</tr>
+		      		</form>";
 				}
 				
 	      ?>
