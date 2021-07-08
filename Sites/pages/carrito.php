@@ -80,7 +80,7 @@ $carrito = $result -> fetchAll();
 			$num = 'n_'.$aux;
 			$aux = $aux + 1;
 			$cantidad = $_POST['$num'];
-			echo("$cantidad -----");
+			echo("$cantidad ----- $num");
 			/*
   		if($producto[2]!=$cantidad){
   			$nuevo = $producto[3]-$cantidad;
