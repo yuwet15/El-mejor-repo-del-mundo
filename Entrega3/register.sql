@@ -23,7 +23,7 @@ BEGIN
         ELSE
             INSERT INTO usuarios values(idmax + 1, nombre, rut_u, edad, sexo, cargo_u);
             SELECT INTO direc_id direccion_id FROM Comunas WHERE direccion_n = direccion;
-            INSERT INTO direcciones values(direc_id, idmax + 1);
+            INSERT INTO direcciones values(idmax + 1, direc_id);
             RETURN 'TRUE';
         END IF;
         
