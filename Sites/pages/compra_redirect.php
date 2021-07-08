@@ -21,10 +21,20 @@ if (isset($_POST['comprar'])) {
             $result -> execute();
 
             $id_compra = $result -> fetchAll();
-            $id = $id_compra[0][0] + 1;
-            echo($id)
+            $id_compra = intval($id_compra[0][0]) + 1;
+            
+            $query = "SELECT max(id) FROM despachos"; 
+            $result = $db -> prepare($query);
+            $result -> execute();
+
+            $result = $result -> fetchAll();
+
+            $id_despacho = intval($result[0][0]) + 1;
+
+
+
             $date = date('d-m-y h:i:s');
-            $query = "INSERT INTO despachos VALUES(NULL, '$date', NULL, $direccion, $id, NULL)";
+            $query = "INSERT INTO despachos VALUES($id_despacho, '$date', NULL, $direccion, $id_compra, NULL)";
             $result = $db2 -> prepare($query);
             $result -> execute();
 
