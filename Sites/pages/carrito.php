@@ -23,60 +23,62 @@ $carrito = $result -> fetchAll();
 
 
 <div class="container">
-  <table class="table">
-  
-	  <thead>
-	    <tr>
-	    <th>Tienda</th>
-	    <th>Producto</th>
-	    <th>Cantidad</th>
-	    <th>Quitar</th>
-	    <th>Valor</th>
-	    </tr>
-	  </thead>
+	<form class="form-inline justify-content-center" method="post">
+	  <table class="table">
 	  
-	  <tbody>
-		<tr> 
-			<?php
-			foreach ($carrito as $producto) {
-				$name = $producto[4]."-".$producto[5];
-				$num = $producto[5]."-".$producto[4];
-				echo "
-				<td>$producto[0]</td> 
-				<td>$producto[1]</td> 
-	      <td style=\"width:10%;\">$producto[2]</td>
-	      <td style=\"width:15%;\">
-	      	<form class=\"form-inline justify-content-center\" method=\"post\">
-	          <div class=\"input-group\">
-	            <input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[2]\" class=\"numDays form-control\">
-	            <span class=\"input-group-btn\">
-	          		<button type=\"submit\" name=\"$name\" value=\"$name\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
-	          	</span>
-	          </div>
-	        </form>
-	      </td>
-	      <td>$producto[3]</tr>";
-	      echo($name."\n");
-	      echo($num."\n");
-	      if (isset($_POST['$name'])) {
-	        	echo"hola";
-	        	$cantidad = $_POST['$num'];
-	        	echo"chao";
-	        	if($producto[3]!=$cantidad){
-	        		echo($nuevo);
-	        		$nuevo = $producto[3]-$cantidad;
-	        		$query = "UPDATE carrito SET cantidad=$nuevo 
-	        							WHERE rut='$producto[0]' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
-					    $result = $db -> prepare($query);
-					    $result -> execute();
-	        	}
-	        } 
-			}
-			
-      ?>
-	  </tr>
-	  </tbody>
-	</table>
+		  <thead>
+		    <tr>
+		    <th>Tienda</th>
+		    <th>Producto</th>
+		    <th>Cantidad</th>
+		    <th>Quitar</th>
+		    <th>Valor</th>
+		    </tr>
+		  </thead>
+		  
+		  <tbody>
+			<tr> 
+				<?php
+				foreach ($carrito as $producto) {
+					$name = $producto[4]."-".$producto[5];
+					$num = $producto[5]."-".$producto[4];
+					echo "
+					<td>$producto[0]</td> 
+					<td>$producto[1]</td> 
+		      <td style=\"width:10%;\">$producto[2]</td>
+		      <td style=\"width:15%;\">
+		      	<form class=\"form-inline justify-content-center\" method=\"post\">
+		          <div class=\"input-group\">
+		            <input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[2]\" class=\"numDays form-control\">
+		            <span class=\"input-group-btn\">
+		          		<button type=\"submit\" name=\"remover\" value=\"remover\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
+		          	</span>
+		          </div>
+		      </td>
+		      <td>$producto[3]</tr>";
+		      echo($name."\n");
+		      echo($num."\n");
+				}
+				
+	      ?>
+		  </tr>
+		  </tbody>
+		</table>
+	</form>
+	<?php
+	if (isset($_POST['remover'])) {
+  	echo"hola";
+  	$cantidad = $_POST['$num'];
+  	echo"chao";
+  	if($producto[3]!=$cantidad){
+  		echo($nuevo);
+  		$nuevo = $producto[3]-$cantidad;
+  		$query = "UPDATE carrito SET cantidad=$nuevo 
+  							WHERE rut='$producto[0]' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
+	    $result = $db -> prepare($query);
+	    $result -> execute();
+  	}
+  } ?>
 	<div class="d-grid gap-2 col-2 mx-auto">
   	<a class="btn btn-outline-secondary" type="submit" role="button">Comprar</a>
 	</div>
