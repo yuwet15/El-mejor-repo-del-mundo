@@ -6,7 +6,7 @@ if (isset($_SESSION['rut'])){
 } else {
   header("Location: ../index.php");
 }
-$rut = $_SESSION['rut']);
+$rut = $_SESSION['rut'];
 
 require("../config/conexion.php");
 $query = "SELECT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.id, p.id
