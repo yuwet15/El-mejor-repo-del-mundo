@@ -24,7 +24,7 @@ $carrito = $result -> fetchAll();
 
 
 <div class="container">
-	<form class="form-inline justify-content-center" method="post">
+	<form class="form-inline justify-content-center" method="post" action="carrito.php">
 	  <table class="table">
 	  
 		  <thead>
@@ -129,9 +129,8 @@ $carrito = $result -> fetchAll();
   	echo '<p class="error">No compraste nada</p>';
      unset($_SESSION['nada']);
   }elseif(isset($_SESSION['success'])){
+  	unset($_SESSION['success']));
   	echo "<p> Compra realizada sastifactoriamente</p>";
-  	ob_start();
-  	header("Location: carrito.php");
   }
   ?>
 
