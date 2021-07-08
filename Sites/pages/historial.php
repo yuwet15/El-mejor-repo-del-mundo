@@ -19,10 +19,12 @@ function date_sort($a, $b) {
 
 
 
-$query = "SELECT c.compra_id, c.tienda_id, c.direccion_id
-          FROM usuarios AS u, compras AS c
+$query = "SELECT c.compra_id, c.tienda_id, t.nombre, co.direccion
+          FROM usuarios AS u, compras AS c, tiendas as t, comunas as co
           WHERE u.usuario_id = c.usuario_id
-          AND u.rut = '".$_SESSION['rut']."'";
+          AND u.rut = '".$_SESSION['rut']."'"
+          AND t.tienda_id = c.tienda_id
+          AND co.direccion_id = c.direccion_id;
 
 $result = $db -> prepare($query);
 $result -> execute();
@@ -42,26 +44,19 @@ foreach ($id_compras as $id) {
   $counter = $counter + 1;
 }
 usort($id_compras, "date_sort");
-/*
-foreach ($fecha_compras as $f) {
-  foreach ($f as $f2) {
-    $query = "SELECT p.producto_id, p.nombre, p.precio, d.cantidad, t.tienda_id, t.nombre
-              FROM productos AS p, compras AS c, detalle AS d, usuarios AS u, tiendas AS t
-              WHERE c.compra_id = d.compra_id
-              AND c.tienda_id = t.tienda_id
-              AND c.usuario_id = u.usuario_id
-              AND d.producto_id = p.producto_id
-              AND c.compra_id = $f2[0] 
-              AND u.rut = '".$_SESSION['rut']."'";
 
-    $result = $db -> prepare($query);
-    $result -> execute();
-    $datos_compra = $result -> fetchAll();
-    array_push($datos_compra[0], $f2[1]);
-    array_push($datos_compras, $datos_compra[0]);
+$counter = 0;
+foreach ($id_compras as $i) {
+  $query = "SELECT sum(d.cantidad * p.precio)
+            FROM detalle as d, productos as p
+            WHERE d.compra_id = $id[0] 
+            AND d.producto_id = p.producto_id";
 
-  }
-}*/
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $suma = $result -> fetchAll();
+  array_push($id_compras[$counter], $suma[0][0]);
+  $counter = $counter + 1;
 
 ?>
 <br>
@@ -79,16 +74,12 @@ foreach ($fecha_compras as $f) {
       <tbody>
           <?php
           foreach ($id_compras as $d) {
-            /*$total = $d[2] * $d[3];
-            if(!$d[6]){
-              $d[6] = 'Sin registro';
-            }*/
             echo "<tr> 
                     <td>$d[0]</td> 
-                    <td><a href='productos.php?id={$d[0]}'>Caca</a></td> 
-                    <td>$d[1]</td>
-                    <td>$d[2]</td> 
-                    <td><a href='tiendas2.php?id={$d[1]}'>$d[3]</a></td> 
+                    <td>$d[5]</td> 
+                    <td><a href='tiendas2.php?id={$d[1]}'></a>$d[2]</td>
+                    <td>$d[3]</td> 
+                    <td>$d[4]</td> 
                   </tr>";
           }
           ?>
