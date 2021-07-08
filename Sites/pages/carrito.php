@@ -9,8 +9,8 @@ if (isset($_SESSION['rut'])){
 $rut = $_SESSION['rut'];
 
 require("../config/conexion.php");
-$query = "SELECT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.id, p.id
-        	FROM tiendas as t, productos as p, usuario as p, carrito as c
+$query = "SELECT DISTINCT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
+        	FROM tiendas as t, productos as p, carrito as c
         	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
         	ORDER BY t.nombre";
 
