@@ -39,8 +39,10 @@ $carrito = $result -> fetchAll();
 		  <tbody>
 			<tr> 
 				<?php
+				$aux = 1;
 				foreach ($carrito as $producto) {
-					$num = $producto[5]."-".$producto[4];
+
+					$num = 'n_'.$aux;
 					echo "
 					<td>$producto[0]</td> 
 					<td>$producto[1]</td> 
@@ -74,8 +76,9 @@ $carrito = $result -> fetchAll();
 		$result = $db -> prepare($query);
 		$result -> execute();
 		$carrito = $result -> fetchAll();
+		$aux = 1;
   	foreach ($carrito as $producto) {
-			$num = $producto[5]."-".$producto[4];
+			$num = 'n_'.$aux;
 			$cantidad = $_POST['$num'];
 			echo("$cantidad -----");
 			/*
