@@ -43,8 +43,9 @@ $carrito = $result -> fetchAll();
 			<tr> 
 				<?php
 				$aux = 1;
+				$Costo_total = 0;
 				foreach ($carrito as $producto) {
-
+					$Costo_total = $Costo_total + intval($producto[4]);
 					$num = 'n_'.$aux;
 					$aux = $aux + 1;
 					echo "
@@ -123,16 +124,18 @@ $carrito = $result -> fetchAll();
 	  	<div class="col-md-3 form-floating">
 	  		<a class="btn btn-outline-secondary" type="submit" role="button">Comprar</a>
 	  	</div>
+	  	<div class="col-md-3 form-floating">
+	  		<?php echo '<a> Valor total: $Costo_total</a>'?>
+	  	</div>
 	  </div>
   </form>
   <?php
   if (isset($_SESSION['nada'])){
   	echo '<p class="error">No compraste nada</p>';
     unset($_SESSION['nada']);
-  }elseif(isset($_SESSION['success'])){
-  	unset($_SESSION['success']));
+  } elseif (isset($_SESSION['success'])){
+  	unset($_SESSION['success']);
   	echo "<p> Compra realizada sastifactoriamente</p>";
   }
   ?>
-
 </div>
