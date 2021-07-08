@@ -209,7 +209,7 @@ if (isset($_SESSION['rut'])){
         }else{
           echo "<select class=\"form-select form-select-sm mb-3\" name=\"direccion\" id=\"direccion\" required>";
         }
-        echo "<option disabled value=\"NULL\">Seleccione direccion de despacho</option>";
+        echo "<option disabled selected value=\"NULL\">Seleccione direccion de despacho</option>";
         foreach ($user_address as $direccion) {
           echo "<option value=\"$direccion[1]\">$direccion[0]</option>";
         }
