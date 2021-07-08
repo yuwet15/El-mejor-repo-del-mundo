@@ -22,7 +22,7 @@ function date_sort($a, $b) {
 $query = "SELECT c.compra_id, c.tienda_id, t.nombre, co.direccion
           FROM usuarios AS u, compras AS c, tiendas as t, comunas as co
           WHERE u.usuario_id = c.usuario_id
-          AND u.rut = "."'".$_SESSION['rut']."'"."
+          AND u.rut = '".$_SESSION['rut']."'
           AND t.tienda_id = c.tienda_id
           AND co.direccion_id = c.direccion_id";
 
