@@ -1,6 +1,5 @@
 <?php 
 session_start();
-echo "<body style='background-color:#E6EAEB'>";
 
 if (isset($_SESSION['rut'])){
   header("Location: ../index.php");

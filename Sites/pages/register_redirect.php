@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "<body style='background-color:#E6EAEB'>";
 include('../config/conexion.php');
 
 if (isset($_POST['register'])) {   
