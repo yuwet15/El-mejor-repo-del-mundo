@@ -58,6 +58,10 @@ if (!isset($_SESSION['tablas_user'])){
 ?>
 
 <br>
+
+<h1 style="text-align: center;">Bienvenido a Mi tienda Online</h1>
+<h3 style="text-align: center;">Colaboracion de grupo 27 y grupo 106</h3>
+<h3 style="text-align: center;">Abajo tiene algunos usuarios para probar iniciar sesion donde la clave por defecto son los 4 digitos antes del numero verificador</h3>
 <div class="container" style="background-color:#dce1e3">
     <table class='table'>
         <thead>
