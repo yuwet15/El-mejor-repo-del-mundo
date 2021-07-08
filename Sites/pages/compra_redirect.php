@@ -11,7 +11,13 @@ if (isset($_POST['comprar'])) {
     $result -> execute();
  
     $result = $result -> fetchAll();
-    if (!$result[0][0]) {
+
+    $query = "SELECT cantidad FROM carrito WHERE rut='$rut'";
+    $veri = $db -> prepare($query);
+    $veri -> execute();
+ 
+    $veri = $veri -> fetchAll();
+    if (!$veri[0][0]) {
         $_SESSION['nada'] = TRUE;
         header("Location: carrito.php");
     } else{
