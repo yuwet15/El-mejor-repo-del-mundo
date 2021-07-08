@@ -187,7 +187,7 @@ if (isset($_SESSION['rut'])){
       <input type="number" name="cantidad" min="1">
     </div>
     <div class='col-auto' style="text-align:center">
-      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Comprar</button>
+      <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Añadir al carrito</button>
     </div>
   </div>
 </form>
