@@ -9,7 +9,7 @@ if (isset($_SESSION['rut'])){
 $rut = $_SESSION['rut'];
 
 require("../config/conexion.php");
-$query = "SELECT DISTINCT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
+$query = "SELECT DISTINCT t.nombre, p.nombre, p.precio, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
         	FROM tiendas as t, productos as p, carrito as c
         	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
         	ORDER BY t.nombre";
@@ -30,6 +30,7 @@ $carrito = $result -> fetchAll();
 		    <tr>
 		    <th>Tienda</th>
 		    <th>Producto</th>
+		    <th>Precio</th>
 		    <th>Cantidad</th>
 		    <th>Quitar</th>
 		    <th>Valor</th>
@@ -48,16 +49,17 @@ $carrito = $result -> fetchAll();
 					<td>$producto[0]</td> 
 					<td>$producto[1]</td> 
 		      <td style=\"width:10%;\">$producto[2]</td>
+		      <td style=\"width:10%;\">$producto[3]</td>
 		      <td style=\"width:15%;\">
 		      	<form class=\"form-inline justify-content-center\" method=\"post\">
 		          <div class=\"input-group\">
-		            <input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[2]\" class=\"numDays form-control\">
+		            <input type=\"number\" name=\"$num\" id=\"$num\" min=\"0\" max=\"$producto[3]\" class=\"numDays form-control\">
 		            <span class=\"input-group-btn\">
 		          		<button type=\"submit\" name=\"remover\" value=\"remover\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
 		          	</span>
 		          </div>
 		      </td>
-		      <td>$producto[3]</tr>";
+		      <td>$producto[4]</tr>";
 				}
 				
 	      ?>
@@ -80,17 +82,15 @@ $carrito = $result -> fetchAll();
 			$num = 'n_'.$aux;
 			$aux = $aux + 1;
 			$cantidad = $_POST[$num];
-			echo("$cantidad ----- $num");
-			/*
   		if($producto[2]!=$cantidad){
-  			$nuevo = $producto[3]-$cantidad;
+  			$nuevo = $producto[2]-$cantidad;
   			$query = "UPDATE carrito SET cantidad=$nuevo 
   								WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
   		}else{
   			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
   		}
 	    $result = $db -> prepare($query);
-	    $result -> execute();*/
+	    $result -> execute();
   	}
   } ?>
 	<div class="d-grid gap-2 col-2 mx-auto">
