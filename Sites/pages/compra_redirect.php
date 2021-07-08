@@ -34,7 +34,7 @@ if (isset($_POST['comprar'])) {
             $result -> execute();
 
             $result = $result -> fetchAll();
-            $query = "INSERT INTO despachos (id, fecha, destino, compra_id) VALUES ($id_despacho, CURRENT_TIMESTAMP, $direccion, $id_compra )";
+            $query = "INSERT INTO despachos (id, fecha, destino, compra_id) VALUES ($id_despacho, CURRENT_TIME, $direccion, $id_compra )";
             $result = $db2 -> prepare($query);
             $result -> execute();
 
