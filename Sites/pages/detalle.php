@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
   require("../config/conexion.php");
   $_SESSION['previous_location'] = 'detalle.php?id='.$id;
-  $query = "SELECT t.tienda_id FROM tiendas as t WHERE t.tienda_id=$id";
+  $query = "SELECT compra_id FROM detalle WHERE compra_id=$id";
   $result = $db -> prepare($query);
   $result -> execute();
   $r = $result -> fetchAll();
