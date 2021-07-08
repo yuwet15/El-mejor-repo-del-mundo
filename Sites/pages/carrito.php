@@ -74,7 +74,7 @@ $carrito = $result -> fetchAll();
   			$query = "UPDATE carrito SET cantidad=$nuevo 
   								WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
   		}else{
-  			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]"
+  			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
   		}
 	    $result = $db -> prepare($query);
 	    $result -> execute();
