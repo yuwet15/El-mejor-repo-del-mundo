@@ -248,11 +248,13 @@ if (isset($_SESSION['rut'])){
     
         $result = $result -> fetchAll();
         if(!$result[0][1]){
+          echo("1");
           $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
                     SELECT '$rut_session', $id, $id_producto, $cantidad, $direccion";
           $result = $db -> prepare($query);
           $result -> execute();
         }else{
+          echo("2");
           $nueva_cant = $cantidad + $result[0][0];
           $query = "UPDATE carrito
                     SET cantidad = $nueva_cant
