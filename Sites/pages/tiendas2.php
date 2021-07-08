@@ -172,7 +172,7 @@ if (isset($_SESSION['rut'])){
   }
 ?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
-  <div class='row g-4 justify-content-center'>
+  <div class='row g-6 justify-content-center'>
     <div class='col-auto' style="text-align:center">
       ID del producto:
     </div>
