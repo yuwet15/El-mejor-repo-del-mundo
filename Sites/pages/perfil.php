@@ -68,38 +68,39 @@ $user_address = $result -> fetchAll();
 
 
 ?>
-
-<table class="table">
-  
-  <thead>
-    <tr>
-    <th>Nombre</th>
-    <th>Edad</th>
-    <th>Rut</th>
-    <?php
-    if(isset($_SESSION['jefe'])){
-      echo "<th>Dirección de mi unidad</th>";
-    }elseif(isset($_SESSION['trabajador'])){
-      echo "<th>Dirección de trabajo</th>";
-    }
-    ?>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <?php
-      foreach ($user_info as $i) {
-          echo "<tr> <td>$i[0]</td> <td>$i[1]</td> 
-                <td>$i[2]</td>";
-          if(isset($_SESSION['jefe'])){
-            echo "<td>$i[3]</td>";
-          }
-          echo "</tr>";
+<br>
+<div class="container" style="background-color:#dce1e3">
+  <table class="table">
+    
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Rut</th>
+      <?php
+      if(isset($_SESSION['jefe'])){
+        echo "<th>Dirección de mi unidad</th>";
+      }elseif(isset($_SESSION['trabajador'])){
+        echo "<th>Dirección de trabajo</th>";
       }
-    ?>
-  </tbody>
-</table>
-
+      ?>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <?php
+        foreach ($user_info as $i) {
+            echo "<tr> <td>$i[0]</td> <td>$i[1]</td> 
+                  <td>$i[2]</td>";
+            if(isset($_SESSION['jefe'])){
+              echo "<td>$i[3]</td>";
+            }
+            echo "</tr>";
+        }
+      ?>
+    </tbody>
+  </table>
+</div>
 <?php
 if(isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
   echo "";//No es nada xD
