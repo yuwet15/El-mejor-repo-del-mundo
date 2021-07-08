@@ -33,7 +33,7 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  echo($fecha);
+  echo($fecha[0]);
   array_push($fecha_compras, [$counter => $fecha[0]]);
   $counter = $counter + 1;
 }
