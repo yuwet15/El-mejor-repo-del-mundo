@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+
 $_SESSION['previous_location'] = 'historial.php';
   
 if (isset($_SESSION['rut'])){

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-   
+
 if (isset($_SESSION['rut'])){
   header("Location: ../index.php");
 } else {
