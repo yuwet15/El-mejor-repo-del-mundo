@@ -32,7 +32,7 @@ if (isset($_SESSION['rut'])){
 
     <!-- Input rut -->
     <div class="col-md-3 form-floating">
-      <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" maxlength="10" minlength="10"
+      <input type="text" class="form-control" name="rut" id="rut" placeholder="12345678-9" onchange="formato(value)" onkeyup="formato(value)" pattern="[0-9-kK]"
       <?php
         if(isset($_SESSION['rut_r'])){
           echo 'value="' . $_SESSION['rut_r'] . '"';
