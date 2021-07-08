@@ -23,7 +23,7 @@ BEGIN
     INSERT INTO detalle (compra_id, producto_id, cantidad) SELECT idmax + 1 AS compra_id, producto_id, cantidad FROM carrito WHERE rut = rut_u AND tienda_id = id_tienda;
     DELETE FROM carrito WHERE rut = rut_u AND tienda_id = id_tienda;
 
-    RETURN idmax+1;
+    RETURN idmax;
 
 END
 
