@@ -36,6 +36,17 @@ if (isset($_SESSION['jefe']) || isset($_SESSION['trabajador'])){
   $result = $db2 -> prepare($query);
   $result -> execute();
   $empleados = $result -> fetchAll();
+
+  $query = "SELECT DISTINCT c.direccion
+            FROM direcciones AS d, usuarios as u, comunas as c
+            WHERE u.usuario_id = d.usuario_id
+            AND d.direccion_id = c.direccion_id
+            AND u.rut = '".$_SESSION['rut']."'";
+
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $user_address = $result -> fetchAll();
+
 }else{
   $query = "SELECT nombre, edad, rut
             FROM usuarios
