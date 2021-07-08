@@ -26,7 +26,7 @@ $carrito = $result -> fetchAll();
 <div class="container" style="background-color:#dce1e3">
 	<form class="form-inline justify-content-center" method="post" action="remover_redirect.php">
 
-	  <table class="table">
+	  <table class="table"	>
 	  
 		  <thead>
 		    <tr>
@@ -41,7 +41,7 @@ $carrito = $result -> fetchAll();
 		  </thead>
 		  
 		  <tbody>
-			<tr> 
+			 
 				<?php
 				$aux = 1;
 				$Costo_total = 0;
@@ -50,6 +50,7 @@ $carrito = $result -> fetchAll();
 					$num = 'n_'.$aux;
 					$aux = $aux + 1;
 					echo "
+					<tr>
 					<td>$producto[0]</td> 
 					<td>$producto[1]</td> 
 		      		<td style=\"width:10%;\">$producto[2]</td>
@@ -64,11 +65,12 @@ $carrito = $result -> fetchAll();
 			          	
 		      		</td>
 		      		<td>$producto[4]</td>
-		      		<td>$producto[7]</td>";
+		      		<td>$producto[7]</td>
+		      		</tr>";
 				}
 				
 	      ?>
-		  </tr>
+		  
 		  </tbody>
 		</table>
 	</form>
