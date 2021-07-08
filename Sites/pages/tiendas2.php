@@ -181,7 +181,7 @@ if (isset($_SESSION['rut'])){
       <input type="number" name="id_producto">
     </div>
     <div class='col-auto' style="text-align:center">
-      Cantidad:
+      Cantidad: 
     </div>
     <div class='col-md-4' style="text-align:center">
       <input type="number" name="cantidad" min="1">
