@@ -18,6 +18,7 @@ if (isset($_POST['remover'])) {
 	$carrito = $result -> fetchAll();
 	$aux = 1;
 	foreach ($carrito as $producto) {
+		echo($producto[5]);
 		$num = 'n_'.$aux;
 		$aux = $aux + 1;
 		$cantidad = $_POST[$num];
