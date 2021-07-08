@@ -23,8 +23,7 @@ if (isset($_POST['comprar'])) {
             $id_compra = $result -> fetchAll();
             $id = $id_compra[0][0];
             $date = date('d-m-y h:i:s');
-            echo($date);
-            $query = "INSERT INTO despachos VALUES(NULL, $date, NULL, $direccion, $id, NULL)";
+            $query = "INSERT INTO despachos VALUES(NULL, '$date', NULL, $direccion, $id, NULL)";
             $result = $db2 -> prepare($query);
             $result -> execute();
 
