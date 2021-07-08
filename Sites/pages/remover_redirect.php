@@ -35,7 +35,7 @@ if (isset($_POST['remover'])) {
 	}
 } 
 
-header("Location: ../carrito.php");
+header("Location: carrito.php");
 
 
 ?>
