@@ -49,7 +49,7 @@ $counter = 0;
 foreach ($id_compras as $i) {
   $query = "SELECT sum(d.cantidad * p.precio)
             FROM detalle as d, productos as p
-            WHERE d.compra_id = $id[0] 
+            WHERE d.compra_id = $i[0] 
             AND d.producto_id = p.producto_id";
 
   $result = $db -> prepare($query);
