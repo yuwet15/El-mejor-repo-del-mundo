@@ -26,7 +26,7 @@ $carrito = $result -> fetchAll();
 <div class="container" style="background-color:#dce1e3">
 	<form class="form-inline justify-content-center" method="post" action="remover_redirect.php">
 
-	  <table class="table" style="width:auto; height:20px;">
+	  <table class="table">
 	  
 		  <thead>
 		    <tr>
@@ -63,8 +63,8 @@ $carrito = $result -> fetchAll();
 			          		</div>
 			          	
 		      		</td>
-		      		<td>$producto[4]</tr>
-		      		<td>$producto[7]</tr>";
+		      		<td>$producto[4]</td>
+		      		<td>$producto[7]</td>";
 				}
 				
 	      ?>
