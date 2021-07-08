@@ -27,7 +27,7 @@ if (isset($_SESSION['rut'])){
 ?>
 
 <div class="center">
-<div style="height: 10px; background-color: #5C5F58"></div>
+<div style="margin-bottom : 5px; background-color: #5C5F58"></div>
 <div class="accordion accordion-flush" id="mostrar_p">
   <div class="accordion-item" style="background-color:#DCE1E3">
     <h2 class="accordion-header" id="headingOne">
