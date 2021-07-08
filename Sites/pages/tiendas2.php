@@ -211,7 +211,7 @@ if (isset($_SESSION['rut'])){
         }
         echo 'echo "<option disabled value="NULL">Seleccione direccion de despacho</option>';
         foreach ($user_address as $direccion) {
-          echo '<option value="$direccion[1]">$direccion[0]</option>';
+          echo "<option value=\"$direccion[1]\">$direccion[0]</option>";
         }
       ?>
       </select>
