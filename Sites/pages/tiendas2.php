@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_SESSION['rut'])){
-  $rut_session = $_SESSION['rut']);
+  $rut_session = $_SESSION['rut'];
   include('../templates/header.html');   
   include('../templates/body_postlogin.html'); 
 } else {
