@@ -98,6 +98,15 @@ $carrito = $result -> fetchAll();
   } ?>
 	<form class="row g-4 needs-validation justify-content-center" name="form1" id="compra_form" method="post" action="login_redirect.php" novalidate>
 		<div class="row g-4 justify-content-center">
+			<div class="col-md-1">
+				<select class="form-select form-select-sm mb-3" name="sexo" id="sexo" required>
+		       <?php
+		        echo "<option selected disabled value=\"\">Sexo1</option>";
+		        echo "<option value=\"hombre\">Hombre</option>";
+		        echo "<option value=\"mujer\">Mujer</option>";
+		       ?>
+	      </select>
+	  	</div>
     	<div class="col-md-3">
 				<select class="form-select form-select-sm mb-3" name="sexo" id="sexo" required>
 		       <?php
