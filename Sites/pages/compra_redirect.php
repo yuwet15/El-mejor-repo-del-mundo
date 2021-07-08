@@ -19,6 +19,14 @@ if (isset($_POST['comprar'])) {
             $query = "SELECT comprar('$rut', $tiendas[0], $direccion)"; 
             $result = $db -> prepare($query);
             $result -> execute();
+
+            $id_compra = $result -> fetchAll();
+            $id = $id_compra[0][0];
+            
+            $query = "INSERT INTO despachos VALUES(NULL, GETDATE(), NULL, $direccion, $id, NULL";
+            $result = $db -> prepare($query);
+            $result -> execute();
+
         }
         header("Location: ../index.php");
         
