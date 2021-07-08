@@ -103,7 +103,6 @@ $carrito = $result -> fetchAll();
           echo "<option selected disabled value=\"\">Sexo</option>";
           echo "<option value=\"hombre\">Hombre</option>";
           echo "<option value=\"mujer\">Mujer</option>";
-        }
         ?>
       </select>
   		<a class="btn btn-outline-secondary" type="submit" role="button">Comprar</a>
