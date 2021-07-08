@@ -40,7 +40,6 @@ $carrito = $result -> fetchAll();
 			<tr> 
 				<?php
 				foreach ($carrito as $producto) {
-					$name = $producto[4]."-".$producto[5];
 					$num = $producto[5]."-".$producto[4];
 					echo "
 					<td>$producto[0]</td> 
@@ -67,14 +66,16 @@ $carrito = $result -> fetchAll();
 	</form>
 	<?php
 	if (isset($_POST['remover'])) {
-  	echo"hola";
-  	$cantidad = $_POST['$num'];
-  	echo"chao";
-  	if($producto[3]!=$cantidad){
-  		echo($nuevo);
-  		$nuevo = $producto[3]-$cantidad;
-  		$query = "UPDATE carrito SET cantidad=$nuevo 
-  							WHERE rut='$producto[0]' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
+  	foreach ($carrito as $producto) {
+			$num = $producto[5]."-".$producto[4];
+			$cantidad = $_POST['$num'];
+  		if($producto[2]!=$cantidad){
+  			$nuevo = $producto[3]-$cantidad;
+  			$query = "UPDATE carrito SET cantidad=$nuevo 
+  								WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
+  		}else{
+  			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]"
+  		}
 	    $result = $db -> prepare($query);
 	    $result -> execute();
   	}
