@@ -131,8 +131,8 @@ if (isset($_SESSION['rut'])){
   if (isset($_POST['buscar_n'])){
     $nombre = $_POST['nombre_producto'];
     $query = "SELECT DISTINCT p.nombre, p.descripcion, p.tipo, p.producto_id
-    FROM compras as c, detalle as d, productos as p
-    WHERE c.tienda_id=$id AND c.compra_id=d.compra_id AND d.producto_id=p.producto_id
+    FROM catalogo as c, productos as p
+    WHERE c.tienda_id=$id  AND c.producto_id=p.producto_id
     AND LOWER(p.nombre) LIKE LOWER('%$nombre%')";
 
     $result = $db -> prepare($query);
