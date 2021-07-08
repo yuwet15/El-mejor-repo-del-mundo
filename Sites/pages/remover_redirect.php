@@ -9,7 +9,6 @@ if (isset($_SESSION['rut'])){
 }
 
 if (isset($_POST['remover'])) {
-	echo("hola");
 	$query = "SELECT DISTINCT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
     	FROM tiendas as t, productos as p, carrito as c
     	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
@@ -20,7 +19,6 @@ if (isset($_POST['remover'])) {
 	$carrito = $result -> fetchAll();
 	$aux = 1;
 	foreach ($carrito as $producto) {
-		echo($producto[5]);
 		$num = 'n_'.$aux;
 		$aux = $aux + 1;
 		$cantidad = $_POST[$num];
