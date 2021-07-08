@@ -62,5 +62,5 @@ if (isset($_SESSION['rut'])){
       })
   })()
 </script>
-
+</body>
 

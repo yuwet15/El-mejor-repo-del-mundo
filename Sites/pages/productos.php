@@ -140,3 +140,4 @@ if ($tipo[0][0] == 'Comestible') {
   <a class="btn btn-outline-secondary" href="back_redirect.php" role="button">Volver</a>
 </div>
 
+</body>

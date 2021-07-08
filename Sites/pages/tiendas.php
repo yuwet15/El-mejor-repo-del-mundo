@@ -43,3 +43,4 @@ $tiendas = $result -> fetchAll();
 </table>
 
 
+</body>

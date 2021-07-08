@@ -93,3 +93,5 @@ $carrito = $result -> fetchAll();
   }
   ?>
 </div>
+
+</body>

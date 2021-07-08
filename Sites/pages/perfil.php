@@ -154,3 +154,4 @@ if(isset($_SESSION['jefe'])){
 
 
 ?>
+</body>
