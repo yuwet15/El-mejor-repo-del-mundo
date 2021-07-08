@@ -66,6 +66,14 @@ $carrito = $result -> fetchAll();
 	</form>
 	<?php
 	if (isset($_POST['remover'])) {
+		$query = "SELECT DISTINCT t.nombre, p.nombre, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
+        	FROM tiendas as t, productos as p, carrito as c
+        	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
+        	ORDER BY t.nombre";
+
+		$result = $db -> prepare($query);
+		$result -> execute();
+		$carrito = $result -> fetchAll();
   	foreach ($carrito as $producto) {
 			$num = $producto[5]."-".$producto[4];
 			$cantidad = $_POST['$num'];
