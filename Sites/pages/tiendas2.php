@@ -206,7 +206,7 @@ if (isset($_SESSION['rut'])){
     $result -> execute();
     $verificacion = $result -> fetchAll();
 
-    if ($verificacion[0][0]) {
+    if ($verificacion[0][2]) {
       $query = "SELECT cantidad, rut FROM carrito 
                 WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
       $result = $db -> prepare($query);
