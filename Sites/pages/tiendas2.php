@@ -173,13 +173,19 @@ if (isset($_SESSION['rut'])){
 ?>
 <form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
   <div class='row g-4 justify-content-center'>
-    <div class='col-md-4' style="text-align:center">
+    <div class='col-auto' style="text-align:center">
       ID del producto:
-      <input type="text" name="id_producto">
+    </div>
+    <div class='col-md-4' style="text-align: center;">
+      <input type="number" name="id_producto">
     </div>
     <div class='col-auto' style="text-align:center">
       Cantidad:
+    </div>
+    <div class='col-md-4' style="text-align:center">
       <input type="number" name="cantidad">
+    </div>
+    <div class='col-auto' style="text-align:center">
       <button class="btn btn-primary" name="buscar_i" value="buscar_i" type="submit">Comprar</button>
     </div>
   </div>
