@@ -22,7 +22,7 @@ if (isset($_SESSION['rut'])){
   header("Location: ../index.php");
 }
 
-$query = "SELECT d.producto_id, p.nombre, p.precio, d.cantidad, (p.precio * d.cantidad)
+$query = "SELECT DISTINCT d.producto_id, p.nombre, p.precio, d.cantidad, (p.precio * d.cantidad)
           FROM detalle as d, productos as p
           WHERE d.compra_id = $id
           AND d.producto_id = p.producto_id";
