@@ -196,7 +196,7 @@ if (isset($_SESSION['rut'])){
                   FROM direcciones AS d, usuarios as u, comunas as c, despachos as des
                   WHERE u.usuario_id = d.usuario_id
                   AND d.direccion_id = c.direccion_id
-                  AND des.comuna_despacho
+                  AND des.comuna_despacho = c.comuna
                   AND des.tienda_id = $id
                   AND u.rut = '".$_SESSION['rut']."'";
 
