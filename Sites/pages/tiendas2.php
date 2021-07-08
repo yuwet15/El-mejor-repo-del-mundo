@@ -171,9 +171,9 @@ if (isset($_SESSION['rut'])){
     echo "";
   }
 ?>
-<form class="row g-4 justify-content-center" name="form" id="form" method="post" action="">
-  <div class='row g-4 justify-content-center'>
-    <div class='col-auto' style="text-align:center">
+<form class="row g-2 justify-content-center" name="form" id="form" method="post" action="">
+  <div class='row g-2 justify-content-center'>
+    <div class='col-auto w' style="text-align:center">
       ID del producto:
       <input type="text" name="id_producto">
     </div>
