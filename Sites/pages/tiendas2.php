@@ -203,7 +203,6 @@ if (isset($_SESSION['rut'])){
         $result = $db -> prepare($query);
         $result -> execute();
         $user_address = $result -> fetchAll();
-        echo($user_address[0][0]);
         if(!$user_address[0][0]){
           echo "<select class=\"form-select form-select-sm mb-3\" name=\"direccion\" id=\"direccion\" disabled>";
         }else{
