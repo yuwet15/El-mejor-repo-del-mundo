@@ -76,9 +76,9 @@ foreach ($id_compras as $i) {
           <?php
           foreach ($id_compras as $d) {
             echo "<tr> 
-                    <td>$d[0]</td> 
+                    <td><a href='detalle.php?id={$d[0]}'>$d[0]</a></td> 
                     <td>$d[5]</td> 
-                    <td><a href='tiendas2.php?id={$d[1]}'></a>$d[2]</td>
+                    <td><a href='tiendas2.php?id={$d[1]}'>$d[2]</a></td>
                     <td>$d[3]</td> 
                     <td>$d[4]</td> 
                   </tr>";
