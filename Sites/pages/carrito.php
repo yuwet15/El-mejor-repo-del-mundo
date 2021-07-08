@@ -100,10 +100,22 @@ $carrito = $result -> fetchAll();
 		<div class="row g-4 justify-content-center">
     	<div class="col-md-3">
 				<select class="form-select form-select-sm mb-3" name="sexo" id="sexo" required>
-		       <?php
-		        echo "<option selected disabled value=\"\">Sexo</option>";
-		        echo "<option value=\"hombre\">Hombre</option>";
-		        echo "<option value=\"mujer\">Mujer</option>";
+					<option selected value="NULL">Retiro en tienda</option>";
+		      <?php
+
+		      $query = "SELECT DISTINCT c.direccion, c.direccion_id
+					          FROM direcciones AS d, usuarios as u, comunas as c
+					          WHERE u.usuario_id = d.usuario_id
+					          AND d.direccion_id = c.direccion_id
+					          AND u.rut = '".$_SESSION['rut']."'";
+
+					$result = $db -> prepare($query);
+					$result -> execute();
+					$user_address = $result -> fetchAll();
+
+					foreach ($user_address as $direccion) {
+						echo "<option value=\"$direccion[1]\">$direccion[0]</option>";
+					}
 		       ?>
 	      </select>
 	  	</div>
