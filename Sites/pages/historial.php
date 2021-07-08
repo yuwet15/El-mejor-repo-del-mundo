@@ -24,7 +24,6 @@ $id_compras = $result -> fetchAll();
 $fecha_compras = array();
 $counter = 0;
 foreach ($id_compras as $id) {
-  echo($id[0]."\n");
   $query = "SELECT compra_id, fecha
             FROM despachos
             WHERE compra_id = $id[0] 
@@ -33,7 +32,6 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  echo($fecha[0]);
   array_push($fecha_compras, [$counter => $fecha[0]]);
   $counter = $counter + 1;
 }
@@ -54,7 +52,6 @@ foreach ($fecha_compras as $f) {
     $result = $db -> prepare($query);
     $result -> execute();
     $datos_compra = $result -> fetchAll();
-    echo($f2);
     array_push($datos_compra[0], $f2[1]);
     array_push($datos_compras, $datos_compra[0]);
 
