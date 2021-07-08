@@ -85,15 +85,17 @@ $carrito = $result -> fetchAll();
 			$num = 'n_'.$aux;
 			$aux = $aux + 1;
 			$cantidad = $_POST[$num];
-  		if($producto[2]!=$cantidad){
-  			$nuevo = $producto[2]-$cantidad;
-  			$query = "UPDATE carrito SET cantidad=$nuevo 
-  								WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
-  		}else{
-  			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
-  		}
-	    $result = $db -> prepare($query);
-	    $result -> execute();
+			if($cantidad){
+	  		if(intval($producto[2])!=$cantidad){
+	  			$nuevo = intval($producto[2])-$cantidad;
+	  			$query = "UPDATE carrito SET cantidad=$nuevo 
+	  								WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
+	  		}else{
+	  			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
+	  		}
+		    $result = $db -> prepare($query);
+		    $result -> execute();
+		  }
   	}
   } ?>
 	<div class="d-grid gap-2 col-2 mx-auto">
