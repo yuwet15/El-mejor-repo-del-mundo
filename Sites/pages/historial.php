@@ -55,7 +55,6 @@ foreach ($fecha_compras as $f) {
     array_push($datos_compra[0], $f2[1]);
     array_push($datos_compras, $datos_compra[0]);
 
-    echo($datos_compras[0]);
   }
 }
 
