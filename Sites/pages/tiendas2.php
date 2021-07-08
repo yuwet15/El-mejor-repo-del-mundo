@@ -195,17 +195,15 @@ if (isset($_SESSION['rut'])){
 </div>
 <?php
   if (isset($_POST['buscar_i'])){
-    echo ($_POST['id_producto']) ;
-    echo($_POST['cantidad']);
     $id_producto = $_POST['id_producto'];
     $cantidad = $_POST['cantidad'];
-    $query = "SELECT cantidad FROM carrito 
+    $query = "SELECT cantidad, rut FROM carrito 
               WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
     $result = $db -> prepare($query);
     $result -> execute();
  
     $result = $result -> fetchAll();
-    if(!$result[0][0]){
+    if(!$result[0][1]){
       $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
                 SELECT $rut_session, $id, $id_producto, $cantidad";
       $result = $db -> prepare($query);
@@ -218,6 +216,7 @@ if (isset($_SESSION['rut'])){
       $result = $db -> prepare($query);
       $result -> execute();
     }
+    echo "Agregado exitosamente al carrito";
   }
 ?>
 
