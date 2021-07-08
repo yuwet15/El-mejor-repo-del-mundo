@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION
 
-comprar(rut_u varchar, tienda_id integer, direccion_id integer, producto_id integer, cantidad integer)
+comprar(rut_u varchar, id_tienda integer, direccion_id integer)
 
 RETURNS VOID AS $$
 
@@ -20,7 +20,8 @@ BEGIN
     WHERE rut = rut_u;
 
 		INSERT INTO compras values (idmax + 1, id_usuario, tienda_id, direccion_id);
-    INSERT INTO detalle values (idmax + 1, producto_id, cantidad);
+    INSERT INTO detalle (idmax + 1, producto_id, cantidad) SELECT producto_id, cantidad FROM carrito WHERE rut = rut_u AND tienda_id = id_tienda;
+    
 
 END
 
