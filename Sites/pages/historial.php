@@ -38,7 +38,7 @@ foreach ($id_compras as $id) {
   $result = $db2 -> prepare($query);
   $result -> execute();
   $fecha = $result -> fetchAll();
-  array_push($id_compras[$counter], $fecha[0][0]];
+  array_push($id_compras[$counter], $fecha[0][0]]);
   $counter = $counter + 1;
 }
 usort($id_compras, "date_sort");
