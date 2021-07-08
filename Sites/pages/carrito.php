@@ -129,9 +129,6 @@ $carrito = $result -> fetchAll();
   if (isset($_SESSION['nada'])){
   	echo '<p class="error">No compraste nada</p>';
      unset($_SESSION['nada']);
-  }elseif(isset($_SESSION['success'])){
-  	unset($_SESSION['success']));
-  	echo "<p> Compra realizada sastifactoriamente</p>";
   }
   ?>
 
