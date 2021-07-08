@@ -2,7 +2,7 @@
 session_start();
 include('templates/header.html');
 
-echo "<body style='background-color:#C6CACC'>";
+echo "<body style='background-color:#E6EAEB'>";
 
 if (isset($_SESSION['rut'])){
 	include('templates/i_body_postlogin.html');
