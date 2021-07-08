@@ -205,11 +205,11 @@ if (isset($_SESSION['rut'])){
         $user_address = $result -> fetchAll();
         echo($user_address[0][0]);
         if(!$user_address[0][0]){
-          echo '<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" disabled>';
+          echo "<select class=\"form-select form-select-sm mb-3\" name=\"direccion\" id=\"direccion\" disabled>";
         }else{
-          echo '<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" required>';
+          echo "<select class=\"form-select form-select-sm mb-3\" name=\"direccion\" id=\"direccion\" required>";
         }
-        echo 'echo "<option disabled value="NULL">Seleccione direccion de despacho</option>';
+        echo "<option disabled value=\"NULL\">Seleccione direccion de despacho</option>";
         foreach ($user_address as $direccion) {
           echo "<option value=\"$direccion[1]\">$direccion[0]</option>";
         }
