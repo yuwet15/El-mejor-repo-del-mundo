@@ -53,10 +53,15 @@ $carrito = $result -> fetchAll();
 	          		<button type=\"submit\" name=\"$name\" value=\"$name\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
 	          	</span>
 	          </div>
-	        </form>";
-	        if (isset($_POST['$name'])) {
+	        </form>
+	      </td>
+	      <td>$producto[3]</tr>";
+	      echo($name."\n");
+	      echo($num."\n");
+	      if (isset($_POST['$name'])) {
 	        	echo"hola";
 	        	$cantidad = $_POST['$num'];
+	        	echo"chao";
 	        	if($producto[3]!=$cantidad){
 	        		echo($nuevo);
 	        		$nuevo = $producto[3]-$cantidad;
@@ -65,12 +70,7 @@ $carrito = $result -> fetchAll();
 					    $result = $db -> prepare($query);
 					    $result -> execute();
 	        	}
-	        }   
-
-
-	   		echo "
-	      </td>
-	      <td>$producto[3]</tr>";
+	        } 
 			}
 			
       ?>
