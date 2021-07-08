@@ -20,7 +20,7 @@ BEGIN
     WHERE rut = rut_u;
 
 		INSERT INTO compras values (idmax + 1, id_usuario, tienda_id, direccion_id);
-    INSERT INTO detalle (idmax + 1, producto_id, cantidad) SELECT producto_id, cantidad FROM carrito WHERE rut = rut_u AND tienda_id = id_tienda;
+    INSERT INTO detalle (compra_id, producto_id, cantidad) SELECT idmax + 1 AS compra_id, producto_id, cantidad FROM carrito WHERE rut = rut_u AND tienda_id = id_tienda;
     
 
 END
