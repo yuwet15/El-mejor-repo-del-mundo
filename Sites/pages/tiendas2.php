@@ -29,7 +29,7 @@ if (isset($_SESSION['rut'])){
 <div class="center">
   <br>
 <div class="accordion accordion-flush" id="mostrar_p">
-  <div class="accordion-item">
+  <div class="accordion-item" style="background-color:#111">
     <h2 class="accordion-header" id="headingOne">
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
         Mostrar los tres productos mas baratos por categoría
