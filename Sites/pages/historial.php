@@ -81,9 +81,8 @@ foreach ($id_compras as $i) {
                     <td>$d[3]</td> 
                     <td>$d[4]</td> 
                   </tr>";
-          }
+          };
           ?>
       </tbody>
   </table>
 </div>
-</body>
