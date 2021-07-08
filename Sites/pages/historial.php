@@ -1,5 +1,8 @@
 <?php 
 session_start();
+
+echo "<body style='background-color:#E6EAEB'>";
+
 $_SESSION['previous_location'] = 'historial.php';
   
 if (isset($_SESSION['rut'])){
