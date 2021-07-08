@@ -22,7 +22,7 @@ $carrito = $result -> fetchAll();
 
 ?>
 
-
+<br>
 <div class="container" style="background-color:#dce1e3">
 	<form class="form-inline justify-content-center" method="post">
 
