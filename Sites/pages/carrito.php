@@ -10,9 +10,9 @@ if (isset($_SESSION['rut'])){
 $rut = $_SESSION['rut'];
 
 require("../config/conexion.php");
-$query = "SELECT DISTINCT t.nombre, p.nombre, p.precio, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id
-        	FROM tiendas as t, productos as p, carrito as c
-        	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id
+$query = "SELECT DISTINCT t.nombre, p.nombre, p.precio, c.cantidad, (c.cantidad * p.precio), t.tienda_id, p.producto_id, co.direccion
+        	FROM tiendas as t, productos as p, carrito as c, comunas as co
+        	WHERE t.tienda_id = c.tienda_id AND c.rut = '$rut' AND p.producto_id = c.producto_id AND c.direccion_id = co.direccion_id
         	ORDER BY t.nombre";
 
 $result = $db -> prepare($query);
@@ -36,6 +36,7 @@ $carrito = $result -> fetchAll();
 		    <th>Cantidad</th>
 		    <th>Quitar</th>
 		    <th>Valor</th>
+		    <th>Direccion despacho</th>
 		    </tr>
 		  </thead>
 		  
@@ -62,7 +63,8 @@ $carrito = $result -> fetchAll();
 			          		</div>
 			          	
 		      		</td>
-		      		<td>$producto[4]</tr>";
+		      		<td>$producto[4]</tr>
+		      		<td>$producto[7]</tr>";
 				}
 				
 	      ?>
@@ -73,27 +75,6 @@ $carrito = $result -> fetchAll();
 	
 	<form class="row g-4 needs-validation justify-content-center" name="form1" id="compra_form" method="post" action="compra_redirect.php" novalidate>
 		<div class="row g-4 justify-content-center">
-    	<div class="col-md-3">
-				<select class="form-select form-select-sm mb-3" name="direccion" id="direccion" required>
-					<option selected value="NULL">Retiro en tienda</option>";
-		      <?php
-
-		      $query = "SELECT DISTINCT c.direccion, c.direccion_id
-					          FROM direcciones AS d, usuarios as u, comunas as c
-					          WHERE u.usuario_id = d.usuario_id
-					          AND d.direccion_id = c.direccion_id
-					          AND u.rut = '".$_SESSION['rut']."'";
-
-					$result = $db -> prepare($query);
-					$result -> execute();
-					$user_address = $result -> fetchAll();
-
-					foreach ($user_address as $direccion) {
-						echo "<option value=\"$direccion[1]\">$direccion[0]</option>";
-					}
-		       ?>
-	      </select>
-	  	</div>
 	  	<div class="col-md-3">
 	  		<?php echo '<a> Valor total:'.$Costo_total.'</a>'?>
 	  	</div>

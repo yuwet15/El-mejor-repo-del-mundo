@@ -231,35 +231,39 @@ if (isset($_SESSION['rut'])){
     unset($_POST['cantidad']);
     unset($_POST['direccion']);
     
-    $query = "SELECT * FROM catalogo 
-              WHERE tienda_id=$id AND producto_id=$id_producto";
-    $result = $db -> prepare($query);
-    $result -> execute();
-    $verificacion = $result -> fetchAll();
-
-    if ($verificacion[0][0] || $verificacion[0][1]) {
-      $query = "SELECT cantidad, rut FROM carrito 
-                WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
+    if($direccion == "NULL"){
+      echo "No existe cobertura de despacho";
+    }else{
+      $query = "SELECT * FROM catalogo 
+                WHERE tienda_id=$id AND producto_id=$id_producto";
       $result = $db -> prepare($query);
       $result -> execute();
-  
-      $result = $result -> fetchAll();
-      if(!$result[0][1]){
-        $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
-                  SELECT '$rut_session', $id, $id_producto, $cantidad";
+      $verificacion = $result -> fetchAll();
+
+      if ($verificacion[0][0] || $verificacion[0][1]) {
+        $query = "SELECT cantidad, rut FROM carrito 
+                  WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto AND direccion_id = $direccion";
         $result = $db -> prepare($query);
         $result -> execute();
-      }else{
-        $nueva_cant = $cantidad + $result[0][0];
-        $query = "UPDATE carrito
-                  SET cantidad = $nueva_cant
-                  WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
-        $result = $db -> prepare($query);
-        $result -> execute();
+    
+        $result = $result -> fetchAll();
+        if(!$result[0][1]){
+          $query = "INSERT INTO carrito(rut, tienda_id, producto_id, cantidad)
+                    SELECT '$rut_session', $id, $id_producto, $cantidad, $direccion";
+          $result = $db -> prepare($query);
+          $result -> execute();
+        }else{
+          $nueva_cant = $cantidad + $result[0][0];
+          $query = "UPDATE carrito
+                    SET cantidad = $nueva_cant
+                    WHERE rut='$rut_session' AND tienda_id=$id AND producto_id=$id_producto";
+          $result = $db -> prepare($query);
+          $result -> execute();
+        }
+        echo "Agregado exitosamente al carrito";
+      } else {
+        echo "Esta tienda no cuenta con este producto actualmente";
       }
-      echo "Agregado exitosamente al carrito";
-    } else {
-      echo "Producto no existe";
     }
   }
 ?>
