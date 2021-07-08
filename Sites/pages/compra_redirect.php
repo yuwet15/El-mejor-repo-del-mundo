@@ -6,7 +6,7 @@ include('../config/conexion.php');
 if (isset($_POST['comprar'])) {  
     $rut = $_SESSION['rut'];     
     $direccion = $_POST['direccion'];
-    $query = "SELECT DISTINCT tienda_id FROM carrito WHERE rut='$rut'";
+    $query = "SELECT cantidad FROM carrito WHERE rut='$rut'";
     $result = $db -> prepare($query);
     $result -> execute();
  
