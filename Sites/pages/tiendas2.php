@@ -188,6 +188,8 @@ if (isset($_SESSION['rut'])){
     </div>
     <div class='col-auto' style="text-align:center">
       Direccion despacho:
+    </div>
+    <div class='col-md-4' style="text-align:center">
       <?php
 
         $query = "SELECT DISTINCT c.direccion, c.direccion_id
@@ -212,9 +214,6 @@ if (isset($_SESSION['rut'])){
         }
       ?>
       </select>
-    </div>
-    <div class='col-md-4' style="text-align:center">
-      <input type="number" name="cantidad" min="1" required>
     </div>
     <div class='col-auto' style="text-align:center">
       <button class="btn btn-primary" name="carro_i" value="carro_i" type="submit">Añadir al carrito</button>
