@@ -1,6 +1,8 @@
 <?php 
 session_start();
-  
+
+echo "<body style='background-color:#C6CACC'>";
+
 if (isset($_SESSION['rut'])){
 	include('../templates/header.html'); 
     include('../templates/body_postlogin.html');
