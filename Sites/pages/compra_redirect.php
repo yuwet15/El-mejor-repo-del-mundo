@@ -24,7 +24,7 @@ if (isset($_POST['comprar'])) {
             $id_compra = intval($id_compra[0][0]);
             $direccion = intval($direccion);
             $query = "SELECT max(id) FROM despachos"; 
-            $result = $db -> prepare($query);
+            $result = $db2 -> prepare($query);
             $result -> execute();
 
             $result = $result -> fetchAll();
