@@ -130,6 +130,8 @@ $carrito = $result -> fetchAll();
      unset($_SESSION['nada']);
   }else{
   	echo "<p> Compra realizada sastifactoriamente</p>";
+  	ob_start();
+  	header("Location: carrito.php");
   }
   ?>
 
