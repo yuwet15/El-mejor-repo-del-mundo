@@ -15,7 +15,7 @@ if (isset($_SESSION['rut'])){
 </form>
 
 <table class="table">
-    
+    		
     <thead>
       <tr>
 	      <th>1</th>
@@ -35,7 +35,6 @@ if (isset($_SESSION['rut'])){
 			    //session_start();
 			    
 			    $query = $_POST['rut'];
-			    echo($query);
 			    $result = $db -> prepare($query);
 			    $result -> execute();
 			 
@@ -77,7 +76,6 @@ if (isset($_SESSION['rut'])){
 			    //session_start();
 			    
 			    $query = $_POST['rut2'];
-			    echo($query);
 			    $result = $db2 -> prepare($query);
 			    $result -> execute();
 			 
