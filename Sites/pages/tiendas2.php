@@ -282,8 +282,8 @@ if (isset($_SESSION['rut'])){
           <div>
             Esta tienda no cuenta con este producto actualmente
           </div>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>"
+          <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
+        </div>";
       }
     }
   }
