@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-echo "<body style='background-color:#C6CACC'>";
+echo "<body style='background-color:#E6EAEB'>";
 
 if (isset($_GET['id'])) {
   $id = (int)$_GET['id'];
@@ -28,9 +28,9 @@ if (isset($_SESSION['rut'])){
 
 <div class="center">
   <div class="accordion accordion-flush" id="mostrar_p">
-  <div class="accordion-item" style="background-color:#E3E7E8">
+  <div class="accordion-item" style="background-color:#dce1e3">
     <h2 class="accordion-header" id="headingOne">
-      <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
         Mostrar los tres productos mas baratos por categoría
       </button>
     </h2>
