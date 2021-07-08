@@ -53,7 +53,7 @@ $carrito = $result -> fetchAll();
 	          		<button type=\"submit\" name=\"$name\" value=\"$name\" class=\"btn\" id=\"$name\"><img src=\"../icons/delete.svg\" alt=\"\" width=\"30\" height=\"24\" class=\"d-inline-block align-text-center\"></button>
 	          	</span>
 	          </div>
-	        </form>"
+	        </form>";
 	        if (isset($_POST[$name])) {
 	        	$cantidad = $_POST[$num];
 	        	if($producto[3]!=$cantidad){
