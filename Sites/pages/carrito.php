@@ -124,7 +124,7 @@ $carrito = $result -> fetchAll();
 	  	<div class="col-md-3 form-floating">
 	  		<a class="btn btn-outline-secondary" type="submit" role="button">Comprar</a>
 	  	</div>
-	  	<div class="col-md-3 form-floating">
+	  	<div class="col-md-3">
 	  		<?php echo '<a> Valor total:'.$Costo_total.'</a>'?>
 	  	</div>
 	  </div>
