@@ -19,8 +19,8 @@ BEGIN
     FROM usuarios
     WHERE rut = rut_u;
 
-		INSERT INTO compras(idmax + 1, id_usuario, tienda_id, direccion_id);
-    INSERT INTO detalle(idmax + 1, producto_id, cantidad);
+		INSERT INTO compras values (idmax + 1, id_usuario, tienda_id, direccion_id);
+    INSERT INTO detalle values (idmax + 1, producto_id, cantidad);
 
 END
 
