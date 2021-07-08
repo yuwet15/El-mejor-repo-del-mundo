@@ -34,7 +34,7 @@ if (isset($_POST['comprar'])) {
 
 
             $date = date('d-m-y h:i:s');
-            $query = "INSERT INTO despachos VALUES($id_despacho, '$date', NULL, $direccion, $id_compra, NULL)";
+            $query = "INSERT INTO despachos(id, fecha, destino, compra_id) VALUES($id_despacho,CURRENT_DATE, $direccion, $id_compra)";
             $result = $db2 -> prepare($query);
             $result -> execute();
 
