@@ -16,6 +16,7 @@ if (isset($_POST['comprar'])) {
         header("Location: carrito.php");
     } else{
         foreach ($result as $tiendas) {
+            echo($tiendas[0]);
             $query = "SELECT comprar('$rut', $tiendas[0], $direccion)"; 
             $result = $db -> prepare($query);
             $result -> execute();
