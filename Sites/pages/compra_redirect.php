@@ -31,7 +31,7 @@ if (isset($_POST['comprar'])) {
 
             $id_despacho = intval($result[0][0]) + 1;
             
-            $query = "INSERT INTO despachos (id, fecha, destino, compra_id) VALUES ($id_despacho,CURRENT_DATE, $direccion, $id_compra)";
+            $query = "INSERT INTO despachos (id, fecha, destino, compra_id) VALUES ($id_despacho, CURRENT_DATE, $direccion, $id_compra)";
             $result = $db2 -> prepare($query);
             $result -> execute();
 
