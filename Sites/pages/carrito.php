@@ -77,6 +77,8 @@ $carrito = $result -> fetchAll();
   	foreach ($carrito as $producto) {
 			$num = $producto[5]."-".$producto[4];
 			$cantidad = $_POST['$num'];
+			echo("$cantidad -----");
+			/*
   		if($producto[2]!=$cantidad){
   			$nuevo = $producto[3]-$cantidad;
   			$query = "UPDATE carrito SET cantidad=$nuevo 
@@ -85,7 +87,7 @@ $carrito = $result -> fetchAll();
   			$query = "DELETE FROM carrito WHERE rut='$rut' AND tienda_id=$producto[4] AND producto_id=$producto[5]";
   		}
 	    $result = $db -> prepare($query);
-	    $result -> execute();
+	    $result -> execute();*/
   	}
   } ?>
 	<div class="d-grid gap-2 col-2 mx-auto">
