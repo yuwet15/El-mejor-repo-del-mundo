@@ -2,10 +2,10 @@
     position:absolute;
     display:block;
     height:100px;
-    width:1000px;
+    width:800px;
     left:50%;
     top:50%;
     margin-top:-50px;
-    margin-left:-50px;
+    margin-left:-20px;
     background-color:red;
 }
